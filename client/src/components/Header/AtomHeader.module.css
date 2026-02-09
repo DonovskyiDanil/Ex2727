@@ -1,0 +1,162 @@
+.header {
+  background: #ffffff;
+  border-bottom: 1px solid #eef1f4;
+  position: sticky;
+  top: 0;
+  z-index: 2000;
+  width: 100%;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.nav {
+  display: flex;
+  gap: 32px;
+  height: 100%;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  cursor: pointer;
+}
+
+.label {
+  font-size: 15px;
+  font-weight: 600;
+  color: #222 !important;
+  transition: color 0.2s;
+}
+
+.navItem:hover .label, .active .label {
+  color: #377dff !important;
+}
+
+.menuDropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 10000;
+  cursor: default;
+}
+
+.actions {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.actionWrapper {
+  position: relative;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.actionIcon {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s;
+}
+
+.logo {
+  height: 40px; 
+  width: auto;
+  display: block;
+  object-fit: contain;
+  transition: transform 0.2s;
+}
+
+.logo:hover {
+  transform: scale(1.02);
+}
+
+.actionIcon img {
+  width: 22px !important;  
+  height: 22px !important; 
+  object-fit: contain;    
+  display: block;
+}
+
+.actionIcon img[alt="Heart"] {
+  width: 18px !important; 
+  height: 18px !important;
+  object-fit: contain;
+}
+
+.actionIcon:hover {
+  opacity: 0.7;
+}
+
+.smallDropdown {
+  position: absolute !important;
+  top: 100% !important;
+  right: -70px !important; 
+  left: auto !important;
+  background: #ffffff !important;
+  min-width: 200px !important; 
+  border-radius: 12px !important;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1) !important;
+  border: 1px solid #eef1f4 !important;
+  padding: 10px 0 !important;
+  z-index: 10001 !important;
+}
+
+.dropItem {
+  padding: 12px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #222 !important;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.dropItem:hover {
+  background: #f8faff;
+  color: #377dff !important;
+}
+
+.tinyIcon {
+  width: 16px !important;
+  height: 16px !important;
+  object-fit: contain;
+}
+
+.navLink {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.navLink:hover .label {
+  color: #377dff !important;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}

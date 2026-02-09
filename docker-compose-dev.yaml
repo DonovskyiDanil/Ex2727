@@ -1,0 +1,47 @@
+# version: '3'
+services:
+
+  front-react:
+    build:
+      context: ./client
+
+    environment:
+      NODE_ENV: development
+    depends_on:
+      - server-dev
+    volumes:
+      - ./client:/client
+      - /client/node_modules
+    ports:
+      - "5001:3000"
+      
+  server-dev:
+    build:
+      context: ./server
+    environment:
+      NODE_ENV: development
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db-dev
+      - mongo-dev
+    volumes:
+      - ./server:/server
+      - /server/node_modules
+
+
+  mongo-dev:
+    image: mongo:7
+    ports:
+      - "12345:27017"
+
+  db-dev:
+    image: postgres:16-alpine
+    environment:
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=todo-dev
+    ports:
+      - "12346:5432"
+
+volumes: {}
