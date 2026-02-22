@@ -10,6 +10,14 @@ const OnlyNotAuthorizedUserRoute = () => {
   const { data, isFetching, error } = useSelector((state) => state.userStore);
 
   useEffect(() => {
+    // Не делаем запрос getUser для неавторизованных пользователей
+    // Это предотвратит 401 ошибку в консоли
+    if (!data && !error && !isFetching && !localStorage.getItem('accessToken')) {
+      // Пользователь явно не авторизован - не делаем запрос
+      return;
+    }
+    
+    // Делаем запрос только если есть токен
     if (!data && !error && !isFetching) {
       dispatch(getUser());
     }

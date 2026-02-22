@@ -5,7 +5,12 @@ class WebSocket {
   constructor (dispatch, getState, room) {
     this.dispatch = dispatch;
     this.getState = getState;
-    this.socket = socketIoClient(`${CONSTANTS.BASE_URL}${room}`, {
+    // Для WebSocket используем localhost:5001, так как браузер подключается снаружи Docker
+    const wsUrl = process.env.NODE_ENV === 'development' 
+      ? `http://localhost:5001/${room}`
+      : `${CONSTANTS.BASE_URL}${room}`;
+    
+    this.socket = socketIoClient(wsUrl, {
       origins: 'localhost:*',
     });
     this.listen();

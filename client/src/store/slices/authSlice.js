@@ -18,9 +18,15 @@ const initialState = {
 export const checkAuth = decorateAsyncThunk({
   key: `${AUTH_SLICE_NAME}/checkAuth`,
   thunk: async ({ data: authInfo, navigate, authMode }) => {
-    authMode === CONSTANTS.AUTH_MODE.LOGIN
+    const response = authMode === CONSTANTS.AUTH_MODE.LOGIN
       ? await restController.loginRequest(authInfo)
       : await restController.registerRequest(authInfo);
+    
+    // Сохраняем токен из ответа сервера
+    if (response.data && response.data.token) {
+      localStorage.setItem(CONSTANTS.ACCESS_TOKEN, response.data.token);
+    }
+    
     navigate('/', { replace: true });
   },
 });

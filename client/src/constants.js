@@ -1,5 +1,6 @@
 const env = process.env.NODE_ENV || 'development';
-const serverIP = 'localhost';
+// В Docker среде клиент должен обращаться к серверу по имени сервиса
+const serverIP = process.env.NODE_ENV === 'development' ? 'server-dev' : 'localhost';
 const serverPort = 5001;
 export default {
   CUSTOMER: 'customer',
