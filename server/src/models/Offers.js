@@ -9,10 +9,20 @@ module.exports = (sequelize, DataTypes) => {
     userId: {
       type: DataTypes.INTEGER,
       allowNull: false,
+      field: 'userId', // Соответствие "userId" в SQL
+      references: {
+        model: 'Users',
+        key: 'id',
+      },
     },
     contestId: {
       type: DataTypes.INTEGER,
       allowNull: false,
+      field: 'contestId', // Соответствие "contestId" в SQL
+      references: {
+        model: 'Contests',
+        key: 'id',
+      },
     },
     text: {
       type: DataTypes.STRING,
@@ -21,23 +31,26 @@ module.exports = (sequelize, DataTypes) => {
     fileName: {
       type: DataTypes.STRING,
       allowNull: true,
+      field: 'fileName', //
     },
     originalFileName: {
       type: DataTypes.STRING,
       allowNull: true,
+      field: 'originalFileName', //
     },
     status: {
-      type: DataTypes.ENUM('pending', 'approved', 'rejected'), // Завдання 12
+      // В SQL это character varying, поэтому используем STRING
+      type: DataTypes.STRING,
       allowNull: false,
       defaultValue: 'pending',
     },
   },
   {
+    tableName: 'Offers', // Строго как в pgAdmin
     timestamps: false,
   });
 
   Offer.associate = function (models) {
-    // ОБ'ЄДНУЄМО асоціації тут
     Offer.belongsTo(models.User, { foreignKey: 'userId', targetKey: 'id' });
     Offer.belongsTo(models.Contest, { foreignKey: 'contestId', targetKey: 'id' });
   };

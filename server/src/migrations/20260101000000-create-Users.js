@@ -1,4 +1,3 @@
-
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable('Users', {
@@ -11,14 +10,17 @@ module.exports = {
       firstName: {
         type: Sequelize.STRING,
         allowNull: false,
+        field: 'firstName', //
       },
       lastName: {
         type: Sequelize.STRING,
         allowNull: false,
+        field: 'lastName', //
       },
       displayName: {
         type: Sequelize.STRING,
         allowNull: false,
+        field: 'displayName', //
       },
       password: {
         type: Sequelize.STRING,
@@ -35,7 +37,8 @@ module.exports = {
         defaultValue: 'anon.png',
       },
       role: {
-        type: Sequelize.ENUM('customer', 'creator'),
+        // Добавляем admin и moderator, как в твоем SQL
+        type: Sequelize.ENUM('customer', 'creator', 'admin', 'moderator'),
         allowNull: false,
       },
       balance: {
@@ -46,24 +49,27 @@ module.exports = {
       accessToken: {
         type: Sequelize.TEXT,
         allowNull: true,
+        field: 'accessToken', //
       },
       rating: {
-        type: Sequelize.FLOAT,
+        // В SQL double precision — это DOUBLE
+        type: Sequelize.DOUBLE,
         allowNull: false,
         defaultValue: 0,
       },
     })
-      .then(() => queryInterface.addConstraint('Users',  {
+      .then(() => queryInterface.addConstraint('Users', {
         type: 'check',
         fields: ['balance'],
+        name: 'Users_balance_ck', // Имя из твоего SQL скрипта
         where: {
           balance: {
-            [ Sequelize.Op.gte ]: 0,
+            [Sequelize.Op.gte]: 0,
           },
         },
       }));
   },
-  down: (queryInterface, Sequelize) => {
+  down: (queryInterface) => {
     return queryInterface.dropTable('Users');
   },
 };

@@ -1,3 +1,10 @@
+// Polyfill for SlowBuffer (Node.js v25 compatibility)
+if (typeof Buffer.SlowBuffer === 'undefined') {
+  Buffer.SlowBuffer = function SlowBuffer(size) {
+    return Buffer.allocUnsafe(size);
+  };
+}
+
 const { logError } = require('./errorLogging');
 const http = require('http');
 require('dotenv').config();

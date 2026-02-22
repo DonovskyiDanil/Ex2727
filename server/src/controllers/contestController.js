@@ -29,8 +29,8 @@ module.exports.dataForContest = async (req, res, next) => {
       response[ characteristic.type ].push(characteristic.describe);
     });
     res.send(response);
-  } catch (err) {
-    next(new ServerError('cannot get contest preferences'));
+  } catch (e) {
+    next(e);
   }
 };
 
@@ -245,7 +245,7 @@ module.exports.getCustomersContests = (req, res, next) => {
       }
       res.send({ contests, haveMore });
     })
-    .catch(err => next(new ServerError(err)));
+    .catch(e => next(new ServerError(e)));
 };
 
 module.exports.getContests = (req, res, next) => {
@@ -274,7 +274,7 @@ module.exports.getContests = (req, res, next) => {
       }
       res.send({ contests, haveMore });
     })
-    .catch(err => {
+    .catch(() => {
       next(new ServerError());
     });
 };

@@ -7,17 +7,24 @@ import Spinner from '../../Spinner/Spinner';
 const OnlyNotAuthorizedUserRoute = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { data, isFetching } = useSelector((state) => state.userStore);
+  const { data, isFetching, error } = useSelector((state) => state.userStore);
 
   useEffect(() => {
-    dispatch(getUser(navigate));
-  }, []);
+    if (!data && !error && !isFetching) {
+      dispatch(getUser());
+    }
+  }, [data, error, isFetching, dispatch]);
 
-  if (isFetching) {
+  useEffect(() => {
+    if (data && !isFetching) {
+      navigate('/', { replace: true });
+    }
+  }, [data, isFetching, navigate]);
+
+  if (isFetching && !error) {
     return <Spinner />;
   }
-
-  return data ? navigate('/') : <Outlet />;
+  return !data ? <Outlet /> : null;
 };
 
 export default OnlyNotAuthorizedUserRoute;

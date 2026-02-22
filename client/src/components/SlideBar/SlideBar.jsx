@@ -59,6 +59,12 @@ const SliderBar = props => {
       }
     }
   };
+
+  // Add null check to prevent Flickity initialization on empty/undefined images
+  if (!props.images || !Array.isArray(props.images) || props.images.length === 0) {
+    return null;
+  }
+
   return (
     <Flickity className={getStyleName()} elementType='div' options={options}>
       {renderSlides()}

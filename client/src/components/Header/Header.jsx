@@ -9,7 +9,8 @@ import withRouter from '../../hocs/withRouter';
 
 class Header extends React.Component {
   componentDidMount() {
-    if (!this.props.data) {
+    const token = localStorage.getItem('accessToken'); 
+    if (token && token !== 'null' && !this.props.data) {
       this.props.getUser();
     }
   }
@@ -110,18 +111,22 @@ class Header extends React.Component {
         <div className={styles.loginSignnUpHeaders}>
           <div className={styles.numberContainer}>
             <img src={`${CONSTANTS.STATIC_IMAGES_PATH}phone.png`} alt="phone" />
-            <span>(877)&nbsp;355-3585</span>
+            <a href="tel:(877)355-3585" className={styles.phoneNumber}>
+            (877)&nbsp;355-3585
+            </a>
           </div>
           <div className={styles.userButtonsContainer}>
             {this.renderLoginButtons()}
           </div>
         </div>
         <div className={styles.navContainer}>
+          <Link to="/">
           <img
             src={`${CONSTANTS.STATIC_IMAGES_PATH}blue-logo.png`}
             className={styles.logo}
             alt="blue_logo"
           />
+          </Link>
           <div className={styles.leftNav}>
             <div className={styles.nav}>
               <ul>
@@ -133,28 +138,28 @@ class Header extends React.Component {
                   />
                   <ul>
                     <li>
-                      <a href="http://www.google.com">Beauty</a>
+                      <a href="http://www.google.com">BEAUTY</a>
                     </li>
                     <li>
-                      <a href="http://www.google.com">Consulting</a>
+                      <a href="http://www.google.com">CONSULTING</a>
                     </li>
                     <li>
-                      <a href="http://www.google.com">E-Commerce</a>
+                      <a href="http://www.google.com">E-COMMERCE</a>
                     </li>
                     <li>
-                      <a href="http://www.google.com">Fashion & Clothing</a>
+                      <a href="http://www.google.com">FASHION & CLOTHING</a>
                     </li>
                     <li>
-                      <a href="http://www.google.com">Finance</a>
+                      <a href="http://www.google.com">FINANCE</a>
                     </li>
                     <li>
-                      <a href="http://www.google.com">Real Estate</a>
+                      <a href="http://www.google.com">REAL ESTATE</a>
                     </li>
                     <li>
-                      <a href="http://www.google.com">Tech</a>
+                      <a href="http://www.google.com">TECH</a>
                     </li>
                     <li className={styles.last}>
-                      <a href="http://www.google.com">More Categories</a>
+                      <a href="http://www.google.com">MORE CATEGORIES</a>
                     </li>
                   </ul>
                 </li>
@@ -166,13 +171,13 @@ class Header extends React.Component {
                   />
                   <ul>
                     <li>
-                      <Link to="/how-it-works" style={{ textDecoration: 'none' }}>
-                        <span>HOW IT WORKS</span>
+                      <Link to="/how-it-works" className={styles.navLink}>
+                        HOW IT WORKS
                       </Link>
                     </li>
                     <li>
-                      <Link to="/events" style={{ textDecoration: 'none' }}>
-                        <span>EVENTS</span>
+                      <Link to="/events" className={styles.navLink}>
+                        EVENTS
                       </Link>
                     </li>
                     <li>
@@ -196,7 +201,7 @@ class Header extends React.Component {
                   </ul>
                 </li>
                 <li>
-                  <span>Our Work</span>
+                  <span>OUR WORK</span>
                   <img
                     src={`${CONSTANTS.STATIC_IMAGES_PATH}menu-down.png`}
                     alt="menu"
@@ -217,7 +222,7 @@ class Header extends React.Component {
                   </ul>
                 </li>
                 <li>
-                  <span>Names For Sale</span>
+                  <span>NAMES FOR SALE</span>
                   <img
                     src={`${CONSTANTS.STATIC_IMAGES_PATH}menu-down.png`}
                     alt="menu"
@@ -244,7 +249,7 @@ class Header extends React.Component {
                   </ul>
                 </li>
                 <li>
-                  <span>Blog</span>
+                  <span>BLOG</span>
                   <img
                     src={`${CONSTANTS.STATIC_IMAGES_PATH}menu-down.png`}
                     alt="menu"

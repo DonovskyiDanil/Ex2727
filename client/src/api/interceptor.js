@@ -1,38 +1,30 @@
 import axios from 'axios';
-import CONTANTS from '../constants';
-import history from '../browserHistory';
+import CONSTANTS from '../constants';
 
 const instance = axios.create({
-  baseURL: CONTANTS.BASE_URL,
+  baseURL: 'api',
 });
 
 instance.interceptors.request.use(
-  config => {
-    const token = window.localStorage.getItem(CONTANTS.ACCESS_TOKEN);
-    if (token) {
-      config.headers = { ...config.headers, Authorization: token };
+  (config) => {
+    const token = window.localStorage.getItem(CONSTANTS.ACCESS_TOKEN);
+    
+    // Добавляем токен только если он реально существует и не является строкой "null"
+    if (token && token !== 'null' && token !== 'undefined') {
+      config.headers.Authorization = token;
     }
+    
     return config;
   },
-  err => Promise.reject(err)
+  (err) => Promise.reject(err)
 );
 
 instance.interceptors.response.use(
-  response => {
-    if (response.data.token) {
-      window.localStorage.setItem(CONTANTS.ACCESS_TOKEN, response.data.token);
-    }
-    return response;
-  },
-  err => {
-    if (
-      err.response &&
-      err.response.status === 408 &&
-      history.location.pathname !== '/login' &&
-      history.location.pathname !== '/registration' &&
-      history.location.pathname !== '/'
-    ) {
-      history.replace('/login');
+  (response) => response,
+  (err) => {
+    // Если сервер ответил 401, значит токен протух — удаляем его
+    if (err.response && err.response.status === 401) {
+      window.localStorage.removeItem(CONSTANTS.ACCESS_TOKEN);
     }
     return Promise.reject(err);
   }

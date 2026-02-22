@@ -2,6 +2,7 @@ const jwt = require('jsonwebtoken');
 const CONSTANTS = require('../constants');
 const db = require('../models');
 const NotUniqueEmail = require('../errors/NotUniqueEmail');
+const TokenError = require('../errors/TokenError');
 const moment = require('moment');
 const { v4: uuid } = require('uuid');
 const controller = require('../socketInit');
@@ -201,6 +202,29 @@ module.exports.cashout = async (req, res, next) => {
     res.send({ balance: updatedUser.balance });
   } catch (err) {
     transaction.rollback();
+    next(err);
+  }
+};
+
+module.exports.getUser = async (req, res, next) => {
+  try {
+    const foundUser = await userQueries.findUser({ id: req.tokenData.userId });
+
+    if (!foundUser) {
+      return next(new TokenError('User not found'));
+    }
+
+    res.send({
+      firstName: foundUser.firstName,
+      lastName: foundUser.lastName,
+      role: foundUser.role,
+      id: foundUser.id,
+      avatar: foundUser.avatar,
+      displayName: foundUser.displayName,
+      balance: foundUser.balance,
+      email: foundUser.email,
+    });
+  } catch (err) {
     next(err);
   }
 };

@@ -63,7 +63,8 @@ router.post(
 
 router.post(
   '/getUser',
-  checkToken.checkAuth,
+  checkToken.checkToken,
+  userController.getUser,
 );
 
 router.get(

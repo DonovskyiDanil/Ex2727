@@ -88,7 +88,7 @@ class App extends Component {
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
-        <ChatContainer />
+{localStorage.getItem('accessToken') && <ChatContainer />}
       </Router>
     );
   }

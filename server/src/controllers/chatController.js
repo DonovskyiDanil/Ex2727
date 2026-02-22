@@ -120,7 +120,7 @@ module.exports.getPreview = async (req, res, next) => {
       });
       conv.interlocutor = sender;
       conv.participants = [conv.participant1, conv.participant2];
-      conv._id = conv.conversationId;
+      conv.id = conv.conversationId;
     }
 
     res.send(conversations);
