@@ -18,7 +18,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.TEXT,
       allowNull: false,
     },
-    conversation: { // В SQL поле называется именно так
+    conversationId: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
@@ -29,7 +29,6 @@ module.exports = (sequelize, DataTypes) => {
     createdAt: {
       type: DataTypes.DATE,
       defaultValue: DataTypes.NOW,
-      field: 'createdAt', // Соответствие кавычкам в SQL
     },
   }, {
     tableName: 'Messages', // Строго как в pgAdmin
@@ -37,9 +36,8 @@ module.exports = (sequelize, DataTypes) => {
   });
 
   Message.associate = (models) => {
-    // Указываем foreignKey именно 'conversation', как в базе
-    Message.belongsTo(models.Conversation, { foreignKey: 'conversation', as: 'conversationData' });
-    Message.belongsTo(models.User, { foreignKey: 'sender', as: 'senderUser' });
+    Message.belongsTo(models.Conversation, { foreignKey: 'conversationId' });
+    Message.belongsTo(models.User, { foreignKey: 'sender' });
   };
 
   return Message;

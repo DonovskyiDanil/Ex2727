@@ -2,7 +2,7 @@ import axios from 'axios';
 import CONSTANTS from '../constants';
 
 const instance = axios.create({
-  baseURL: '/api',
+  baseURL: process.env.NODE_ENV === 'development' ? 'http://localhost:5001' : '/api',
 });
 
 instance.interceptors.request.use(

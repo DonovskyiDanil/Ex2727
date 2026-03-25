@@ -29,6 +29,11 @@ const SliderBar = props => {
 
   const renderSlides = () => {
     const { carouselType } = props;
+    // Проверяем, что images существует и не пустое
+    if (!props.images || !Object.keys(props.images).length) {
+      return null;
+    }
+    
     switch (carouselType) {
       case carouselConstants.MAIN_SLIDER: {
         return Object.keys(props.images).map((key, index) => (

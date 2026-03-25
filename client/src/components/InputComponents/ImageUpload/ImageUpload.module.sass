@@ -1,0 +1,54 @@
+.uploadContainer
+  display: flex
+  flex-direction: column
+  gap: 10px
+
+.inputContainer
+  display: flex
+  flex-direction: column
+  gap: 5px
+  position: relative
+
+  span
+    font-size: 12px
+    color: #666
+
+  input[type="file"]
+    display: none
+
+  label
+    padding: 8px 16px
+    background-color: #007bff
+    color: white
+    border-radius: 4px
+    cursor: pointer
+    text-align: center
+    transition: background-color 0.3s
+
+    &:hover
+      background-color: #0056b3
+
+  .clearButton
+    padding: 4px 8px
+    background-color: #dc3545
+    color: white
+    border: none
+    border-radius: 4px
+    cursor: pointer
+    font-size: 12px
+    margin-top: 5px
+
+    &:hover
+      background-color: #c82333
+
+.imgStyle
+  max-width: 200px
+  max-height: 200px
+  border-radius: 8px
+  object-fit: cover
+  border: 1px solid #ddd
+
+.error
+  color: #dc3545
+  font-size: 12px
+  margin-top: 4px

@@ -96,6 +96,7 @@ module.exports.getChat = async (req, res, next) => {
 module.exports.getPreview = async (req, res, next) => {
   try {
     const { userId } = req.tokenData;
+    const { Conversation, Message, Users, sequelize } = require('../models');
 
     const conversations = await sequelize.query(
       'SELECT DISTINCT ON ("Messages"."conversationId") ' +
@@ -125,6 +126,7 @@ module.exports.getPreview = async (req, res, next) => {
 
     res.send(conversations);
   } catch (err) {
+    console.error('getPreview error:', err);
     next(err);
   }
 };
