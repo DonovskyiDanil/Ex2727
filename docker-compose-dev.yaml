@@ -13,7 +13,7 @@ services:
       - ./client:/client
       - /client/node_modules
     ports:
-      - "5001:3000"
+      - "3000:3000"
       
   server-dev:
     build:
@@ -21,13 +21,12 @@ services:
     environment:
       NODE_ENV: development
     ports:
-      - "3000:3000"
+      - "5001:5001"
     depends_on:
       - db-dev
       - mongo-dev
     volumes:
       - ./server:/server
-      - /server/node_modules
 
 
   mongo-dev:

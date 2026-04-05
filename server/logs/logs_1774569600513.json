@@ -1,0 +1,777 @@
+[
+  {
+    "message": "need token",
+    "code": 401,
+    "time": 1771551532614
+  },
+  {
+    "message": "need token",
+    "code": 401,
+    "time": 1771551532652
+  },
+  {
+    "message": "need token",
+    "code": 401,
+    "time": 1771551532660
+  },
+  {
+    "message": "need token",
+    "code": 401,
+    "time": 1771551536397
+  },
+  {
+    "message": "Wrong password",
+    "code": 404,
+    "time": 1771551576180
+  },
+  {
+    "message": "Wrong password",
+    "code": 404,
+    "time": 1771551614183
+  },
+  {
+    "message": "Wrong password",
+    "code": 404,
+    "time": 1771551616154
+  },
+  {
+    "message": "need token",
+    "code": 401,
+    "time": 1771551729927
+  },
+  {
+    "message": "need token",
+    "code": 401,
+    "time": 1771551729967
+  },
+  {
+    "message": "Wrong password",
+    "code": 404,
+    "time": 1771551756515
+  },
+  {
+    "message": "need token",
+    "code": 401,
+    "time": 1771551800862
+  },
+  {
+    "message": "need token",
+    "code": 401,
+    "time": 1771798159803
+  },
+  {
+    "message": "need token",
+    "code": 401,
+    "time": 1771798195996
+  },
+  {
+    "message": "need token",
+    "code": 401,
+    "time": 1771798258070
+  },
+  {
+    "message": "need token",
+    "code": 401,
+    "time": 1771798278863
+  },
+  {
+    "message": "need token",
+    "code": 401,
+    "time": 1771798278886
+  },
+  {
+    "message": "need token",
+    "code": 401,
+    "time": 1771798335374
+  },
+  {
+    "message": "need token",
+    "code": 401,
+    "time": 1771798373519
+  },
+  {
+    "message": "need token",
+    "code": 401,
+    "time": 1771798493359
+  },
+  {
+    "message": "need token",
+    "code": 401,
+    "time": 1771798493406
+  },
+  {
+    "message": "need token",
+    "code": 401,
+    "time": 1771798493435
+  },
+  {
+    "message": "Wrong password",
+    "code": 404,
+    "time": 1771799689766
+  },
+  {
+    "message": "column Messages.conversationId does not exist",
+    "code": 500,
+    "time": 1771800137375
+  },
+  {
+    "message": "column Messages.conversationId does not exist",
+    "code": 500,
+    "time": 1771800186984
+  },
+  {
+    "message": "column Messages.conversationId does not exist",
+    "code": 500,
+    "time": 1771800479699
+  },
+  {
+    "message": "jwt expired",
+    "code": 401,
+    "time": 1771881133722
+  },
+  {
+    "message": "column Messages.conversationId does not exist",
+    "code": 500,
+    "time": 1771883580804
+  },
+  {
+    "message": "column Conversations.participant1 does not exist",
+    "code": 500,
+    "time": 1771883888263
+  },
+  {
+    "message": "column Conversations.participant1 does not exist",
+    "code": 500,
+    "time": 1771883922359
+  },
+  {
+    "message": "Cannot read properties of undefined (reading 'findAll')",
+    "code": 500,
+    "time": 1771883924679
+  },
+  {
+    "message": "column Conversations.participant1 does not exist",
+    "code": 500,
+    "time": 1771884060817
+  },
+  {
+    "message": "Cannot read properties of undefined (reading 'findAll')",
+    "code": 500,
+    "time": 1771884180580
+  },
+  {
+    "message": "Cannot read properties of undefined (reading 'findAll')",
+    "code": 500,
+    "time": 1771884184452
+  },
+  {
+    "message": "Cannot read properties of undefined (reading 'findAll')",
+    "code": 500,
+    "time": 1771884188163
+  },
+  {
+    "message": "Cannot read properties of undefined (reading 'findAll')",
+    "code": 500,
+    "time": 1771884189803
+  },
+  {
+    "message": "Cannot read properties of undefined (reading 'findAll')",
+    "code": 500,
+    "time": 1771884190739
+  },
+  {
+    "message": "Cannot read properties of undefined (reading 'findAll')",
+    "code": 500,
+    "time": 1771884191176
+  },
+  {
+    "message": "Cannot read properties of undefined (reading 'findAll')",
+    "code": 500,
+    "time": 1771884200222
+  },
+  {
+    "message": "column Messages.conversationId does not exist",
+    "code": 500,
+    "time": 1771885977130
+  },
+  {
+    "message": "column Messages.conversationId does not exist",
+    "code": 500,
+    "time": 1771886034214
+  },
+  {
+    "message": "column Messages.conversationId does not exist",
+    "code": 500,
+    "time": 1771886108036
+  },
+  {
+    "message": "user with this data didn`t exist",
+    "code": 404,
+    "time": 1771886153162
+  },
+  {
+    "message": "user with this data didn`t exist",
+    "code": 404,
+    "time": 1771886271473
+  },
+  {
+    "message": "user with this data didn`t exist",
+    "code": 404,
+    "time": 1771886277384
+  },
+  {
+    "message": "user with this data didn`t exist",
+    "code": 404,
+    "time": 1771886283099
+  },
+  {
+    "message": "user with this data didn`t exist",
+    "code": 404,
+    "time": 1771886288835
+  },
+  {
+    "message": "Wrong password",
+    "code": 404,
+    "time": 1771886314188
+  },
+  {
+    "message": "Wrong password",
+    "code": 404,
+    "time": 1771886318453
+  },
+  {
+    "message": "Wrong password",
+    "code": 404,
+    "time": 1771886321556
+  },
+  {
+    "message": "user with this data didn`t exist",
+    "code": 404,
+    "time": 1771886439960
+  },
+  {
+    "message": "user with this data didn`t exist",
+    "code": 404,
+    "time": 1771886446676
+  },
+  {
+    "message": "user with this data didn`t exist",
+    "code": 404,
+    "time": 1771886563911
+  },
+  {
+    "message": "user with this data didn`t exist",
+    "code": 404,
+    "time": 1771886598745
+  },
+  {
+    "message": "user with this data didn`t exist",
+    "code": 404,
+    "time": 1771886760415
+  },
+  {
+    "message": "user with this data didn`t exist",
+    "code": 404,
+    "time": 1771886804915
+  },
+  {
+    "message": "user with this data didn`t exist",
+    "code": 404,
+    "time": 1771886812283
+  },
+  {
+    "message": "user with this data didn`t exist",
+    "code": 404,
+    "time": 1771886945627
+  },
+  {
+    "message": "user with this data didn`t exist",
+    "code": 404,
+    "time": 1771886953338
+  },
+  {
+    "message": "Wrong password",
+    "code": 404,
+    "time": 1771887666612
+  },
+  {
+    "message": "Wrong password",
+    "code": 404,
+    "time": 1771887730058
+  },
+  {
+    "message": "Wrong password",
+    "code": 404,
+    "time": 1771887734353
+  },
+  {
+    "message": "jwt expired",
+    "code": 401,
+    "time": 1774467522196
+  },
+  {
+    "message": "column Messages.conversationId does not exist",
+    "code": 500,
+    "time": 1774472132907
+  },
+  {
+    "message": "column Messages.conversationId does not exist",
+    "code": 500,
+    "time": 1774472160457
+  },
+  {
+    "message": "column Messages.conversationId does not exist",
+    "code": 500,
+    "time": 1774472171596
+  },
+  {
+    "message": "column Messages.conversationId does not exist",
+    "code": 500,
+    "time": 1774472176634
+  },
+  {
+    "message": "column Messages.conversationId does not exist",
+    "code": 500,
+    "time": 1774472335420
+  },
+  {
+    "message": "column Messages.conversationId does not exist",
+    "code": 500,
+    "time": 1774472408540
+  },
+  {
+    "message": "column Messages.conversationId does not exist",
+    "code": 500,
+    "time": 1774472530440
+  },
+  {
+    "message": "column Messages.conversationId does not exist",
+    "code": 500,
+    "time": 1774472536273
+  },
+  {
+    "message": "column Messages.conversationId does not exist",
+    "code": 500,
+    "time": 1774472538704
+  },
+  {
+    "message": "column Messages.conversationId does not exist",
+    "code": 500,
+    "time": 1774472539846
+  },
+  {
+    "message": "column Messages.conversationId does not exist",
+    "code": 500,
+    "time": 1774472542259
+  },
+  {
+    "message": "column Conversations.participant1 does not exist",
+    "code": 500,
+    "time": 1774473738694
+  },
+  {
+    "message": "column Conversations.participant1 does not exist",
+    "code": 500,
+    "time": 1774473767114
+  },
+  {
+    "message": "column Conversations.participant1 does not exist",
+    "code": 500,
+    "time": 1774473830308
+  },
+  {
+    "message": "column Conversations.participant1 does not exist",
+    "code": 500,
+    "time": 1774473833140
+  },
+  {
+    "message": "jwt expired",
+    "code": 401,
+    "time": 1774538030481
+  },
+  {
+    "message": "bad request",
+    "code": 400,
+    "time": 1774539302517
+  },
+  {
+    "message": "bad request",
+    "code": 400,
+    "time": 1774539601849
+  },
+  {
+    "message": "bad request",
+    "code": 400,
+    "time": 1774539843567
+  },
+  {
+    "message": "bad request",
+    "code": 400,
+    "time": 1774540209805
+  },
+  {
+    "message": "bad request",
+    "code": 400,
+    "time": 1774540475106
+  },
+  {
+    "message": "jwt expired",
+    "code": 401,
+    "time": 1774542100361
+  },
+  {
+    "message": "need token",
+    "code": 401,
+    "time": 1774542101782
+  },
+  {
+    "message": "\"undefined\" is not valid JSON",
+    "code": 500,
+    "time": 1774542186011
+  },
+  {
+    "message": "bad request",
+    "code": 400,
+    "time": 1774542332533
+  },
+  {
+    "message": "bad request",
+    "code": 400,
+    "time": 1774542375106
+  },
+  {
+    "message": "bad request",
+    "code": 400,
+    "time": 1774542384625
+  },
+  {
+    "message": "bad request",
+    "code": 400,
+    "time": 1774543058248
+  },
+  {
+    "message": "bad request",
+    "code": 400,
+    "time": 1774543099544
+  },
+  {
+    "message": "bad request",
+    "code": 400,
+    "time": 1774543299237
+  },
+  {
+    "message": "bad request",
+    "code": 400,
+    "time": 1774543471071
+  },
+  {
+    "message": "bad request",
+    "code": 400,
+    "time": 1774543472868
+  },
+  {
+    "message": "bad request",
+    "code": 400,
+    "time": 1774543552764
+  },
+  {
+    "message": "bad request",
+    "code": 400,
+    "time": 1774543714073
+  },
+  {
+    "message": "bad request",
+    "code": 400,
+    "time": 1774543714958
+  },
+  {
+    "message": "bad request",
+    "code": 400,
+    "time": 1774543715550
+  },
+  {
+    "message": "bad request",
+    "code": 400,
+    "time": 1774543716602
+  },
+  {
+    "message": "bad request",
+    "code": 400,
+    "time": 1774543717165
+  },
+  {
+    "message": "bad request",
+    "code": 400,
+    "time": 1774543717852
+  },
+  {
+    "message": "bad request",
+    "code": 400,
+    "time": 1774543908945
+  },
+  {
+    "message": "bad request",
+    "code": 400,
+    "time": 1774543911563
+  },
+  {
+    "message": "bad request",
+    "code": 400,
+    "time": 1774543912080
+  },
+  {
+    "message": "bad request",
+    "code": 400,
+    "time": 1774543914834
+  },
+  {
+    "message": "bad request",
+    "code": 400,
+    "time": 1774544435932
+  },
+  {
+    "message": "bad request",
+    "code": 400,
+    "time": 1774544553712
+  },
+  {
+    "message": "bad request",
+    "code": 400,
+    "time": 1774545314111
+  },
+  {
+    "message": "bad request",
+    "code": 400,
+    "time": 1774545323948
+  },
+  {
+    "message": "Bank decline transaction",
+    "code": 403,
+    "time": 1774545538445
+  },
+  {
+    "message": "Bank decline transaction",
+    "code": 403,
+    "time": 1774545574382
+  },
+  {
+    "message": "jwt expired",
+    "code": 401,
+    "time": 1774545755559
+  },
+  {
+    "message": "need token",
+    "code": 401,
+    "time": 1774545756423
+  },
+  {
+    "message": "need token",
+    "code": 401,
+    "time": 1774545759794
+  },
+  {
+    "message": "need token",
+    "code": 401,
+    "time": 1774545760299
+  },
+  {
+    "message": "need token",
+    "code": 401,
+    "time": 1774545761073
+  },
+  {
+    "message": "user with this data didn`t exist",
+    "code": 404,
+    "time": 1774545834934
+  },
+  {
+    "message": "user with this data didn`t exist",
+    "code": 404,
+    "time": 1774545842778
+  },
+  {
+    "message": "user with this data didn`t exist",
+    "code": 404,
+    "time": 1774545953041
+  },
+  {
+    "message": "user with this data didn`t exist",
+    "code": 404,
+    "time": 1774546000618
+  },
+  {
+    "message": "user with this data didn`t exist",
+    "code": 404,
+    "time": 1774546039276
+  },
+  {
+    "message": "user with this data didn`t exist",
+    "code": 404,
+    "time": 1774546230274
+  },
+  {
+    "message": "user with this data didn`t exist",
+    "code": 404,
+    "time": 1774546251033
+  },
+  {
+    "message": "user with this data didn`t exist",
+    "code": 404,
+    "time": 1774546257754
+  },
+  {
+    "message": "user with this data didn`t exist",
+    "code": 404,
+    "time": 1774546265436
+  },
+  {
+    "message": "Cannot read properties of undefined (reading 'isValid')",
+    "code": 500,
+    "time": 1774546427138
+  },
+  {
+    "message": "Cannot read properties of undefined (reading 'isValid')",
+    "code": 500,
+    "time": 1774546458740
+  },
+  {
+    "message": "Cannot read properties of undefined (reading 'isValid')",
+    "code": 500,
+    "time": 1774546539233
+  },
+  {
+    "message": "Cannot read properties of undefined (reading 'isValid')",
+    "code": 500,
+    "time": 1774546591258
+  },
+  {
+    "message": "Cannot read properties of undefined (reading 'isValid')",
+    "code": 500,
+    "time": 1774546709557
+  },
+  {
+    "message": "Cannot read properties of undefined (reading 'isValid')",
+    "code": 500,
+    "time": 1774546759206
+  },
+  {
+    "message": "Invalid payment data",
+    "code": 400,
+    "time": 1774547154318
+  },
+  {
+    "message": "Invalid payment data",
+    "code": 400,
+    "time": 1774547156359
+  },
+  {
+    "message": "Invalid payment data",
+    "code": 400,
+    "time": 1774547366811
+  },
+  {
+    "message": "Invalid payment data",
+    "code": 400,
+    "time": 1774547497214
+  },
+  {
+    "message": "Invalid payment data",
+    "code": 400,
+    "time": 1774547518001
+  },
+  {
+    "message": "Invalid payment data",
+    "code": 400,
+    "time": 1774547587896
+  },
+  {
+    "message": "Invalid payment data",
+    "code": 400,
+    "time": 1774547752045
+  },
+  {
+    "message": "Invalid payment data",
+    "code": 400,
+    "time": 1774547752867
+  },
+  {
+    "message": "Invalid payment data",
+    "code": 400,
+    "time": 1774547753722
+  },
+  {
+    "message": "Invalid payment data",
+    "code": 400,
+    "time": 1774547754653
+  },
+  {
+    "message": "Invalid payment data",
+    "code": 400,
+    "time": 1774548078162
+  },
+  {
+    "message": "Invalid payment data",
+    "code": 400,
+    "time": 1774548081361
+  },
+  {
+    "message": "Invalid payment data",
+    "code": 400,
+    "time": 1774548082780
+  },
+  {
+    "message": "jwt expired",
+    "code": 401,
+    "time": 1774564246545
+  },
+  {
+    "message": "Invalid payment data",
+    "code": 400,
+    "time": 1774566298227
+  },
+  {
+    "message": "Invalid payment data",
+    "code": 400,
+    "time": 1774566906472
+  },
+  {
+    "message": "Invalid payment data",
+    "code": 400,
+    "time": 1774566923246
+  },
+  {
+    "message": "column \"undefined\" does not exist",
+    "code": 500,
+    "time": 1774566973638
+  },
+  {
+    "message": "column \"undefined\" does not exist",
+    "code": 500,
+    "time": 1774567643067
+  },
+  {
+    "message": "column \"undefined\" does not exist",
+    "code": 500,
+    "time": 1774567682924
+  },
+  {
+    "message": "Недостаточно данных для обновления баланса",
+    "code": 500,
+    "time": 1774568059408
+  },
+  {
+    "message": "Недостаточно данных для обновления баланса",
+    "code": 500,
+    "time": 1774568077533
+  },
+  {
+    "message": "Недостаточно данных для обновления баланса",
+    "code": 500,
+    "time": 1774568244042
+  },
+  {
+    "message": "Недостаточно данных для обновления баланса",
+    "code": 500,
+    "time": 1774569358136
+  }
+]

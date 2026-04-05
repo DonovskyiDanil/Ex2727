@@ -24,5 +24,5 @@ COPY . .
 
 EXPOSE 5001
 
-CMD sequelize db:migrate && sequelize db:seed:all && npm start
+CMD if [ ! -d "node_modules" ] || [ ! -f "node_modules/.package-lock.json" ]; then npm install; fi && sequelize db:migrate && sequelize db:seed:all && npm start
 # CMD npm start

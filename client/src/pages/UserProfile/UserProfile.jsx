@@ -85,7 +85,9 @@ const UserProfile = (props) => {
 };
 
 const mapStateToProps = (state) => {
-  const { balance, role } = state.userStore.data;
+  const userData = state.userStore.data;
+  const balance = userData?.balance || 0;
+  const role = userData?.role || '';
   const { profileViewMode } = state.userProfile;
   const { error } = state.payment;
   return {

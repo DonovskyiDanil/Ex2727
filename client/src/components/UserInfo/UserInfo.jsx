@@ -17,8 +17,15 @@ const UserInfo = (props) => {
   };
 
   const { isEdit, changeEditMode, data } = props;
-  const { avatar, firstName, lastName, displayName, email, role, balance } =
-    data;
+  const { 
+    avatar = 'anon.png', 
+    firstName = '', 
+    lastName = '', 
+    displayName = '', 
+    email = '', 
+    role = '', 
+    balance = 0 
+  } = data || {};
   return (
     <div className={styles.mainContainer}>
       {isEdit ? (
@@ -77,7 +84,10 @@ const UserInfo = (props) => {
 const mapStateToProps = (state) => {
   const { data } = state.userStore;
   const { isEdit } = state.userProfile;
-  return { data, isEdit };
+  return { 
+    data: data || {}, 
+    isEdit 
+  };
 };
 
 const mapDispatchToProps = (dispatch) => ({

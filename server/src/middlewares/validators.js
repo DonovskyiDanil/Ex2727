@@ -38,3 +38,15 @@ module.exports.validateContestCreation = (req, res, next) => {
       next(err);
     });
 };
+
+module.exports.validatePayment = async (req, res, next) => {
+  try {
+    const validationResult = await schems.paymentSchem.isValid(req.body);
+    if (!validationResult) {
+      return next(new BadRequestError('Invalid payment data'));
+    }
+    next();
+  } catch (err) {
+    next(err);
+  }
+};

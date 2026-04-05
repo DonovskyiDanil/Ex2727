@@ -18,4 +18,8 @@ module.exports = {
     ], {});
   },
 
+  down: (queryInterface, Sequelize) => {
+    // Эта команда удалит все записи из таблицы Banks при откате (undo)
+    return queryInterface.bulkDelete('Banks', null, {});
+  },
 };

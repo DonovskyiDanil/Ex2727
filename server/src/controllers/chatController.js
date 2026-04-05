@@ -96,16 +96,17 @@ module.exports.getChat = async (req, res, next) => {
 module.exports.getPreview = async (req, res, next) => {
   try {
     const { userId } = req.tokenData;
-    const { Conversation, Message, Users, sequelize } = require('../models');
+    const { Conversation, Message, Users, ConversationParticipants, sequelize } = require('../models');
 
     const conversations = await sequelize.query(
       'SELECT DISTINCT ON ("Messages"."conversationId") ' +
       '"Messages"."id", "Messages"."body" as "text", "Messages"."sender", "Messages"."createdAt", ' +
-      '"Conversations"."id" as "conversationId", "Conversations"."participant1", ' +
-      '"Conversations"."participant2", "Conversations"."blackList", "Conversations"."favoriteList" ' +
+      '"Conversations"."id" as "conversationId", "Conversations"."blackList", "Conversations"."favoriteList", ' +
+      '"ConversationParticipants"."userId" as "interlocutorId" ' +
       'FROM "Messages" ' +
       'JOIN "Conversations" ON "Messages"."conversationId" = "Conversations"."id" ' +
-      'WHERE "Conversations"."participant1" = :userId OR "Conversations"."participant2" = :userId ' +
+      'JOIN "ConversationParticipants" ON "ConversationParticipants"."conversationId" = "Conversations"."id" ' +
+      'WHERE "ConversationParticipants"."userId" = :userId ' +
       'ORDER BY "Messages"."conversationId", "Messages"."createdAt" DESC',
       {
         replacements: { userId },
@@ -115,12 +116,10 @@ module.exports.getPreview = async (req, res, next) => {
 
     for (let i = 0; i < conversations.length; i += 1) {
       const conv = conversations[i];
-      const interlocutorId = conv.participant1 === userId ? conv.participant2 : conv.participant1;
-      const sender = await Users.findByPk(interlocutorId, {
+      const sender = await Users.findByPk(conv.interlocutorId, {
         attributes: ['id', 'firstName', 'lastName', 'displayName', 'avatar'],
       });
       conv.interlocutor = sender;
-      conv.participants = [conv.participant1, conv.participant2];
       conv.id = conv.conversationId;
     }
 

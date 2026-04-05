@@ -1,374 +1,50 @@
 [
   {
-    "message": "need token",
-    "time": 1771551532614,
-    "code": 401,
-    "stackTrace": "TokenError: need token\n    at module.exports.checkToken (/server/src/middlewares/checkToken.js:45:17)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at next (/server/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/server/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at /server/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/server/node_modules/express/lib/router/index.js:346:12)\n    at next (/server/node_modules/express/lib/router/index.js:280:10)\n    at Function.handle (/server/node_modules/express/lib/router/index.js:175:3)\n    at router (/server/node_modules/express/lib/router/index.js:47:12)"
-  },
-  {
-    "message": "need token",
-    "time": 1771551532652,
-    "code": 401,
-    "stackTrace": "TokenError: need token\n    at module.exports.checkToken (/server/src/middlewares/checkToken.js:45:17)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at next (/server/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/server/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at /server/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/server/node_modules/express/lib/router/index.js:346:12)\n    at next (/server/node_modules/express/lib/router/index.js:280:10)\n    at Function.handle (/server/node_modules/express/lib/router/index.js:175:3)\n    at router (/server/node_modules/express/lib/router/index.js:47:12)"
-  },
-  {
-    "message": "need token",
-    "time": 1771551532660,
-    "code": 401,
-    "stackTrace": "TokenError: need token\n    at module.exports.checkToken (/server/src/middlewares/checkToken.js:45:17)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at next (/server/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/server/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at /server/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/server/node_modules/express/lib/router/index.js:346:12)\n    at next (/server/node_modules/express/lib/router/index.js:280:10)\n    at Function.handle (/server/node_modules/express/lib/router/index.js:175:3)\n    at router (/server/node_modules/express/lib/router/index.js:47:12)"
-  },
-  {
-    "message": "need token",
-    "time": 1771551536397,
-    "code": 401,
-    "stackTrace": "TokenError: need token\n    at module.exports.checkToken (/server/src/middlewares/checkToken.js:45:17)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at next (/server/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/server/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at /server/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/server/node_modules/express/lib/router/index.js:346:12)\n    at next (/server/node_modules/express/lib/router/index.js:280:10)\n    at Function.handle (/server/node_modules/express/lib/router/index.js:175:3)\n    at router (/server/node_modules/express/lib/router/index.js:47:12)"
-  },
-  {
-    "message": "Wrong password",
-    "time": 1771551576180,
-    "code": 404,
-    "stackTrace": "UserNotFoundError: Wrong password\n    at module.exports.passwordCompare (/server/src/controllers/queries/userQueries.js:36:11)\n    at async module.exports.login (/server/src/controllers/userController.js:16:5)"
-  },
-  {
-    "message": "Wrong password",
-    "time": 1771551614183,
-    "code": 404,
-    "stackTrace": "UserNotFoundError: Wrong password\n    at module.exports.passwordCompare (/server/src/controllers/queries/userQueries.js:36:11)\n    at async module.exports.login (/server/src/controllers/userController.js:16:5)"
-  },
-  {
-    "message": "Wrong password",
-    "time": 1771551616154,
-    "code": 404,
-    "stackTrace": "UserNotFoundError: Wrong password\n    at module.exports.passwordCompare (/server/src/controllers/queries/userQueries.js:36:11)\n    at async module.exports.login (/server/src/controllers/userController.js:16:5)"
-  },
-  {
-    "message": "need token",
-    "time": 1771551729927,
-    "code": 401,
-    "stackTrace": "TokenError: need token\n    at module.exports.checkToken (/server/src/middlewares/checkToken.js:45:17)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at next (/server/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/server/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at /server/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/server/node_modules/express/lib/router/index.js:346:12)\n    at next (/server/node_modules/express/lib/router/index.js:280:10)\n    at Function.handle (/server/node_modules/express/lib/router/index.js:175:3)\n    at router (/server/node_modules/express/lib/router/index.js:47:12)"
-  },
-  {
-    "message": "need token",
-    "time": 1771551729967,
-    "code": 401,
-    "stackTrace": "TokenError: need token\n    at module.exports.checkToken (/server/src/middlewares/checkToken.js:45:17)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at next (/server/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/server/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at /server/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/server/node_modules/express/lib/router/index.js:346:12)\n    at next (/server/node_modules/express/lib/router/index.js:280:10)\n    at Function.handle (/server/node_modules/express/lib/router/index.js:175:3)\n    at router (/server/node_modules/express/lib/router/index.js:47:12)"
-  },
-  {
-    "message": "Wrong password",
-    "time": 1771551756515,
-    "code": 404,
-    "stackTrace": "UserNotFoundError: Wrong password\n    at module.exports.passwordCompare (/server/src/controllers/queries/userQueries.js:36:11)\n    at async module.exports.login (/server/src/controllers/userController.js:16:5)"
-  },
-  {
-    "message": "need token",
-    "time": 1771551800862,
-    "code": 401,
-    "stackTrace": "TokenError: need token\n    at module.exports.checkToken (/server/src/middlewares/checkToken.js:45:17)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at next (/server/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/server/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at /server/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/server/node_modules/express/lib/router/index.js:346:12)\n    at next (/server/node_modules/express/lib/router/index.js:280:10)\n    at Function.handle (/server/node_modules/express/lib/router/index.js:175:3)\n    at router (/server/node_modules/express/lib/router/index.js:47:12)"
-  },
-  {
-    "message": "need token",
-    "time": 1771798159803,
-    "code": 401,
-    "stackTrace": "TokenError: need token\n    at module.exports.checkToken (/server/src/middlewares/checkToken.js:45:17)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at next (/server/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/server/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at /server/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/server/node_modules/express/lib/router/index.js:346:12)\n    at next (/server/node_modules/express/lib/router/index.js:280:10)\n    at Function.handle (/server/node_modules/express/lib/router/index.js:175:3)\n    at router (/server/node_modules/express/lib/router/index.js:47:12)"
-  },
-  {
-    "message": "need token",
-    "time": 1771798195996,
-    "code": 401,
-    "stackTrace": "TokenError: need token\n    at module.exports.checkToken (/server/src/middlewares/checkToken.js:45:17)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at next (/server/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/server/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at /server/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/server/node_modules/express/lib/router/index.js:346:12)\n    at next (/server/node_modules/express/lib/router/index.js:280:10)\n    at Function.handle (/server/node_modules/express/lib/router/index.js:175:3)\n    at router (/server/node_modules/express/lib/router/index.js:47:12)"
-  },
-  {
-    "message": "need token",
-    "time": 1771798258070,
-    "code": 401,
-    "stackTrace": "TokenError: need token\n    at module.exports.checkToken (/server/src/middlewares/checkToken.js:45:17)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at next (/server/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/server/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at /server/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/server/node_modules/express/lib/router/index.js:346:12)\n    at next (/server/node_modules/express/lib/router/index.js:280:10)\n    at Function.handle (/server/node_modules/express/lib/router/index.js:175:3)\n    at router (/server/node_modules/express/lib/router/index.js:47:12)"
-  },
-  {
-    "message": "need token",
-    "time": 1771798278863,
-    "code": 401,
-    "stackTrace": "TokenError: need token\n    at module.exports.checkToken (/server/src/middlewares/checkToken.js:45:17)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at next (/server/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/server/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at /server/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/server/node_modules/express/lib/router/index.js:346:12)\n    at next (/server/node_modules/express/lib/router/index.js:280:10)\n    at Function.handle (/server/node_modules/express/lib/router/index.js:175:3)\n    at router (/server/node_modules/express/lib/router/index.js:47:12)"
-  },
-  {
-    "message": "need token",
-    "time": 1771798278886,
-    "code": 401,
-    "stackTrace": "TokenError: need token\n    at module.exports.checkToken (/server/src/middlewares/checkToken.js:45:17)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at next (/server/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/server/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at /server/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/server/node_modules/express/lib/router/index.js:346:12)\n    at next (/server/node_modules/express/lib/router/index.js:280:10)\n    at Function.handle (/server/node_modules/express/lib/router/index.js:175:3)\n    at router (/server/node_modules/express/lib/router/index.js:47:12)"
-  },
-  {
-    "message": "need token",
-    "time": 1771798335374,
-    "code": 401,
-    "stackTrace": "TokenError: need token\n    at module.exports.checkToken (/server/src/middlewares/checkToken.js:45:17)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at next (/server/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/server/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at /server/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/server/node_modules/express/lib/router/index.js:346:12)\n    at next (/server/node_modules/express/lib/router/index.js:280:10)\n    at Function.handle (/server/node_modules/express/lib/router/index.js:175:3)\n    at router (/server/node_modules/express/lib/router/index.js:47:12)"
-  },
-  {
-    "message": "need token",
-    "time": 1771798373519,
-    "code": 401,
-    "stackTrace": "TokenError: need token\n    at module.exports.checkToken (/server/src/middlewares/checkToken.js:45:17)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at next (/server/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/server/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at /server/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/server/node_modules/express/lib/router/index.js:346:12)\n    at next (/server/node_modules/express/lib/router/index.js:280:10)\n    at Function.handle (/server/node_modules/express/lib/router/index.js:175:3)\n    at router (/server/node_modules/express/lib/router/index.js:47:12)"
-  },
-  {
-    "message": "need token",
-    "time": 1771798493359,
-    "code": 401,
-    "stackTrace": "TokenError: need token\n    at module.exports.checkToken (/server/src/middlewares/checkToken.js:45:17)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at next (/server/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/server/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at /server/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/server/node_modules/express/lib/router/index.js:346:12)\n    at next (/server/node_modules/express/lib/router/index.js:280:10)\n    at Function.handle (/server/node_modules/express/lib/router/index.js:175:3)\n    at router (/server/node_modules/express/lib/router/index.js:47:12)"
-  },
-  {
-    "message": "need token",
-    "time": 1771798493406,
-    "code": 401,
-    "stackTrace": "TokenError: need token\n    at module.exports.checkToken (/server/src/middlewares/checkToken.js:45:17)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at next (/server/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/server/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at /server/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/server/node_modules/express/lib/router/index.js:346:12)\n    at next (/server/node_modules/express/lib/router/index.js:280:10)\n    at Function.handle (/server/node_modules/express/lib/router/index.js:175:3)\n    at router (/server/node_modules/express/lib/router/index.js:47:12)"
-  },
-  {
-    "message": "need token",
-    "time": 1771798493435,
-    "code": 401,
-    "stackTrace": "TokenError: need token\n    at module.exports.checkToken (/server/src/middlewares/checkToken.js:45:17)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at next (/server/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/server/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at /server/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/server/node_modules/express/lib/router/index.js:346:12)\n    at next (/server/node_modules/express/lib/router/index.js:280:10)\n    at Function.handle (/server/node_modules/express/lib/router/index.js:175:3)\n    at router (/server/node_modules/express/lib/router/index.js:47:12)"
-  },
-  {
-    "message": "Wrong password",
-    "time": 1771799689766,
-    "code": 404,
-    "stackTrace": "UserNotFoundError: Wrong password\n    at module.exports.passwordCompare (/server/src/controllers/queries/userQueries.js:36:11)\n    at async module.exports.login (/server/src/controllers/userController.js:17:5)"
-  },
-  {
-    "message": "column Messages.conversationId does not exist",
-    "time": 1771800137375,
+    "message": {},
+    "time": 1775253700029,
     "code": 500,
-    "stackTrace": "Error\n    at Query.run (/server/node_modules/sequelize/lib/dialects/postgres/query.js:50:25)\n    at /server/node_modules/sequelize/lib/sequelize.js:315:28\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async module.exports.getPreview (/server/src/controllers/chatController.js:100:27)"
+    "stackTrace": "ServerError: Error: WHERE parameter \"status\" has invalid \"undefined\" value\n    at module.exports.getCustomersContests (/server/src/controllers/contestController.js:248:10)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)"
   },
   {
-    "message": "column Messages.conversationId does not exist",
-    "time": 1771800186984,
+    "message": {},
+    "time": 1775253702070,
     "code": 500,
-    "stackTrace": "Error\n    at Query.run (/server/node_modules/sequelize/lib/dialects/postgres/query.js:50:25)\n    at /server/node_modules/sequelize/lib/sequelize.js:315:28\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async module.exports.getPreview (/server/src/controllers/chatController.js:100:27)"
+    "stackTrace": "ServerError: Error: WHERE parameter \"status\" has invalid \"undefined\" value\n    at module.exports.getCustomersContests (/server/src/controllers/contestController.js:248:10)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)"
   },
   {
-    "message": "column Messages.conversationId does not exist",
-    "time": 1771800479699,
+    "message": {},
+    "time": 1775253704596,
     "code": 500,
-    "stackTrace": "Error\n    at Query.run (/server/node_modules/sequelize/lib/dialects/postgres/query.js:50:25)\n    at /server/node_modules/sequelize/lib/sequelize.js:315:28\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async module.exports.getPreview (/server/src/controllers/chatController.js:100:27)"
+    "stackTrace": "ServerError: Error: WHERE parameter \"status\" has invalid \"undefined\" value\n    at module.exports.getCustomersContests (/server/src/controllers/contestController.js:248:10)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)"
+  },
+  {
+    "message": {},
+    "time": 1775253706488,
+    "code": 500,
+    "stackTrace": "ServerError: Error: WHERE parameter \"status\" has invalid \"undefined\" value\n    at module.exports.getCustomersContests (/server/src/controllers/contestController.js:248:10)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)"
+  },
+  {
+    "message": "Validation error",
+    "time": 1775254571435,
+    "code": 500,
+    "stackTrace": "Error\n    at Query.run (/server/node_modules/sequelize/lib/dialects/postgres/query.js:50:25)\n    at /server/node_modules/sequelize/lib/sequelize.js:315:28\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async PostgresQueryInterface.bulkInsert (/server/node_modules/sequelize/lib/dialects/abstract/query-interface.js:346:21)\n    at async recursiveBulkCreate (/server/node_modules/sequelize/lib/model.js:1697:25)\n    at async Contests.bulkCreate (/server/node_modules/sequelize/lib/model.js:1786:12)\n    at async module.exports.payment (/server/src/controllers/userController.js:104:5)"
+  },
+  {
+    "message": "Validation error",
+    "time": 1775254631441,
+    "code": 500,
+    "stackTrace": "Error\n    at Query.run (/server/node_modules/sequelize/lib/dialects/postgres/query.js:50:25)\n    at /server/node_modules/sequelize/lib/sequelize.js:315:28\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async PostgresQueryInterface.bulkInsert (/server/node_modules/sequelize/lib/dialects/abstract/query-interface.js:346:21)\n    at async recursiveBulkCreate (/server/node_modules/sequelize/lib/model.js:1697:25)\n    at async Contests.bulkCreate (/server/node_modules/sequelize/lib/model.js:1786:12)\n    at async module.exports.payment (/server/src/controllers/userController.js:104:5)"
   },
   {
     "message": "jwt expired",
-    "time": 1771881133722,
+    "time": 1775425228461,
     "code": 401,
     "stackTrace": "TokenError: jwt expired\n    at module.exports.checkToken (/server/src/middlewares/checkToken.js:57:10)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at next (/server/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/server/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at /server/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/server/node_modules/express/lib/router/index.js:346:12)\n    at next (/server/node_modules/express/lib/router/index.js:280:10)\n    at Function.handle (/server/node_modules/express/lib/router/index.js:175:3)\n    at router (/server/node_modules/express/lib/router/index.js:47:12)"
   },
   {
-    "message": "column Messages.conversationId does not exist",
-    "time": 1771883580804,
-    "code": 500,
-    "stackTrace": "Error\n    at Query.run (/server/node_modules/sequelize/lib/dialects/postgres/query.js:50:25)\n    at /server/node_modules/sequelize/lib/sequelize.js:315:28\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async module.exports.getPreview (/server/src/controllers/chatController.js:100:27)"
-  },
-  {
-    "message": "column Conversations.participant1 does not exist",
-    "time": 1771883888263,
-    "code": 500,
-    "stackTrace": "Error\n    at Query.run (/server/node_modules/sequelize/lib/dialects/postgres/query.js:50:25)\n    at /server/node_modules/sequelize/lib/sequelize.js:315:28\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async module.exports.getPreview (/server/src/controllers/chatController.js:101:27)"
-  },
-  {
-    "message": "column Conversations.participant1 does not exist",
-    "time": 1771883922359,
-    "code": 500,
-    "stackTrace": "Error\n    at Query.run (/server/node_modules/sequelize/lib/dialects/postgres/query.js:50:25)\n    at /server/node_modules/sequelize/lib/sequelize.js:315:28\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async module.exports.getPreview (/server/src/controllers/chatController.js:101:27)"
-  },
-  {
     "message": "Cannot read properties of undefined (reading 'findAll')",
-    "time": 1771883924679,
+    "time": 1775428960535,
     "code": 500,
-    "stackTrace": "TypeError: Cannot read properties of undefined (reading 'findAll')\n    at module.exports.getCatalogs (/server/src/controllers/chatController.js:253:36)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at next (/server/node_modules/express/lib/router/route.js:149:13)\n    at module.exports.checkToken (/server/src/middlewares/checkToken.js:50:5)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at next (/server/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/server/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at /server/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/server/node_modules/express/lib/router/index.js:346:12)"
-  },
-  {
-    "message": "column Conversations.participant1 does not exist",
-    "time": 1771884060817,
-    "code": 500,
-    "stackTrace": "Error\n    at Query.run (/server/node_modules/sequelize/lib/dialects/postgres/query.js:50:25)\n    at /server/node_modules/sequelize/lib/sequelize.js:315:28\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async module.exports.getPreview (/server/src/controllers/chatController.js:101:27)"
-  },
-  {
-    "message": "Cannot read properties of undefined (reading 'findAll')",
-    "time": 1771884180580,
-    "code": 500,
-    "stackTrace": "TypeError: Cannot read properties of undefined (reading 'findAll')\n    at module.exports.getPreview (/server/src/controllers/chatController.js:102:46)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at next (/server/node_modules/express/lib/router/route.js:149:13)\n    at module.exports.checkToken (/server/src/middlewares/checkToken.js:50:5)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at next (/server/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/server/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at /server/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/server/node_modules/express/lib/router/index.js:346:12)"
-  },
-  {
-    "message": "Cannot read properties of undefined (reading 'findAll')",
-    "time": 1771884184452,
-    "code": 500,
-    "stackTrace": "TypeError: Cannot read properties of undefined (reading 'findAll')\n    at module.exports.getPreview (/server/src/controllers/chatController.js:102:46)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at next (/server/node_modules/express/lib/router/route.js:149:13)\n    at module.exports.checkToken (/server/src/middlewares/checkToken.js:50:5)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at next (/server/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/server/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at /server/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/server/node_modules/express/lib/router/index.js:346:12)"
-  },
-  {
-    "message": "Cannot read properties of undefined (reading 'findAll')",
-    "time": 1771884188163,
-    "code": 500,
-    "stackTrace": "TypeError: Cannot read properties of undefined (reading 'findAll')\n    at module.exports.getPreview (/server/src/controllers/chatController.js:102:46)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at next (/server/node_modules/express/lib/router/route.js:149:13)\n    at module.exports.checkToken (/server/src/middlewares/checkToken.js:50:5)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at next (/server/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/server/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at /server/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/server/node_modules/express/lib/router/index.js:346:12)"
-  },
-  {
-    "message": "Cannot read properties of undefined (reading 'findAll')",
-    "time": 1771884189803,
-    "code": 500,
-    "stackTrace": "TypeError: Cannot read properties of undefined (reading 'findAll')\n    at module.exports.getCatalogs (/server/src/controllers/chatController.js:269:36)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at next (/server/node_modules/express/lib/router/route.js:149:13)\n    at module.exports.checkToken (/server/src/middlewares/checkToken.js:50:5)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at next (/server/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/server/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at /server/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/server/node_modules/express/lib/router/index.js:346:12)"
-  },
-  {
-    "message": "Cannot read properties of undefined (reading 'findAll')",
-    "time": 1771884190739,
-    "code": 500,
-    "stackTrace": "TypeError: Cannot read properties of undefined (reading 'findAll')\n    at module.exports.getPreview (/server/src/controllers/chatController.js:102:46)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at next (/server/node_modules/express/lib/router/route.js:149:13)\n    at module.exports.checkToken (/server/src/middlewares/checkToken.js:50:5)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at next (/server/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/server/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at /server/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/server/node_modules/express/lib/router/index.js:346:12)"
-  },
-  {
-    "message": "Cannot read properties of undefined (reading 'findAll')",
-    "time": 1771884191176,
-    "code": 500,
-    "stackTrace": "TypeError: Cannot read properties of undefined (reading 'findAll')\n    at module.exports.getPreview (/server/src/controllers/chatController.js:102:46)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at next (/server/node_modules/express/lib/router/route.js:149:13)\n    at module.exports.checkToken (/server/src/middlewares/checkToken.js:50:5)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at next (/server/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/server/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at /server/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/server/node_modules/express/lib/router/index.js:346:12)"
-  },
-  {
-    "message": "Cannot read properties of undefined (reading 'findAll')",
-    "time": 1771884200222,
-    "code": 500,
-    "stackTrace": "TypeError: Cannot read properties of undefined (reading 'findAll')\n    at module.exports.getPreview (/server/src/controllers/chatController.js:102:46)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at next (/server/node_modules/express/lib/router/route.js:149:13)\n    at module.exports.checkToken (/server/src/middlewares/checkToken.js:50:5)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at next (/server/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/server/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at /server/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/server/node_modules/express/lib/router/index.js:346:12)"
-  },
-  {
-    "message": "column Messages.conversationId does not exist",
-    "time": 1771885977130,
-    "code": 500,
-    "stackTrace": "Error\n    at Query.run (/server/node_modules/sequelize/lib/dialects/postgres/query.js:50:25)\n    at /server/node_modules/sequelize/lib/sequelize.js:315:28\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async module.exports.getPreview (/server/src/controllers/chatController.js:101:27)"
-  },
-  {
-    "message": "column Messages.conversationId does not exist",
-    "time": 1771886034214,
-    "code": 500,
-    "stackTrace": "Error\n    at Query.run (/server/node_modules/sequelize/lib/dialects/postgres/query.js:50:25)\n    at /server/node_modules/sequelize/lib/sequelize.js:315:28\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async module.exports.getPreview (/server/src/controllers/chatController.js:101:27)"
-  },
-  {
-    "message": "column Messages.conversationId does not exist",
-    "time": 1771886108036,
-    "code": 500,
-    "stackTrace": "Error\n    at Query.run (/server/node_modules/sequelize/lib/dialects/postgres/query.js:50:25)\n    at /server/node_modules/sequelize/lib/sequelize.js:315:28\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async module.exports.getPreview (/server/src/controllers/chatController.js:101:27)"
-  },
-  {
-    "message": "user with this data didn`t exist",
-    "time": 1771886153162,
-    "code": 404,
-    "stackTrace": "UserNotFoundError: user with this data didn`t exist\n    at module.exports.findUser (/server/src/controllers/queries/userQueries.js:18:11)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async module.exports.getUser (/server/src/controllers/userController.js:239:23)"
-  },
-  {
-    "message": "user with this data didn`t exist",
-    "time": 1771886271473,
-    "code": 404,
-    "stackTrace": "UserNotFoundError: user with this data didn`t exist\n    at module.exports.findUser (/server/src/controllers/queries/userQueries.js:18:11)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async module.exports.login (/server/src/controllers/userController.js:16:23)"
-  },
-  {
-    "message": "user with this data didn`t exist",
-    "time": 1771886277384,
-    "code": 404,
-    "stackTrace": "UserNotFoundError: user with this data didn`t exist\n    at module.exports.findUser (/server/src/controllers/queries/userQueries.js:18:11)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async module.exports.login (/server/src/controllers/userController.js:16:23)"
-  },
-  {
-    "message": "user with this data didn`t exist",
-    "time": 1771886283099,
-    "code": 404,
-    "stackTrace": "UserNotFoundError: user with this data didn`t exist\n    at module.exports.findUser (/server/src/controllers/queries/userQueries.js:18:11)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async module.exports.login (/server/src/controllers/userController.js:16:23)"
-  },
-  {
-    "message": "user with this data didn`t exist",
-    "time": 1771886288835,
-    "code": 404,
-    "stackTrace": "UserNotFoundError: user with this data didn`t exist\n    at module.exports.findUser (/server/src/controllers/queries/userQueries.js:18:11)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async module.exports.login (/server/src/controllers/userController.js:16:23)"
-  },
-  {
-    "message": "Wrong password",
-    "time": 1771886314188,
-    "code": 404,
-    "stackTrace": "UserNotFoundError: Wrong password\n    at module.exports.passwordCompare (/server/src/controllers/queries/userQueries.js:36:11)\n    at async module.exports.login (/server/src/controllers/userController.js:17:5)"
-  },
-  {
-    "message": "Wrong password",
-    "time": 1771886318453,
-    "code": 404,
-    "stackTrace": "UserNotFoundError: Wrong password\n    at module.exports.passwordCompare (/server/src/controllers/queries/userQueries.js:36:11)\n    at async module.exports.login (/server/src/controllers/userController.js:17:5)"
-  },
-  {
-    "message": "Wrong password",
-    "time": 1771886321556,
-    "code": 404,
-    "stackTrace": "UserNotFoundError: Wrong password\n    at module.exports.passwordCompare (/server/src/controllers/queries/userQueries.js:36:11)\n    at async module.exports.login (/server/src/controllers/userController.js:17:5)"
-  },
-  {
-    "message": "user with this data didn`t exist",
-    "time": 1771886439960,
-    "code": 404,
-    "stackTrace": "UserNotFoundError: user with this data didn`t exist\n    at module.exports.findUser (/server/src/controllers/queries/userQueries.js:18:11)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async module.exports.getUser (/server/src/controllers/userController.js:239:23)"
-  },
-  {
-    "message": "user with this data didn`t exist",
-    "time": 1771886446676,
-    "code": 404,
-    "stackTrace": "UserNotFoundError: user with this data didn`t exist\n    at module.exports.findUser (/server/src/controllers/queries/userQueries.js:18:11)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async module.exports.getUser (/server/src/controllers/userController.js:239:23)"
-  },
-  {
-    "message": "user with this data didn`t exist",
-    "time": 1771886563911,
-    "code": 404,
-    "stackTrace": "UserNotFoundError: user with this data didn`t exist\n    at module.exports.findUser (/server/src/controllers/queries/userQueries.js:18:11)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async module.exports.getUser (/server/src/controllers/userController.js:239:23)"
-  },
-  {
-    "message": "user with this data didn`t exist",
-    "time": 1771886598745,
-    "code": 404,
-    "stackTrace": "UserNotFoundError: user with this data didn`t exist\n    at module.exports.findUser (/server/src/controllers/queries/userQueries.js:18:11)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async module.exports.getUser (/server/src/controllers/userController.js:239:23)"
-  },
-  {
-    "message": "user with this data didn`t exist",
-    "time": 1771886760415,
-    "code": 404,
-    "stackTrace": "UserNotFoundError: user with this data didn`t exist\n    at module.exports.findUser (/server/src/controllers/queries/userQueries.js:18:11)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async module.exports.getUser (/server/src/controllers/userController.js:239:23)"
-  },
-  {
-    "message": "user with this data didn`t exist",
-    "time": 1771886804915,
-    "code": 404,
-    "stackTrace": "UserNotFoundError: user with this data didn`t exist\n    at module.exports.findUser (/server/src/controllers/queries/userQueries.js:18:11)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async module.exports.getUser (/server/src/controllers/userController.js:239:23)"
-  },
-  {
-    "message": "user with this data didn`t exist",
-    "time": 1771886812283,
-    "code": 404,
-    "stackTrace": "UserNotFoundError: user with this data didn`t exist\n    at module.exports.findUser (/server/src/controllers/queries/userQueries.js:18:11)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async module.exports.getUser (/server/src/controllers/userController.js:239:23)"
-  },
-  {
-    "message": "user with this data didn`t exist",
-    "time": 1771886945627,
-    "code": 404,
-    "stackTrace": "UserNotFoundError: user with this data didn`t exist\n    at module.exports.findUser (/server/src/controllers/queries/userQueries.js:18:11)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async module.exports.getUser (/server/src/controllers/userController.js:239:23)"
-  },
-  {
-    "message": "user with this data didn`t exist",
-    "time": 1771886953338,
-    "code": 404,
-    "stackTrace": "UserNotFoundError: user with this data didn`t exist\n    at module.exports.findUser (/server/src/controllers/queries/userQueries.js:18:11)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async module.exports.getUser (/server/src/controllers/userController.js:239:23)"
-  },
-  {
-    "message": "Wrong password",
-    "time": 1771887666612,
-    "code": 404,
-    "stackTrace": "UserNotFoundError: Wrong password\n    at module.exports.passwordCompare (/server/src/controllers/queries/userQueries.js:36:11)\n    at async module.exports.login (/server/src/controllers/userController.js:17:5)"
-  },
-  {
-    "message": "Wrong password",
-    "time": 1771887730058,
-    "code": 404,
-    "stackTrace": "UserNotFoundError: Wrong password\n    at module.exports.passwordCompare (/server/src/controllers/queries/userQueries.js:36:11)\n    at async module.exports.login (/server/src/controllers/userController.js:17:5)"
-  },
-  {
-    "message": "Wrong password",
-    "time": 1771887734353,
-    "code": 404,
-    "stackTrace": "UserNotFoundError: Wrong password\n    at module.exports.passwordCompare (/server/src/controllers/queries/userQueries.js:36:11)\n    at async module.exports.login (/server/src/controllers/userController.js:17:5)"
-  },
-  {
-    "message": "jwt expired",
-    "time": 1774467522196,
-    "code": 401,
-    "stackTrace": "TokenError: jwt expired\n    at module.exports.checkToken (/server/src/middlewares/checkToken.js:57:10)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at next (/server/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/server/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at /server/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/server/node_modules/express/lib/router/index.js:346:12)\n    at next (/server/node_modules/express/lib/router/index.js:280:10)\n    at Function.handle (/server/node_modules/express/lib/router/index.js:175:3)\n    at router (/server/node_modules/express/lib/router/index.js:47:12)"
+    "stackTrace": "TypeError: Cannot read properties of undefined (reading 'findAll')\n    at module.exports.getCatalogs (/server/src/controllers/chatController.js:252:36)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at next (/server/node_modules/express/lib/router/route.js:149:13)\n    at module.exports.checkToken (/server/src/middlewares/checkToken.js:50:5)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at next (/server/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/server/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at /server/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/server/node_modules/express/lib/router/index.js:346:12)"
   }
 ]

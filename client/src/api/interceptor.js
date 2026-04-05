@@ -3,6 +3,7 @@ import CONSTANTS from '../constants';
 
 const instance = axios.create({
   baseURL: process.env.NODE_ENV === 'development' ? 'http://localhost:5001' : '/api',
+  timeout: 10000, // Add timeout to prevent hanging requests
 });
 
 instance.interceptors.request.use(
@@ -24,8 +25,22 @@ instance.interceptors.response.use(
   (err) => {
     // Если сервер ответил 401, значит токен протух — удаляем его
     if (err.response && err.response.status === 401) {
-      window.localStorage.removeItem(CONSTANTS.ACCESS_TOKEN);
+      // Удаляем токен только если он есть в localStorage
+      const existingToken = window.localStorage.getItem(CONSTANTS.ACCESS_TOKEN);
+      if (existingToken && existingToken !== 'null' && existingToken !== 'undefined') {
+        window.localStorage.removeItem(CONSTANTS.ACCESS_TOKEN);
+        // Optional: redirect to login page or show a message
+        console.warn('[API] Token expired, user will need to re-authenticate');
+      }
     }
+    
+    // Handle network errors
+    if (!err.response && err.code === 'ECONNREFUSED') {
+      console.error('[API] Server connection refused. Make sure the backend is running on port 5001.');
+    } else if (!err.response && err.code === 'ERR_NETWORK') {
+      console.error('[API] Network error. Check your connection to the server.');
+    }
+    
     return Promise.reject(err);
   }
 );

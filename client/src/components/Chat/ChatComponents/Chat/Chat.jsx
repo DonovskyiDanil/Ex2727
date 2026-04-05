@@ -20,18 +20,30 @@ import ChatError from '../../../ChatError/ChatError';
 
 class Chat extends React.Component {
   componentDidMount() {
-    chatController.subscribeChat(this.props.userStore.data.id);
+    // Only subscribe to chat if user is authenticated
+    if (this.props.userStore.data && this.props.userStore.data.id) {
+      chatController.subscribeChat(this.props.userStore.data.id);
+    }
     this.props.getPreviewChat();
   }
 
   componentWillUnmount() {
-    chatController.unsubscribeChat(this.props.userStore.data.id);
+    // Only unsubscribe if user was authenticated
+    if (this.props.userStore.data && this.props.userStore.data.id) {
+      chatController.unsubscribeChat(this.props.userStore.data.id);
+    }
   }
 
   renderDialogList = () => {
     const { setChatPreviewMode } = this.props;
     const { chatMode, isShowChatsInCatalog } = this.props.chatStore;
-    const { id } = this.props.userStore.data;
+    const userId = this.props.userStore.data?.id;
+    
+    // Don't render if user is not authenticated
+    if (!userId) {
+      return null;
+    }
+    
     const {
       NORMAL_PREVIEW_CHAT_MODE,
       FAVORITE_PREVIEW_CHAT_MODE,
@@ -85,7 +97,7 @@ class Chat extends React.Component {
         {chatMode === CATALOG_PREVIEW_CHAT_MODE ? (
           <CatalogListContainer />
         ) : (
-          <DialogListContainer userId={id} />
+          <DialogListContainer userId={userId} />
         )}
       </div>
     );
@@ -94,7 +106,13 @@ class Chat extends React.Component {
   render() {
     const { isExpanded, isShow, isShowCatalogCreation, error } =
       this.props.chatStore;
-    const { id } = this.props.userStore.data;
+    const userId = this.props.userStore.data?.id;
+    
+    // Don't render chat if user is not authenticated
+    if (!userId) {
+      return null;
+    }
+    
     const { changeShow, getPreviewChat } = this.props;
     return (
       <div
@@ -104,7 +122,7 @@ class Chat extends React.Component {
       >
         {error && <ChatError getData={getPreviewChat} />}
         {isShowCatalogCreation && <CatalogCreation />}
-        {isExpanded ? <Dialog userId={id} /> : this.renderDialogList()}
+        {isExpanded ? <Dialog interlocutor={{ id: userId }} /> : this.renderDialogList()}
         <div className={styles.toggleChat} onClick={() => changeShow()}>
           {isShow ? 'Hide Chat' : 'Show Chat'}
         </div>

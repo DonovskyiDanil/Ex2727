@@ -16,7 +16,7 @@ module.exports = {
         type: Sequelize.TEXT,
         allowNull: false,
       },
-      conversation: {
+      conversationId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: { model: 'Conversations', key: 'id' }, // Ссылка на Conversations

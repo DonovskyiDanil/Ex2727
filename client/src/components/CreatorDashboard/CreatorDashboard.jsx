@@ -88,12 +88,6 @@ class CreatorDashboard extends React.Component {
     );
   };
 
-  componentWillReceiveProps(nextProps, nextContext) {
-    if (nextProps.location.search !== this.props.location.search) {
-      this.parseUrlForParams(nextProps.location.search);
-    }
-  }
-
   componentDidMount() {
     this.props.getDataForContest();
     if (
@@ -101,6 +95,12 @@ class CreatorDashboard extends React.Component {
       !this.props.contests.length
     )
       this.getContests(this.props.creatorFilter);
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.location.search !== this.props.location.search) {
+      this.parseUrlForParams(this.props.location.search);
+    }
   }
 
   getContests = (filter) => {

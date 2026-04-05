@@ -1,51 +1,57 @@
-import React from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { connect } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import isEmpty from 'lodash/isEmpty';
+import { isEmpty } from 'lodash';
 import { pay, clearPaymentStore } from '../../store/slices/paymentSlice';
 import PayForm from '../../components/PayForm/PayForm';
-import styles from './Payment.module.sass';
-import CONSTANTS from '../../constants';
 import Error from '../../components/Error/Error';
+import styles from './Payment.module.sass';
 
 const Payment = (props) => {
+  const { 
+    payment: { error }, 
+    contestCreationStore: { contests }, 
+    executePayment, 
+    resetPaymentStore 
+  } = props;
+  
   const navigate = useNavigate();
 
-  const pay = (values) => {
-    const { contests } = props.contestCreationStore;
-    const contestArray = [];
-    Object.keys(contests).forEach((key) =>
-      contestArray.push({ ...contests[key] })
-    );
-    const { number, expiry, cvc } = values;
-    const data = new FormData();
-    for (let i = 0; i < contestArray.length; i++) {
-      data.append('files', contestArray[i].file);
-      contestArray[i].haveFile = !!contestArray[i].file;
+  // 1. Исправляем ошибку "Cannot update a component while rendering"
+  useEffect(() => {
+    if (isEmpty(contests)) {
+      navigate('/startContest', { replace: true });
     }
-    data.append('number', number);
-    data.append('expiry', expiry);
-    data.append('cvc', cvc);
-    data.append('contests', JSON.stringify(contestArray));
-    data.append('price', '100');
-    props.pay({
+  }, [contests, navigate]);
+
+  // 2. Оптимизируем формирование массива конкурсов (useMemo, чтобы не пересчитывать при каждом рендере)
+  const contestArray = useMemo(() => {
+    return Object.values(contests).map(contest => ({
+      ...contest,
+      haveFile: !!contest.file
+    }));
+  }, [contests]);
+
+  const handlePay = (values) => {
+    executePayment({
       data: {
-        formData: data,
+        number: values.number,
+        expiry: values.expiry,
+        cvc: values.cvc,
+        contests: contestArray,
+        price: 100,
       },
       navigate,
     });
   };
 
-  const goBack = () => {
-    navigate(-1);
-  };
+  const goBack = () => navigate(-1);
 
-  const { contests } = props.contestCreationStore;
-  const { error } = props.payment;
-  const { clearPaymentStore } = props;
+  // Если данных нет, ничего не рендерим, пока работает useEffect
   if (isEmpty(contests)) {
-    navigate('/startContest', { replace: true });
+    return null;
   }
+
   return (
     <div className={styles.mainContainer}>
       <div className={styles.paymentContainer}>
@@ -54,11 +60,16 @@ const Payment = (props) => {
           <Error
             data={error.data}
             status={error.status}
-            clearError={clearPaymentStore}
+            clearError={resetPaymentStore}
           />
         )}
-        <PayForm sendRequest={pay} back={goBack} isPayForOrder />
+        <PayForm 
+          sendRequest={handlePay} 
+          back={goBack} 
+          isPayForOrder 
+        />
       </div>
+
       <div className={styles.orderInfoContainer}>
         <span className={styles.orderHeader}>Order Summary</span>
         <div className={styles.packageInfoContainer}>
@@ -69,7 +80,13 @@ const Payment = (props) => {
           <span>Total:</span>
           <span>$100.00 USD</span>
         </div>
-        <a href="http://www.google.com">Have a promo code?</a>
+        <a 
+          href="https://www.google.com" 
+          target="_blank" 
+          rel="noopener noreferrer"
+        >
+          Have a promo code?
+        </a>
       </div>
     </div>
   );
@@ -80,9 +97,10 @@ const mapStateToProps = (state) => ({
   contestCreationStore: state.contestCreationStore,
 });
 
+// Переименовал функции для ясности, чтобы не путать с экшенами
 const mapDispatchToProps = (dispatch) => ({
-  pay: ({ data, navigate }) => dispatch(pay({ data, navigate })),
-  clearPaymentStore: () => dispatch(clearPaymentStore()),
+  executePayment: ({ data, navigate }) => dispatch(pay({ data, navigate })),
+  resetPaymentStore: () => dispatch(clearPaymentStore()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Payment);

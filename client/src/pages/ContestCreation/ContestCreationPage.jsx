@@ -17,7 +17,19 @@ const ContestCreationPage = (props) => {
     : { contestType: props.contestType };
 
   const handleSubmit = (values) => {
-    props.saveContest({ type: props.contestType, info: values });
+    // Добавляем contestType в данные конкурса
+    // Sanitize values to remove File objects (not serializable)
+    const sanitizedValues = {
+      ...values,
+      contestType: props.contestType,
+    };
+    
+    // Convert File object to just the file name for Redux storage
+    if (sanitizedValues.file && typeof sanitizedValues.file === 'object' && sanitizedValues.file.name) {
+      sanitizedValues.file = sanitizedValues.file.name;
+    }
+    
+    props.saveContest({ type: props.contestType, info: sanitizedValues });
     const route =
       props.bundleStore.bundle[props.contestType] === 'payment'
         ? '/payment'
