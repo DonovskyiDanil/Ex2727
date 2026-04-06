@@ -9,8 +9,9 @@ import withRouter from '../../hocs/withRouter';
 
 class Header extends React.Component {
   componentDidMount() {
-    const token = localStorage.getItem('accessToken'); 
-    if (token && token !== 'null' && !this.props.data) {
+    const token = localStorage.getItem('accessToken');
+    // Only call getUser if we have a valid token and don't have user data yet
+    if (token && token !== 'null' && token !== 'undefined' && !this.props.data) {
       this.props.getUser();
     }
   }

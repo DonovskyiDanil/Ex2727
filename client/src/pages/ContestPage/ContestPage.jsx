@@ -63,14 +63,46 @@ class ContestPage extends React.Component {
   };
 
   needButtons = (offerStatus) => {
-    const contestCreatorId = this.props.contestByIdStore.contestData.User.id;
+    const contestData = this.props.contestByIdStore.contestData;
+    if (!contestData || !contestData.User || !contestData.User.id) {
+      console.log('needButtons: contestData or User not available');
+      return false;
+    }
+    
+    const contestCreatorId = contestData.User.id;
     const userId = this.props.userStore.data.id;
-    const contestStatus = this.props.contestByIdStore.contestData.status;
-    return (
-      contestCreatorId === userId &&
-      contestStatus === CONSTANTS.CONTEST_STATUS_ACTIVE &&
-      offerStatus === CONSTANTS.OFFER_STATUS_PENDING
-    );
+    const userRole = this.props.userStore.data.role;
+    const contestStatus = contestData.status;
+    
+    // For MODERATOR: Show approve/reject buttons for pending offers only
+    const isModerator = userRole === CONSTANTS.MODERATOR;
+    const showForModerator = isModerator && 
+      contestStatus === CONSTANTS.CONTEST_STATUS_ACTIVE && 
+      offerStatus === CONSTANTS.OFFER_STATUS_PENDING;
+    
+    // For CUSTOMER (creator): Show approve/reject buttons for pending OR approved offers
+    // Customer can approve offers that moderator already approved, or approve pending offers
+    const isCreator = contestCreatorId === userId;
+    const showForCreator = isCreator && 
+      contestStatus === CONSTANTS.CONTEST_STATUS_ACTIVE && 
+      (offerStatus === CONSTANTS.OFFER_STATUS_PENDING || offerStatus === CONSTANTS.OFFER_STATUS_APPROVED);
+    
+    const shouldShow = showForModerator || showForCreator;
+    
+    console.log('needButtons debug:', {
+      contestCreatorId,
+      userId,
+      userRole,
+      contestStatus,
+      offerStatus,
+      isCreator,
+      isModerator,
+      showForModerator,
+      showForCreator,
+      shouldShow
+    });
+    
+    return shouldShow;
   };
 
   setOfferStatus = (creatorId, offerId, command) => {

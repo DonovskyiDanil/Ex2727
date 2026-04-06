@@ -16,5 +16,47 @@
     "time": 1775441015485,
     "code": 500,
     "stackTrace": "ServerError: Offer not found\n    at module.exports.changeOfferStatus (/server/src/controllers/contestController.js:47:41)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)"
+  },
+  {
+    "message": "undefined is not iterable (cannot read property Symbol(Symbol.iterator))",
+    "time": 1775446064063,
+    "code": 500,
+    "stackTrace": "TypeError: undefined is not iterable (cannot read property Symbol(Symbol.iterator))\n    at module.exports.updateContest (/server/src/controllers/queries/contestQueries.js:5:24)\n    at async module.exports.updateContest (/server/src/controllers/contestController.js:146:28)"
+  },
+  {
+    "message": "Cannot read properties of undefined (reading 'findAll')",
+    "time": 1775446073842,
+    "code": 500,
+    "stackTrace": "TypeError: Cannot read properties of undefined (reading 'findAll')\n    at module.exports.getChat (/server/src/controllers/chatController.js:73:36)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at next (/server/node_modules/express/lib/router/route.js:149:13)\n    at module.exports.checkToken (/server/src/middlewares/checkToken.js:50:5)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at next (/server/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/server/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at /server/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/server/node_modules/express/lib/router/index.js:346:12)"
+  },
+  {
+    "message": "Cannot read properties of undefined (reading 'findAll')",
+    "time": 1775446112158,
+    "code": 500,
+    "stackTrace": "TypeError: Cannot read properties of undefined (reading 'findAll')\n    at module.exports.getChat (/server/src/controllers/chatController.js:73:36)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at next (/server/node_modules/express/lib/router/route.js:149:13)\n    at module.exports.checkToken (/server/src/middlewares/checkToken.js:50:5)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at next (/server/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/server/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at /server/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/server/node_modules/express/lib/router/index.js:346:12)"
+  },
+  {
+    "message": "jwt expired",
+    "time": 1775510545081,
+    "code": 401,
+    "stackTrace": "TokenError: jwt expired\n    at module.exports.checkToken (/server/src/middlewares/checkToken.js:57:10)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at next (/server/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/server/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at /server/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/server/node_modules/express/lib/router/index.js:346:12)\n    at next (/server/node_modules/express/lib/router/index.js:280:10)\n    at Function.handle (/server/node_modules/express/lib/router/index.js:175:3)\n    at router (/server/node_modules/express/lib/router/index.js:47:12)"
+  },
+  {
+    "message": "Validation error",
+    "time": 1775511558177,
+    "code": 500,
+    "stackTrace": "Error\n    at Query.run (/server/node_modules/sequelize/lib/dialects/postgres/query.js:50:25)\n    at /server/node_modules/sequelize/lib/sequelize.js:315:28\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async PostgresQueryInterface.bulkInsert (/server/node_modules/sequelize/lib/dialects/abstract/query-interface.js:346:21)\n    at async recursiveBulkCreate (/server/node_modules/sequelize/lib/model.js:1697:25)\n    at async Contests.bulkCreate (/server/node_modules/sequelize/lib/model.js:1786:12)\n    at async module.exports.payment (/server/src/controllers/userController.js:104:5)"
+  },
+  {
+    "message": "Offer not found or already has the same status",
+    "time": 1775515309430,
+    "code": 500,
+    "stackTrace": "ServerError: Offer not found or already has the same status\n    at module.exports.setOfferStatus (/server/src/controllers/contestController.js:148:19)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)"
+  },
+  {
+    "message": "Cannot change offer status from pending to undefined",
+    "time": 1775515650194,
+    "code": 500,
+    "stackTrace": "ServerError: Cannot change offer status from pending to undefined\n    at module.exports.setOfferStatus (/server/src/controllers/contestController.js:158:19)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)"
   }
 ]

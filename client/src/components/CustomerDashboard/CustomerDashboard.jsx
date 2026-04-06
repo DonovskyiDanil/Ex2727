@@ -13,10 +13,12 @@ import styles from './CustomerDashboard.module.sass';
 import TryAgain from '../TryAgain/TryAgain';
 
 class CustomerDashboard extends React.Component {
-  loadMore = startFrom => {
+  loadMore = () => {
+    // Calculate the correct offset based on current contests length
+    const offset = this.props.contests ? this.props.contests.length : 0;
     this.props.getContests({
       limit: 8,
-      offset: startFrom,
+      offset: offset,
       contestStatus: this.props.customerFilter,
     });
   };
@@ -45,11 +47,12 @@ class CustomerDashboard extends React.Component {
   setContestList = () => {
     const array = [];
     const { contests } = this.props;
+    // Use combination of index and id to ensure unique keys
     for (let i = 0; i < contests.length; i++) {
       array.push(
         <ContestBox
           data={contests[i]}
-          key={contests[i].id}
+          key={`${contests[i].id}-${i}`}
           goToExtended={this.goToExtended}
         />
       );

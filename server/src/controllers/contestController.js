@@ -78,7 +78,7 @@ module.exports.dataForContest = async (req, res, next) => {
 
 module.exports.getContestById = async (req, res, next) => {
   try {
-    let contest = await db.Contests.findOne({
+    const contest = await db.Contests.findOne({
       where: { id: req.headers.contestid },
       order: [[db.Offers, 'id', 'asc']],
       include: [
@@ -91,7 +91,9 @@ module.exports.getContestById = async (req, res, next) => {
       ],
     });
     res.send(contest);
-  } catch (err) { next(new ServerError()); }
+  } catch (err) {
+    next(new ServerError());
+  }
 };
 
 module.exports.setNewOffer = async (req, res, next) => {
@@ -111,9 +113,86 @@ module.exports.setNewOffer = async (req, res, next) => {
 
 module.exports.setOfferStatus = async (req, res, next) => {
   try {
-    // Логика клиента (resolve/reject)
-    res.send({ message: "Status updated" });
-  } catch (err) { next(err); }
+    const { command, offerId, creatorId, orderId, priority, contestId } = req.body;
+
+    // Validate required fields
+    if (!offerId || !command || !contestId) {
+      return next(new ServerError('Missing required fields: offerId, command, contestId'));
+    }
+
+    // Determine new status based on command:
+    // - 'approve' (from moderator) -> 'approved' (moderator approved, waiting for customer)
+    // - 'resolve' (from customer) -> 'won' (customer selected this offer)
+    // - 'reject' -> 'rejected'
+    let newStatus;
+    let notificationMessage;
+
+    if (command === 'approve') {
+      newStatus = CONSTANTS.OFFER_STATUS_APPROVED;
+      notificationMessage = 'Offer approved by moderator';
+    } else if (command === 'resolve') {
+      newStatus = CONSTANTS.OFFER_STATUS_WON;
+      notificationMessage = 'Offer accepted by customer';
+    } else {
+      newStatus = CONSTANTS.OFFER_STATUS_REJECTED;
+      notificationMessage = 'Offer rejected';
+    }
+
+    // Update the offer status
+    const [updatedCount] = await db.Offers.update(
+      { status: newStatus },
+      { where: { id: offerId, status: { [db.Sequelize.Op.ne]: newStatus } } },
+    );
+
+    // If no rows updated, check if offer exists and already has the target status
+    if (updatedCount === 0) {
+      const existingOffer = await db.Offers.findOne({ where: { id: offerId } });
+      if (!existingOffer) {
+        return next(new ServerError('Offer not found'));
+      }
+      // Offer already has the same status - this is okay, just return it
+      if (existingOffer.status === newStatus) {
+        return res.send(existingOffer);
+      }
+      // Offer has a different status that can't be changed to this status
+      return next(new ServerError('Cannot change offer status from ' + existingOffer.status + ' to ' + newStatus));
+    }
+
+    // If customer resolves (selects winner), reject all other offers and finish contest
+    if (command === 'resolve') {
+      await db.Offers.update(
+        { status: CONSTANTS.OFFER_STATUS_REJECTED },
+        { where: { contestId, id: { [db.Sequelize.Op.ne]: offerId } } },
+      );
+
+      // Update contest status to finished
+      await db.Contests.update(
+        { status: CONSTANTS.CONTEST_STATUS_FINISHED },
+        { where: { id: contestId } },
+      );
+    }
+
+    // Get updated offer to return
+    const updatedOffer = await db.Offers.findOne({
+      where: { id: offerId },
+      include: [{ model: db.Users, attributes: { exclude: ['password'] } }],
+    });
+
+    // Emit WebSocket notification to all subscribers of this contest
+    const notificationController = require('../socketInit').getNotificationController();
+    if (notificationController) {
+      notificationController.emitChangeOfferStatus(
+        contestId,
+        notificationMessage,
+        contestId,
+      );
+    }
+
+    res.send(updatedOffer);
+  } catch (err) {
+    console.error('Error in setOfferStatus:', err);
+    next(new ServerError('Error updating offer status: ' + err.message));
+  }
 };
 
 module.exports.getCustomersContests = async (req, res, next) => {
@@ -125,7 +204,9 @@ module.exports.getCustomersContests = async (req, res, next) => {
       order: [['id', 'DESC']],
     });
     res.send({ contests, haveMore: contests.length > 0 });
-  } catch (err) { next(new ServerError(err)); }
+  } catch (err) {
+    next(new ServerError(err));
+  }
 };
 
 module.exports.getContests = async (req, res, next) => {
@@ -138,14 +219,18 @@ module.exports.getContests = async (req, res, next) => {
       offset: req.body.offset || 0,
     });
     res.send({ contests, haveMore: contests.length > 0 });
-  } catch (err) { next(new ServerError()); }
+  } catch (err) {
+    next(new ServerError());
+  }
 };
 
 module.exports.updateContest = async (req, res, next) => {
   try {
     const updatedContest = await contestQueries.updateContest(req.body, { id: req.body.contestId, userId: req.tokenData.userId });
     res.send(updatedContest);
-  } catch (err) { next(err); }
+  } catch (err) {
+    next(err);
+  }
 };
 
 module.exports.downloadFile = async (req, res, next) => {

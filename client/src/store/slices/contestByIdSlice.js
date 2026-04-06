@@ -85,13 +85,24 @@ const setOfferStatusExtraReducers = createExtraReducers({
   thunk: setOfferStatus,
   fulfilledReducer: (state, { payload }) => {
     state.offers.forEach(offer => {
-      if (payload.status === CONSTANTS.OFFER_STATUS_WON) {
+      // Handle moderator approve action - only update the specific offer
+      if (payload.status === CONSTANTS.OFFER_STATUS_APPROVED) {
+        if (payload.id === offer.id) {
+          offer.status = CONSTANTS.OFFER_STATUS_APPROVED;
+        }
+      }
+      // Handle customer resolve action - mark winner and reject others
+      else if (payload.status === CONSTANTS.OFFER_STATUS_WON) {
         offer.status =
           payload.id === offer.id
             ? CONSTANTS.OFFER_STATUS_WON
             : CONSTANTS.OFFER_STATUS_REJECTED;
-      } else if (payload.id === offer.id) {
-        offer.status = CONSTANTS.OFFER_STATUS_REJECTED;
+      }
+      // Handle reject action
+      else if (payload.status === CONSTANTS.OFFER_STATUS_REJECTED) {
+        if (payload.id === offer.id) {
+          offer.status = CONSTANTS.OFFER_STATUS_REJECTED;
+        }
       }
     });
     state.error = null;

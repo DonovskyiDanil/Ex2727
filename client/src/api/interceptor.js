@@ -23,14 +23,19 @@ instance.interceptors.request.use(
 instance.interceptors.response.use(
   (response) => response,
   (err) => {
-    // Если сервер ответил 401, значит токен протух — удаляем его
+    // Если сервер ответил 401, значит токен протух — удаляем его и перенаправляем на логин
     if (err.response && err.response.status === 401) {
-      // Удаляем токен только если он есть в localStorage
       const existingToken = window.localStorage.getItem(CONSTANTS.ACCESS_TOKEN);
       if (existingToken && existingToken !== 'null' && existingToken !== 'undefined') {
         window.localStorage.removeItem(CONSTANTS.ACCESS_TOKEN);
-        // Optional: redirect to login page or show a message
-        console.warn('[API] Token expired, user will need to re-authenticate');
+        window.localStorage.removeItem('user');
+        
+        // Redirect to login page if not already there
+        if (window.location.pathname !== '/login' && window.location.pathname !== '/registration') {
+          window.location.href = '/login';
+        }
+        
+        console.warn('[API] Token expired, user redirected to login');
       }
     }
     
