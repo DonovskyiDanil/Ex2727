@@ -18,7 +18,9 @@ const ContestSideBar = props => {
 
   const renderContestInfo = () => {
     const { totalEntries } = props;
-    const { User, prize } = props.contestData;
+    const { User, prize } = props.contestData || {};
+    const user = User || {};
+    const avatar = user.avatar || 'anon.png';
     return (
       <div className={styles.contestSideBarInfo}>
         <div className={styles.contestInfo}>
@@ -58,7 +60,7 @@ const ContestSideBar = props => {
             </div>
           </div>
         </div>
-        {props.data.id !== User.id && (
+        {props.data.id !== user.id && (
           <div className={styles.infoCustomerContainer}>
             <span className={styles.labelCustomerInfo}>
               About Contest Holder
@@ -66,15 +68,15 @@ const ContestSideBar = props => {
             <div className={styles.customerInfo}>
               <img
                 src={
-                  User.avatar === 'anon.png'
+                  avatar === 'anon.png'
                     ? CONSTANTS.ANONYM_IMAGE_PATH
-                    : `${CONSTANTS.publicURL}${User.avatar}`
+                    : `${CONSTANTS.publicURL}${avatar}`
                 }
                 alt='user'
               />
               <div className={styles.customerNameContainer}>
-                <span>{`${User.firstName} ${User.lastName}`}</span>
-                <span>{User.displayName}</span>
+                <span>{`${user.firstName || ''} ${user.lastName || ''}`}</span>
+                <span>{user.displayName || ''}</span>
               </div>
             </div>
           </div>

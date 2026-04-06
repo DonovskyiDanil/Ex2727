@@ -12,7 +12,7 @@ export const dataForContest = data => http.post('dataForContest', data);
 
 // Исправлено: На бэкенде GET, параметры передаем через params
 export const getCustomersContests = data =>
-  http.get('getCustomersContests', {
+  http.get('customersContests', {
     params: { 
       limit: data.limit, 
       offset: data.offset 

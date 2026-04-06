@@ -1,0 +1,47 @@
+[
+  {
+    "message": {},
+    "code": 500,
+    "time": 1775253700029
+  },
+  {
+    "message": {},
+    "code": 500,
+    "time": 1775253702070
+  },
+  {
+    "message": {},
+    "code": 500,
+    "time": 1775253704596
+  },
+  {
+    "message": {},
+    "code": 500,
+    "time": 1775253706488
+  },
+  {
+    "message": "Validation error",
+    "code": 500,
+    "time": 1775254571435
+  },
+  {
+    "message": "Validation error",
+    "code": 500,
+    "time": 1775254631441
+  },
+  {
+    "message": "jwt expired",
+    "code": 401,
+    "time": 1775425228461
+  },
+  {
+    "message": "Cannot read properties of undefined (reading 'findAll')",
+    "code": 500,
+    "time": 1775428960535
+  },
+  {
+    "message": "server error",
+    "code": 500,
+    "time": 1775433383173
+  }
+]

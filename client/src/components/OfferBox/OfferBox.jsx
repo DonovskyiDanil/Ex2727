@@ -107,7 +107,12 @@ const OfferBox = (props) => {
   };
 
   const { data, role, id, contestType } = props;
-  const { avatar, firstName, lastName, email, rating } = props.data.User;
+  const user = props.data.User || {};
+  const avatar = user.avatar || 'anon.png';
+  const firstName = user.firstName || '';
+  const lastName = user.lastName || '';
+  const email = user.email || '';
+  const rating = user.rating || 0;
   return (
     <div className={styles.offerContainer}>
       {offerStatus()}

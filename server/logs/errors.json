@@ -1,50 +1,20 @@
 [
   {
-    "message": {},
-    "time": 1775253700029,
-    "code": 500,
-    "stackTrace": "ServerError: Error: WHERE parameter \"status\" has invalid \"undefined\" value\n    at module.exports.getCustomersContests (/server/src/controllers/contestController.js:248:10)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)"
-  },
-  {
-    "message": {},
-    "time": 1775253702070,
-    "code": 500,
-    "stackTrace": "ServerError: Error: WHERE parameter \"status\" has invalid \"undefined\" value\n    at module.exports.getCustomersContests (/server/src/controllers/contestController.js:248:10)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)"
-  },
-  {
-    "message": {},
-    "time": 1775253704596,
-    "code": 500,
-    "stackTrace": "ServerError: Error: WHERE parameter \"status\" has invalid \"undefined\" value\n    at module.exports.getCustomersContests (/server/src/controllers/contestController.js:248:10)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)"
-  },
-  {
-    "message": {},
-    "time": 1775253706488,
-    "code": 500,
-    "stackTrace": "ServerError: Error: WHERE parameter \"status\" has invalid \"undefined\" value\n    at module.exports.getCustomersContests (/server/src/controllers/contestController.js:248:10)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)"
-  },
-  {
-    "message": "Validation error",
-    "time": 1775254571435,
-    "code": 500,
-    "stackTrace": "Error\n    at Query.run (/server/node_modules/sequelize/lib/dialects/postgres/query.js:50:25)\n    at /server/node_modules/sequelize/lib/sequelize.js:315:28\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async PostgresQueryInterface.bulkInsert (/server/node_modules/sequelize/lib/dialects/abstract/query-interface.js:346:21)\n    at async recursiveBulkCreate (/server/node_modules/sequelize/lib/model.js:1697:25)\n    at async Contests.bulkCreate (/server/node_modules/sequelize/lib/model.js:1786:12)\n    at async module.exports.payment (/server/src/controllers/userController.js:104:5)"
-  },
-  {
-    "message": "Validation error",
-    "time": 1775254631441,
-    "code": 500,
-    "stackTrace": "Error\n    at Query.run (/server/node_modules/sequelize/lib/dialects/postgres/query.js:50:25)\n    at /server/node_modules/sequelize/lib/sequelize.js:315:28\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async PostgresQueryInterface.bulkInsert (/server/node_modules/sequelize/lib/dialects/abstract/query-interface.js:346:21)\n    at async recursiveBulkCreate (/server/node_modules/sequelize/lib/model.js:1697:25)\n    at async Contests.bulkCreate (/server/node_modules/sequelize/lib/model.js:1786:12)\n    at async module.exports.payment (/server/src/controllers/userController.js:104:5)"
-  },
-  {
     "message": "jwt expired",
-    "time": 1775425228461,
+    "time": 1775439674767,
     "code": 401,
     "stackTrace": "TokenError: jwt expired\n    at module.exports.checkToken (/server/src/middlewares/checkToken.js:57:10)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at next (/server/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/server/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at /server/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/server/node_modules/express/lib/router/index.js:346:12)\n    at next (/server/node_modules/express/lib/router/index.js:280:10)\n    at Function.handle (/server/node_modules/express/lib/router/index.js:175:3)\n    at router (/server/node_modules/express/lib/router/index.js:47:12)"
   },
   {
-    "message": "Cannot read properties of undefined (reading 'findAll')",
-    "time": 1775428960535,
+    "message": "Offer not found",
+    "time": 1775440775350,
     "code": 500,
-    "stackTrace": "TypeError: Cannot read properties of undefined (reading 'findAll')\n    at module.exports.getCatalogs (/server/src/controllers/chatController.js:252:36)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at next (/server/node_modules/express/lib/router/route.js:149:13)\n    at module.exports.checkToken (/server/src/middlewares/checkToken.js:50:5)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at next (/server/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/server/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at /server/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/server/node_modules/express/lib/router/index.js:346:12)"
+    "stackTrace": "ServerError: Offer not found\n    at module.exports.changeOfferStatus (/server/src/controllers/contestController.js:47:41)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)"
+  },
+  {
+    "message": "Offer not found",
+    "time": 1775441015485,
+    "code": 500,
+    "stackTrace": "ServerError: Offer not found\n    at module.exports.changeOfferStatus (/server/src/controllers/contestController.js:47:41)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)"
   }
 ]

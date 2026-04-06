@@ -1,74 +1,104 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { getOffersModeration, changeOfferStatus } from '../../api/rest/restController';
 import styles from './ModeratorPage.module.sass';
+import CONSTANTS from '../../constants';
 
 const ModeratorPage = () => {
-    const [offers, setOffers] = useState([]);
-    const [page, setPage] = useState(1);
-    const limit = 10;
+  const [offers, setOffers] = useState([]);
+  const [error, setError] = useState(null);
 
-    useEffect(() => {
-        loadOffers();
-    }, [page]);
+  // Оборачиваем в useCallback, чтобы функция была доступна и в useEffect, и в кнопке
+  const loadOffers = useCallback(async () => {
+    try {
+      setError(null);
+      // Явно указываем лимиты, чтобы сервер не вернул 404 или пустой список
+      const { data } = await getOffersModeration({ limit: 10, offset: 0 });
+      
+      if (data && data.rows) {
+        setOffers(data.rows);
+      }
+    } catch (e) {
+      console.error("Ошибка при загрузке:", e);
+      setError("Не удалось обновить список");
+    }
+  }, []);
 
-    const loadOffers = async () => {
-        try {
-            const { data } = await getOffersModeration({ limit, offset: (page - 1) * limit });
-            setOffers(data.rows);
-        } catch (e) {
-            console.error("Помилка при завантаженні оферів");
-        }
-    };
+  // Вызываем один раз при загрузке страницы
+  useEffect(() => {
+    loadOffers();
+  }, [loadOffers]);
 
-    const resolveOffer = async (offerId, command) => {
-        try {
-            await changeOfferStatus({ offerId, command });
-            loadOffers(); // Оновлюємо список після дії модератора
-        } catch (e) {
-            console.error("Помилка при зміні статусу");
-        }
-    };
+  const handleStatus = async (offerId, command) => {
+    try {
+      await changeOfferStatus({ offerId, command });
+      // После успешного изменения СРАЗУ вызываем обновление
+      await loadOffers();
+    } catch (e) {
+      alert("Ошибка при изменении статуса");
+    }
+  };
 
-    return (
-        <div className={styles.mainContainer}>
-            <div className={styles.contentContainer}>
-                <h2 className={styles.title}>Панель модерації пропозицій</h2>
-                {offers.length > 0 ? (
-                    <table className={styles.table}>
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Текст пропозиції</th>
-                                <th>Файл</th>
-                                <th>Дії</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {offers.map(o => (
-                                <tr key={o.id}>
-                                    <td>{o.id}</td>
-                                    <td>{o.text || 'Текст відсутній'}</td>
-                                    <td>{o.fileName || 'Немає файлу'}</td>
-                                    <td className={styles.actions}>
-                                        <button className={styles.approveBtn} onClick={() => resolveOffer(o.id, 'approve')}>✅ Підтвердити</button>
-                                        <button className={styles.rejectBtn} onClick={() => resolveOffer(o.id, 'reject')}>❌ Відхилити</button>
-                                    </td>
-                                </tr>
-                            ))}
-                        </tbody>
-                    </table>
-                ) : (
-                    <p className={styles.noOffers}>Немає нових пропозицій для модерації</p>
-                )}
-                
-                <div className={styles.pagination}>
-                    <button disabled={page === 1} onClick={() => setPage(p => p - 1)}>Назад</button>
-                    <span>Сторінка {page}</span>
-                    <button onClick={() => setPage(p => p + 1)}>Вперед</button>
-                </div>
-            </div>
+  return (
+    <div className={styles.mainContainer}>
+      <div className={styles.contentContainer}>
+        <div className={styles.header}>
+          {/* Теперь onClick вызывает функцию напрямую */}
+          <button 
+            className={styles.refreshBtn} 
+            onClick={() => loadOffers()}
+          >
+            Refresh
+          </button>
         </div>
-    );
+
+        {error && <div style={{color: 'red', textAlign: 'center'}}>{error}</div>}
+        
+        <div className={styles.offersList}>
+          {offers.length > 0 ? (
+            offers.map((offer) => (
+              <div key={offer.id} className={styles.offerCard}>
+                <div className={styles.contestSection}>
+                  <h4 className={styles.sectionTitle}>Contest info</h4>
+                  <p>Title: {offer.Contest?.title}</p>
+                  <p>Industry: {offer.Contest?.industry}</p>
+                  <p>Style name: {offer.Contest?.characteristic1 || 'Professional'}</p>
+                </div>
+
+                <div className={styles.offerSection}>
+                  {offer.text ? (
+                    <span className={styles.offerText}>{offer.text}</span>
+                  ) : (
+                    <img 
+                      src={`${CONSTANTS.publicURL}${offer.fileName}`} 
+                      alt="logo" 
+                      className={styles.offerLogo} 
+                    />
+                  )}
+                </div>
+
+                <div className={styles.actionSection}>
+                  <button 
+                    className={styles.approveBtn} 
+                    onClick={() => handleStatus(offer.id, 'approve')}
+                  >
+                    Approve
+                  </button>
+                  <button 
+                    className={styles.rejectBtn} 
+                    onClick={() => handleStatus(offer.id, 'discard')}
+                  >
+                    Reject
+                  </button>
+                </div>
+              </div>
+            ))
+          ) : (
+            <div className={styles.noOffers}>There is no suggestion at this moment</div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default ModeratorPage;

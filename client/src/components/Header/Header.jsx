@@ -99,6 +99,8 @@ class Header extends React.Component {
     if (this.props.isFetching) {
       return null;
     }
+    const { data } = this.props;
+
     return (
       <div className={styles.headerContainer}>
         <div className={styles.fixedHeader}>
@@ -137,30 +139,14 @@ class Header extends React.Component {
                     alt="menu"
                   />
                   <ul>
-                    <li>
-                      <a href="http://www.google.com">BEAUTY</a>
-                    </li>
-                    <li>
-                      <a href="http://www.google.com">CONSULTING</a>
-                    </li>
-                    <li>
-                      <a href="http://www.google.com">E-COMMERCE</a>
-                    </li>
-                    <li>
-                      <a href="http://www.google.com">FASHION & CLOTHING</a>
-                    </li>
-                    <li>
-                      <a href="http://www.google.com">FINANCE</a>
-                    </li>
-                    <li>
-                      <a href="http://www.google.com">REAL ESTATE</a>
-                    </li>
-                    <li>
-                      <a href="http://www.google.com">TECH</a>
-                    </li>
-                    <li className={styles.last}>
-                      <a href="http://www.google.com">MORE CATEGORIES</a>
-                    </li>
+                    <li><a href="http://www.google.com">BEAUTY</a></li>
+                    <li><a href="http://www.google.com">CONSULTING</a></li>
+                    <li><a href="http://www.google.com">E-COMMERCE</a></li>
+                    <li><a href="http://www.google.com">FASHION & CLOTHING</a></li>
+                    <li><a href="http://www.google.com">FINANCE</a></li>
+                    <li><a href="http://www.google.com">REAL ESTATE</a></li>
+                    <li><a href="http://www.google.com">TECH</a></li>
+                    <li className={styles.last}><a href="http://www.google.com">MORE CATEGORIES</a></li>
                   </ul>
                 </li>
                 <li>
@@ -170,34 +156,14 @@ class Header extends React.Component {
                     alt="menu"
                   />
                   <ul>
-                    <li>
-                      <Link to="/how-it-works" className={styles.navLink}>
-                        HOW IT WORKS
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/events" className={styles.navLink}>
-                        EVENTS
-                      </Link>
-                    </li>
-                    <li>
-                      <a href="http://www.google.com">PRICING</a>
-                    </li>
-                    <li>
-                      <a href="http://www.google.com">AGENCY SERVICE</a>
-                    </li>
-                    <li>
-                      <a href="http://www.google.com">ACTIVE CONTESTS</a>
-                    </li>
-                    <li>
-                      <a href="http://www.google.com">WINNERS</a>
-                    </li>
-                    <li>
-                      <a href="http://www.google.com">LEADERBOARD</a>
-                    </li>
-                    <li className={styles.last}>
-                      <a href="http://www.google.com">BECOME A CREATIVE</a>
-                    </li>
+                    <li><Link to="/how-it-works" className={styles.navLink}>HOW IT WORKS</Link></li>
+                    <li><Link to="/events" className={styles.navLink}>EVENTS</Link></li>
+                    <li><a href="http://www.google.com">PRICING</a></li>
+                    <li><a href="http://www.google.com">AGENCY SERVICE</a></li>
+                    <li><a href="http://www.google.com">ACTIVE CONTESTS</a></li>
+                    <li><a href="http://www.google.com">WINNERS</a></li>
+                    <li><a href="http://www.google.com">LEADERBOARD</a></li>
+                    <li className={styles.last}><a href="http://www.google.com">BECOME A CREATIVE</a></li>
                   </ul>
                 </li>
                 <li>
@@ -207,18 +173,10 @@ class Header extends React.Component {
                     alt="menu"
                   />
                   <ul>
-                    <li>
-                      <a href="http://www.google.com">NAMES</a>
-                    </li>
-                    <li>
-                      <a href="http://www.google.com">TAGLINES</a>
-                    </li>
-                    <li>
-                      <a href="http://www.google.com">LOGOS</a>
-                    </li>
-                    <li className={styles.last}>
-                      <a href="http://www.google.com">TESTIMONIALS</a>
-                    </li>
+                    <li><a href="http://www.google.com">NAMES</a></li>
+                    <li><a href="http://www.google.com">TAGLINES</a></li>
+                    <li><a href="http://www.google.com">LOGOS</a></li>
+                    <li className={styles.last}><a href="http://www.google.com">TESTIMONIALS</a></li>
                   </ul>
                 </li>
                 <li>
@@ -228,24 +186,12 @@ class Header extends React.Component {
                     alt="menu"
                   />
                   <ul>
-                    <li>
-                      <a href="http://www.google.com">POPULAR NAMES</a>
-                    </li>
-                    <li>
-                      <a href="http://www.google.com">SHORT NAMES</a>
-                    </li>
-                    <li>
-                      <a href="http://www.google.com">INTRIGUING NAMES</a>
-                    </li>
-                    <li>
-                      <a href="http://www.google.com">NAMES BY CATEGORY</a>
-                    </li>
-                    <li>
-                      <a href="http://www.google.com">VISUAL NAME SEARCH</a>
-                    </li>
-                    <li className={styles.last}>
-                      <a href="http://www.google.com">SELL YOUR DOMAINS</a>
-                    </li>
+                    <li><a href="http://www.google.com">POPULAR NAMES</a></li>
+                    <li><a href="http://www.google.com">SHORT NAMES</a></li>
+                    <li><a href="http://www.google.com">INTRIGUING NAMES</a></li>
+                    <li><a href="http://www.google.com">NAMES BY CATEGORY</a></li>
+                    <li><a href="http://www.google.com">VISUAL NAME SEARCH</a></li>
+                    <li className={styles.last}><a href="http://www.google.com">SELL YOUR DOMAINS</a></li>
                   </ul>
                 </li>
                 <li>
@@ -255,31 +201,32 @@ class Header extends React.Component {
                     alt="menu"
                   />
                   <ul>
-                    <li>
-                      <a href="http://www.google.com">ULTIMATE NAMING GUIDE</a>
-                    </li>
-                    <li>
-                      <a href="http://www.google.com">
-                        POETIC DEVICES IN BUSINESS NAMING
-                      </a>
-                    </li>
-                    <li>
-                      <a href="http://www.google.com">CROWDED BAR THEORY</a>
-                    </li>
-                    <li className={styles.last}>
-                      <a href="http://www.google.com">ALL ARTICLES</a>
-                    </li>
+                    <li><a href="http://www.google.com">ULTIMATE NAMING GUIDE</a></li>
+                    <li><a href="http://www.google.com">POETIC DEVICES IN BUSINESS NAMING</a></li>
+                    <li><a href="http://www.google.com">CROWDED BAR THEORY</a></li>
+                    <li className={styles.last}><a href="http://www.google.com">ALL ARTICLES</a></li>
                   </ul>
                 </li>
               </ul>
             </div>
-            {this.props.data && this.props.data.role !== CONSTANTS.CREATOR && (
-              <div
-                className={styles.startContestBtn}
-                onClick={this.startContests}
-              >
-                START CONTEST
-              </div>
+
+            {/* БЛОК КНОПОК ДЕЙСТВИЯ */}
+            {data && (
+              <>
+                {/* Кнопка для Модератора */}
+                {data.role === CONSTANTS.MODERATOR && (
+                  <Link to="/moderator" className={styles.startContestBtn} style={{ textDecoration: 'none' }}>
+                    REVIEW OFFERS
+                  </Link>
+                )}
+
+                {/* Кнопка для Клиента */}
+                {data.role === CONSTANTS.CUSTOMER && (
+                  <div className={styles.startContestBtn} onClick={this.startContests}>
+                    START CONTEST
+                  </div>
+                )}
+              </>
             )}
           </div>
         </div>
