@@ -80,6 +80,9 @@ class ContestForm extends React.Component {
               industry: '',
               focusOfWork: '',
               targetCustomer: '',
+              // Ініціалізуємо порожні значення для двох нових селектів
+              ventureType: '',
+              designStyle: '',
               file: '',
               ...variableOptions[this.props.contestType],
               ...this.props.initialValues,
@@ -146,6 +149,37 @@ class ContestForm extends React.Component {
                   }}
                 />
               </div>
+
+              {/* ДОДАНО: Новий селект №1 — Type of company / venture */}
+              <div className={styles.inputContainer}>
+                <SelectInput
+                  name="ventureType"
+                  classes={{
+                    inputContainer: styles.selectInputContainer,
+                    inputHeader: styles.selectHeader,
+                    selectInput: styles.select,
+                    warning: styles.warning,
+                  }}
+                  header="Type of company"
+                  optionsArray={['Company', 'Product', 'Project', 'Service']}
+                />
+              </div>
+
+              {/* ДОДАНО: Новий селект №2 — Style name */}
+              <div className={styles.inputContainer}>
+                <SelectInput
+                  name="designStyle"
+                  classes={{
+                    inputContainer: styles.selectInputContainer,
+                    inputHeader: styles.selectHeader,
+                    selectInput: styles.select,
+                    warning: styles.warning,
+                  }}
+                  header="Style name"
+                  optionsArray={['Classic', 'Fun', 'Professional', 'Descriptive', 'Youthful', 'Any']}
+                />
+              </div>
+
               <DomainQuestion {...this.props} />
               <OptionalSelects {...this.props} />
               <FieldFileInput

@@ -45,4 +45,9 @@ router.post('/addMessage', checkToken.checkToken, chatController.addMessage);
 router.get('/all-offers', checkToken.checkToken, contestController.getOffersModeration);
 router.post('/change-offer-status', checkToken.checkToken, contestController.changeOfferStatus);
 
+// --- ЗАВДАННЯ 7, 8, 9: УПРАВЛІННЯ КОРИСТУВАЧАМИ ---
+router.get('/users/count-by-role', checkToken.checkToken, userController.getUsersCountByRole);
+router.post('/cashback/holiday', checkToken.checkToken, basicMiddlewares.onlyForCustomer, userController.applyHolidayCashback); // Только для Customer
+router.post('/creative/top-bonus', checkToken.checkToken, basicMiddlewares.onlyForCreative, userController.payTopCreatives); // Только для Creative
+
 module.exports = router;

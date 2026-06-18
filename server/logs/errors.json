@@ -58,5 +58,71 @@
     "time": 1775515650194,
     "code": 500,
     "stackTrace": "ServerError: Cannot change offer status from pending to undefined\n    at module.exports.setOfferStatus (/server/src/controllers/contestController.js:158:19)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)"
+  },
+  {
+    "message": "jwt expired",
+    "time": 1777480282847,
+    "code": 401,
+    "stackTrace": "TokenError: jwt expired\n    at module.exports.checkToken (/server/src/middlewares/checkToken.js:57:10)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at next (/server/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/server/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at /server/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/server/node_modules/express/lib/router/index.js:346:12)\n    at next (/server/node_modules/express/lib/router/index.js:280:10)\n    at Function.handle (/server/node_modules/express/lib/router/index.js:175:3)\n    at router (/server/node_modules/express/lib/router/index.js:47:12)"
+  },
+  {
+    "message": "Bank decline transaction",
+    "time": 1777480479510,
+    "code": 403,
+    "stackTrace": "BankDeclineError: Bank decline transaction\n    at module.exports.updateBankBalance (/server/src/controllers/queries/bankQueries.js:21:11)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async module.exports.payment (/server/src/controllers/userController.js:80:5)"
+  },
+  {
+    "message": "Bank decline transaction",
+    "time": 1777480902323,
+    "code": 403,
+    "stackTrace": "BankDeclineError: Bank decline transaction\n    at module.exports.updateBankBalance (/server/src/controllers/queries/bankQueries.js:21:11)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async module.exports.payment (/server/src/controllers/userController.js:82:5)"
+  },
+  {
+    "message": "Недостаточно данных для обновления баланса",
+    "time": 1777481201756,
+    "code": 500,
+    "stackTrace": "Error: Недостаточно данных для обновления баланса\n    at module.exports.updateBankBalance (/server/src/controllers/queries/bankQueries.js:7:11)\n    at module.exports.payment (/server/src/controllers/userController.js:83:23)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)"
+  },
+  {
+    "message": "Bank decline transaction",
+    "time": 1777481358482,
+    "code": 403,
+    "stackTrace": "BankDeclineError: Bank decline transaction\n    at module.exports.updateBankBalance (/server/src/controllers/queries/bankQueries.js:21:11)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async module.exports.payment (/server/src/controllers/userController.js:83:5)"
+  },
+  {
+    "message": "jwt expired",
+    "time": 1777490976402,
+    "code": 401,
+    "stackTrace": "TokenError: jwt expired\n    at module.exports.checkToken (/server/src/middlewares/checkToken.js:57:10)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at next (/server/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/server/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at /server/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/server/node_modules/express/lib/router/index.js:346:12)\n    at next (/server/node_modules/express/lib/router/index.js:280:10)\n    at Function.handle (/server/node_modules/express/lib/router/index.js:175:3)\n    at router (/server/node_modules/express/lib/router/index.js:47:12)"
+  },
+  {
+    "message": "Cannot read properties of undefined (reading 'findOne')",
+    "time": 1777495046373,
+    "code": 500,
+    "stackTrace": "TypeError: Cannot read properties of undefined (reading 'findOne')\n    at module.exports.getChat (/server/src/controllers/chatController.js:103:45)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at next (/server/node_modules/express/lib/router/route.js:149:13)\n    at module.exports.checkToken (/server/src/middlewares/checkToken.js:50:5)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at next (/server/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/server/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at /server/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/server/node_modules/express/lib/router/index.js:346:12)"
+  },
+  {
+    "message": "jwt expired",
+    "time": 1779046089159,
+    "code": 401,
+    "stackTrace": "TokenError: jwt expired\n    at module.exports.checkToken (/server/src/middlewares/checkToken.js:57:10)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at next (/server/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/server/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at /server/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/server/node_modules/express/lib/router/index.js:346:12)\n    at next (/server/node_modules/express/lib/router/index.js:280:10)\n    at Function.handle (/server/node_modules/express/lib/router/index.js:175:3)\n    at router (/server/node_modules/express/lib/router/index.js:47:12)"
+  },
+  {
+    "message": "jwt expired",
+    "time": 1780250236902,
+    "code": 401,
+    "stackTrace": "TokenError: jwt expired\n    at module.exports.checkToken (/server/src/middlewares/checkToken.js:57:10)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at next (/server/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/server/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at /server/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/server/node_modules/express/lib/router/index.js:346:12)\n    at next (/server/node_modules/express/lib/router/index.js:280:10)\n    at Function.handle (/server/node_modules/express/lib/router/index.js:175:3)\n    at router (/server/node_modules/express/lib/router/index.js:47:12)"
+  },
+  {
+    "message": "Validation error",
+    "time": 1781811111745,
+    "code": 500,
+    "stackTrace": "Error\n    at Query.run (/server/node_modules/sequelize/lib/dialects/postgres/query.js:50:25)\n    at /server/node_modules/sequelize/lib/sequelize.js:315:28\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async PostgresQueryInterface.bulkInsert (/server/node_modules/sequelize/lib/dialects/abstract/query-interface.js:346:21)\n    at async recursiveBulkCreate (/server/node_modules/sequelize/lib/model.js:1697:25)\n    at async Contests.bulkCreate (/server/node_modules/sequelize/lib/model.js:1786:12)\n    at async module.exports.payment (/server/src/controllers/userController.js:110:5)"
+  },
+  {
+    "message": "Validation error",
+    "time": 1781811368800,
+    "code": 500,
+    "stackTrace": "Error\n    at Query.run (/server/node_modules/sequelize/lib/dialects/postgres/query.js:50:25)\n    at /server/node_modules/sequelize/lib/sequelize.js:315:28\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async PostgresQueryInterface.bulkInsert (/server/node_modules/sequelize/lib/dialects/abstract/query-interface.js:346:21)\n    at async recursiveBulkCreate (/server/node_modules/sequelize/lib/model.js:1697:25)\n    at async Contests.bulkCreate (/server/node_modules/sequelize/lib/model.js:1786:12)\n    at async module.exports.payment (/server/src/controllers/userController.js:110:5)"
   }
 ]

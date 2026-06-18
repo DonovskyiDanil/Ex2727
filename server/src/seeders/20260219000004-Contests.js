@@ -14,7 +14,6 @@ module.exports = {
         orderId: 'ORD-001',
         userId: 1,
         createdAt: new Date(), // Это поле есть в модели
-        // updatedAt: new Date(), <-- УДАЛЯЕМ ЭТУ СТРОКУ, её нет в базе
       },
       {
         id: 2,

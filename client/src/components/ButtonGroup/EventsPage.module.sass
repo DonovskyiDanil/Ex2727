@@ -1,0 +1,154 @@
+.eventsPage
+  padding: 40px 20px
+  max-width: 900px
+  margin: 0 auto
+  font-family: 'Arial', sans-serif
+  color: #333
+
+.pageTitle
+  font-size: 2.5em
+  color: #1a202c
+  text-align: center
+  margin-bottom: 40px
+
+.eventForm
+  background-color: #f8fafc
+  border: 1px solid #e2e8f0
+  border-radius: 8px
+  padding: 30px
+  margin-bottom: 40px
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05)
+
+.formGroup
+  margin-bottom: 20px
+
+  label
+    display: block
+    font-weight: 600
+    margin-bottom: 8px
+    color: #4a5568
+
+  input[type="text"],
+  input[type="datetime-local"]
+    width: 100%
+    padding: 12px
+    border: 1px solid #cbd5e0
+    border-radius: 6px
+    font-size: 1em
+    box-sizing: border-box
+    transition: border-color 0.2s ease
+
+    &:focus
+      outline: none
+      border-color: #3b82f6
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25)
+
+.submitButton
+  display: block
+  width: 100%
+  padding: 12px 20px
+  background-color: #3b82f6
+  color: white
+  border: none
+  border-radius: 6px
+  font-size: 1.1em
+  font-weight: 600
+  cursor: pointer
+  transition: background-color 0.2s ease, transform 0.2s ease
+
+  &:hover
+    background-color: #2563eb
+    transform: translateY(-1px)
+
+  &:active
+    transform: translateY(0)
+
+.timersListContainer
+  background-color: #ffffff
+  border: 1px solid #e2e8f0
+  border-radius: 8px
+  padding: 20px
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05)
+
+.noTimers
+  text-align: center
+  color: #718096
+  font-style: italic
+  padding: 20px
+
+.timersList
+  list-style: none
+  padding: 0
+  margin: 0
+
+.timerItem
+  display: flex
+  justify-content: space-between
+  align-items: center
+  padding: 15px 0
+  border-bottom: 1px solid #edf2f7
+
+  &:last-child
+    border-bottom: none
+
+  &.passed
+    opacity: 0.6
+    text-decoration: line-through
+
+.timerInfo
+  flex-grow: 1
+
+  .eventName
+    font-size: 1.2em
+    color: #2d3748
+    margin-bottom: 5px
+
+  .eventDate, .timeLeft
+    font-size: 0.9em
+    color: #718096
+
+.deleteButton
+  background-color: #ef4444
+  color: white
+  border: none
+  border-radius: 50%
+  width: 30px
+  height: 30px
+  font-size: 1.2em
+  cursor: pointer
+  transition: background-color 0.2s ease
+
+  &:hover
+    background-color: #dc2626
+
+@media (max-width: 768px)
+  .pageTitle
+    font-size: 2em
+
+  .eventForm
+    padding: 20px
+
+  .formGroup
+    input
+      font-size: 0.9em
+
+  .submitButton
+    font-size: 1em
+
+  .timerItem
+    flex-direction: column
+    align-items: flex-start
+    gap: 10px
+
+  .deleteButton
+    align-self: flex-end
+
+@media (max-width: 480px)
+  .pageTitle
+    font-size: 1.8em
+
+  .eventForm
+    padding: 15px
+
+  .submitButton
+    padding: 10px 15px

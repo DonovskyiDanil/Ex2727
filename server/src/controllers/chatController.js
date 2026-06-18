@@ -1,26 +1,56 @@
-const { Conversation, Message, Catalog, Users, sequelize } = require('../models');
+const {
+  Conversation,
+  Message,
+  Catalog,
+  Users,
+  sequelize,
+} = require('../models');
 const controller = require('../socketInit');
 
 module.exports.addMessage = async (req, res, next) => {
   const t = await sequelize.transaction();
   try {
-    const { userId, firstName, lastName, displayName, avatar, email } = req.tokenData;
+    const {
+      userId,
+      firstName,
+      lastName,
+      displayName,
+      avatar,
+      email,
+    } = req.tokenData;
     const { interlocutorId, messageBody, interlocutor } = req.body;
-    const participants = [userId, interlocutorId].sort((a, b) => a - b);
 
-    const [conversation] = await Conversation.findOrCreate({
-      where: {
-        participant1: participants[0],
-        participant2: participants[1],
-      },
-      defaults: {
-        participant1: participants[0],
-        participant2: participants[1],
-        blackList: [false, false],
-        favoriteList: [false, false],
-      },
+    let conversation = await Conversation.findOne({
+      include: [
+        {
+          model: Users,
+          through: { where: { userId } },
+          attributes: ['id'],
+        },
+        {
+          model: Users,
+          through: { where: { userId: interlocutorId } },
+          attributes: ['id'],
+        },
+      ],
       transaction: t,
     });
+
+    if (!conversation) {
+      conversation = await Conversation.create({
+        favoriteList: false,
+        blackList: false,
+      }, { transaction: t });
+
+      await conversation.addUser(userId, {
+        through: { conversationId: conversation.id, userId },
+        transaction: t,
+      });
+      await conversation.addUser(interlocutorId, {
+        through: { conversationId: conversation.id, userId: interlocutorId },
+        transaction: t,
+      });
+    }
 
     const message = await Message.create({
       sender: userId,
@@ -35,22 +65,23 @@ module.exports.addMessage = async (req, res, next) => {
       sender: userId,
       text: messageBody,
       createdAt: message.createdAt,
-      participants,
       blackList: conversation.blackList,
       favoriteList: conversation.favoriteList,
+    };
+
+    const interlocutorData = {
+      id: userId,
+      firstName,
+      lastName,
+      displayName,
+      avatar,
+      email,
     };
 
     controller.getChatController().emitNewMessage(interlocutorId, {
       message,
       preview: Object.assign({}, preview, {
-        interlocutor: {
-          id: userId,
-          firstName,
-          lastName,
-          displayName,
-          avatar,
-          email,
-        },
+        interlocutor: interlocutorData,
       }),
     });
 
@@ -68,26 +99,36 @@ module.exports.getChat = async (req, res, next) => {
   try {
     const { userId } = req.tokenData;
     const { interlocutorId } = req.body;
-    const participants = [userId, interlocutorId].sort((a, b) => a - b);
+
+    const conversation = await Conversation.findOne({
+      include: [
+        {
+          model: Users,
+          through: { where: { userId } },
+          attributes: ['id'],
+        },
+        {
+          model: Users,
+          through: { where: { userId: interlocutorId } },
+          attributes: ['id'],
+        },
+      ],
+    });
+
+    if (!conversation) {
+      return res.send({ messages: [], interlocutor: null });
+    }
 
     const messages = await Message.findAll({
-      include: [{
-        model: Conversation,
-        as: 'conversation',
-        where: {
-          participant1: participants[0],
-          participant2: participants[1],
-        },
-        attributes: [],
-      }],
+      where: { conversationId: conversation.id },
       order: [['createdAt', 'ASC']],
     });
 
-    const interlocutor = await Users.findByPk(interlocutorId, {
+    const foundInterlocutor = await Users.findByPk(interlocutorId, {
       attributes: ['id', 'firstName', 'lastName', 'displayName', 'avatar'],
     });
 
-    res.send({ messages, interlocutor });
+    res.send({ messages, interlocutor: foundInterlocutor });
   } catch (err) {
     next(err);
   }
@@ -96,18 +137,18 @@ module.exports.getChat = async (req, res, next) => {
 module.exports.getPreview = async (req, res, next) => {
   try {
     const { userId } = req.tokenData;
-    const { Conversation, Message, Users, ConversationParticipants, sequelize } = require('../models');
+    // Убран повторный require моделей, так как они уже есть в верхней части файла
 
     const conversations = await sequelize.query(
-      'SELECT DISTINCT ON ("Messages"."conversationId") ' +
-      '"Messages"."id", "Messages"."body" as "text", "Messages"."sender", "Messages"."createdAt", ' +
-      '"Conversations"."id" as "conversationId", "Conversations"."blackList", "Conversations"."favoriteList", ' +
-      '"ConversationParticipants"."userId" as "interlocutorId" ' +
-      'FROM "Messages" ' +
-      'JOIN "Conversations" ON "Messages"."conversationId" = "Conversations"."id" ' +
-      'JOIN "ConversationParticipants" ON "ConversationParticipants"."conversationId" = "Conversations"."id" ' +
-      'WHERE "ConversationParticipants"."userId" = :userId ' +
-      'ORDER BY "Messages"."conversationId", "Messages"."createdAt" DESC',
+      `SELECT DISTINCT ON ("Messages"."conversationId") 
+      "Messages"."id", "Messages"."body" as "text", "Messages"."sender", "Messages"."createdAt", 
+      "Conversations"."id" as "conversationId", "Conversations"."blackList", "Conversations"."favoriteList", 
+      "ConversationParticipants"."userId" as "interlocutorId" 
+      FROM "Messages" 
+      JOIN "Conversations" ON "Messages"."conversationId" = "Conversations"."id" 
+      JOIN "ConversationParticipants" ON "ConversationParticipants"."conversationId" = "Conversations"."id" 
+      WHERE "ConversationParticipants"."userId" = :userId 
+      ORDER BY "Messages"."conversationId", "Messages"."createdAt" DESC`,
       {
         replacements: { userId },
         type: sequelize.QueryTypes.SELECT,
@@ -125,7 +166,6 @@ module.exports.getPreview = async (req, res, next) => {
 
     res.send(conversations);
   } catch (err) {
-    console.error('getPreview error:', err);
     next(err);
   }
 };
@@ -133,20 +173,29 @@ module.exports.getPreview = async (req, res, next) => {
 module.exports.blackList = async (req, res, next) => {
   try {
     const { userId } = req.tokenData;
-    const { participants, blackListFlag } = req.body;
-    const sortedParticipants = participants.sort((a, b) => a - b);
-    const userIndex = sortedParticipants.indexOf(userId);
+    const { interlocutorId, blackListFlag } = req.body;
 
     const conversation = await Conversation.findOne({
-      where: { participant1: sortedParticipants[0], participant2: sortedParticipants[1] },
+      include: [
+        {
+          model: Users,
+          through: { where: { userId } },
+          attributes: ['id'],
+        },
+        {
+          model: Users,
+          through: { where: { userId: interlocutorId } },
+          attributes: ['id'],
+        },
+      ],
     });
 
-    const newBlackList = [conversation.blackList[0], conversation.blackList[1]];
-    newBlackList[userIndex] = blackListFlag;
+    if (!conversation) {
+      return res.status(404).send('Conversation not found');
+    }
 
-    await conversation.update({ blackList: newBlackList });
+    await conversation.update({ blackList: blackListFlag });
 
-    const interlocutorId = sortedParticipants.find((id) => id !== userId);
     controller.getChatController().emitChangeBlockStatus(interlocutorId, conversation);
 
     res.send(conversation);
@@ -158,18 +207,28 @@ module.exports.blackList = async (req, res, next) => {
 module.exports.favoriteChat = async (req, res, next) => {
   try {
     const { userId } = req.tokenData;
-    const { participants, favoriteFlag } = req.body;
-    const sortedParticipants = participants.sort((a, b) => a - b);
-    const userIndex = sortedParticipants.indexOf(userId);
+    const { interlocutorId, favoriteFlag } = req.body;
 
     const conversation = await Conversation.findOne({
-      where: { participant1: sortedParticipants[0], participant2: sortedParticipants[1] },
+      include: [
+        {
+          model: Users,
+          through: { where: { userId } },
+          attributes: ['id'],
+        },
+        {
+          model: Users,
+          through: { where: { userId: interlocutorId } },
+          attributes: ['id'],
+        },
+      ],
     });
 
-    const newFavoriteList = [conversation.favoriteList[0], conversation.favoriteList[1]];
-    newFavoriteList[userIndex] = favoriteFlag;
+    if (!conversation) {
+      return res.status(404).send('Conversation not found');
+    }
 
-    await conversation.update({ favoriteList: newFavoriteList });
+    await conversation.update({ favoriteList: favoriteFlag });
     res.send(conversation);
   } catch (err) {
     next(err);
