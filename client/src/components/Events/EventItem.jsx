@@ -1,10 +1,15 @@
+<<<<<<< HEAD
 import React, { useState, useEffect, useRef } from 'react';
+=======
+import React, { useState, useEffect } from 'react';
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
 import styles from './EventItem.module.sass';
 
 const EventItem = ({ event, onDelete, onExpire }) => {
   const [timeLeft, setTimeLeft] = useState(null);
   const [isNotified, setIsNotified] = useState(false);
   const [isExpired, setIsExpired] = useState(false);
+<<<<<<< HEAD
   const didNotify = useRef(false);
   const didExpire = useRef(false);
 
@@ -14,11 +19,16 @@ const EventItem = ({ event, onDelete, onExpire }) => {
     setIsNotified(false);
     setIsExpired(false);
 
+=======
+
+  useEffect(() => {
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
     const calculate = () => {
       const now = new Date();
       const target = new Date(event.targetDate);
       const diffMs = target.getTime() - now.getTime();
       const diffSeconds = Math.floor(diffMs / 1000);
+<<<<<<< HEAD
       const reminderAt = target.getTime() - Number(event.notifyBefore) * 60_000;
 
       if (Number.isFinite(reminderAt) && now.getTime() >= reminderAt && !didNotify.current) {
@@ -27,15 +37,34 @@ const EventItem = ({ event, onDelete, onExpire }) => {
         if (typeof Notification !== 'undefined' && Notification.permission === 'granted') {
           new Notification(`🔔 ${event.title}`, {
             body: `Event "${event.title}" will happen in ${event.notifyBefore} minutes!`,
+=======
+
+      // Check if should notify
+      if (diffSeconds <= (event.notifyBefore * 60) && !isNotified && diffSeconds > 0) {
+        setIsNotified(true);
+        // Send browser notification if permission granted
+        if ('Notification' in window && Notification.permission === 'granted') {
+          new Notification(`🔔 ${event.title}`, {
+            body: `Event "${event.title}" will happen in ${event.notifyBefore} minutes!`,
+            icon: '🎉'
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
           });
         }
       }
 
+<<<<<<< HEAD
       if (diffSeconds <= 0) {
         setIsExpired(true);
         setTimeLeft(0);
         if (onExpire && !didExpire.current) {
           didExpire.current = true;
+=======
+      // Check if expired
+      if (diffSeconds <= 0) {
+        setIsExpired(true);
+        setTimeLeft(0);
+        if (onExpire) {
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
           onExpire();
         }
         return true;
@@ -53,7 +82,11 @@ const EventItem = ({ event, onDelete, onExpire }) => {
     }, 1000);
 
     return () => clearInterval(timer);
+<<<<<<< HEAD
   }, [event.id, event.title, event.targetDate, event.notifyBefore, onExpire]);
+=======
+  }, [event.targetDate, event.notifyBefore, onExpire, isNotified]);
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
 
   const formatTime = (seconds) => {
     if (seconds === null) return 'calculating...';

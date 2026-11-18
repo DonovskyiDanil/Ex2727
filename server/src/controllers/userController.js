@@ -1,4 +1,5 @@
 const jwt = require('jsonwebtoken');
+<<<<<<< HEAD
 const bcrypt = require('bcrypt');
 const CONSTANTS = require('../constants');
 const db = require('../models');
@@ -9,10 +10,17 @@ const RightsError = require('../errors/RightsError');
 const { v4: uuid } = require('uuid');
 const fs = require('fs');
 const path = require('path');
+=======
+const CONSTANTS = require('../constants');
+const db = require('../models');
+const NotUniqueEmail = require('../errors/NotUniqueEmail');
+const { v4: uuid } = require('uuid');
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
 const controller = require('../socketInit');
 const userQueries = require('./queries/userQueries');
 const bankQueries = require('./queries/bankQueries');
 const ratingQueries = require('./queries/ratingQueries');
+<<<<<<< HEAD
 const NotFoundError = require('../errors/UserNotFoundError');
 
 const isUploadedContestImage = (fileName) => {
@@ -25,11 +33,14 @@ const isUploadedContestImage = (fileName) => {
   }
   return fs.existsSync(path.resolve(__dirname, '../../public/images', fileName));
 };
+=======
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
 
 // --- ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ ---
 
 module.exports.login = async (req, res, next) => {
   try {
+<<<<<<< HEAD
     const { email, password } = req.body;
 
     if (!email || !password) {
@@ -48,6 +59,12 @@ module.exports.login = async (req, res, next) => {
     if (!isPasswordValid) {
       return next(new InvalidCredentialsError());
     }
+=======
+    const foundUser = await userQueries.findUser({ email: req.body.email });
+    if (!foundUser) return res.status(404).send('User not found');
+
+    await userQueries.passwordCompare(req.body.password, foundUser.password);
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
 
     const token = jwt.sign({
       userId: foundUser.id,
@@ -69,10 +86,13 @@ module.exports.login = async (req, res, next) => {
 
 module.exports.registration = async (req, res, next) => {
   try {
+<<<<<<< HEAD
     if (![CONSTANTS.CUSTOMER, CONSTANTS.CREATOR].includes(req.body.role)) {
       return next(new BadRequestError('Invalid registration details'));
     }
 
+=======
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
     const userData = Object.assign({}, req.body);
     userData.password = req.hashPass;
     const newUser = await userQueries.userCreation(userData);
@@ -89,9 +109,14 @@ module.exports.registration = async (req, res, next) => {
 module.exports.getUser = async (req, res, next) => {
   try {
     const user = await userQueries.findUser({ id: req.tokenData.userId });
+<<<<<<< HEAD
     if (!user) return next(new NotFoundError('User not found'));
     delete user.password;
     delete user.accessToken;
+=======
+    if (!user) return res.status(404).send('User not found');
+    user.password = undefined; // Скрываем пароль
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
     res.send(user);
   } catch (err) {
     next(err);
@@ -103,12 +128,18 @@ module.exports.getUser = async (req, res, next) => {
 module.exports.payment = async (req, res, next) => {
   let transaction;
   try {
+<<<<<<< HEAD
     const { contests, expiry: rawExpiry } = req.body;
     const price = contests.length * 100;
+=======
+    const { contests, price: rawPrice, expiry: rawExpiry } = req.body;
+    const price = parseFloat(rawPrice);
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
     const number = (req.body.number || req.body.cardNumber || '').replace(/ /g, '');
     const cvc = String(req.body.cvc || req.body.cvv || req.body.securityCode || '');
     const expiry = String(rawExpiry || '');
 
+<<<<<<< HEAD
     if (
       !number ||
       number === CONSTANTS.SQUADHELP_BANK_NUMBER ||
@@ -126,12 +157,23 @@ module.exports.payment = async (req, res, next) => {
       ))
     ) {
       return next(new BadRequestError('Invalid payment information'));
+=======
+    if (!number || !cvc || !expiry || isNaN(price) || price <= 0) {
+      return res.status(400).send('Missing payment information');
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
     }
 
     transaction = await db.sequelize.transaction();
 
+<<<<<<< HEAD
     await bankQueries.updateBankBalance({
       number,
+=======
+    // Переконайтеся, що ці константи визначені на сервері в constants.js
+    await bankQueries.updateBankBalance({
+      number,
+      cardNumber: number,
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
       cvc,
       expiry,
       price: -price,
@@ -139,6 +181,7 @@ module.exports.payment = async (req, res, next) => {
 
     await bankQueries.updateBankBalance({
       number: CONSTANTS.SQUADHELP_BANK_NUMBER || '1234567890123456',
+<<<<<<< HEAD
       cvc: CONSTANTS.SQUADHELP_BANK_CVC || '123',
       expiry: CONSTANTS.SQUADHELP_BANK_EXPIRY || '11/29',
       price,
@@ -148,14 +191,28 @@ module.exports.payment = async (req, res, next) => {
     const totalCents = Math.round(price * 100);
     const baseCents = Math.floor(totalCents / contests.length);
     const remainderCents = totalCents % contests.length;
+=======
+      cardNumber: CONSTANTS.SQUADHELP_BANK_NUMBER || '1234567890123456',
+      cvc: CONSTANTS.SQUADHELP_BANK_CVC || '123',
+      expiry: CONSTANTS.SQUADHELP_BANK_EXPIRY || '12/30',
+      price, // Сокращено (object-shorthand)
+    }, transaction);
+
+    const orderId = uuid();
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
     const contestsToCreate = contests.map((c, i) => {
       const contest = Object.assign({}, c);
       contest.status = i === 0 ? 'active' : 'pending';
       contest.userId = req.tokenData.userId;
       contest.priority = i + 1;
       contest.orderId = orderId;
+<<<<<<< HEAD
       contest.createdAt = new Date();
       contest.prize = ((baseCents + (i < remainderCents ? 1 : 0)) / 100).toFixed(2);
+=======
+      contest.createdAt = new Date(); // Використання об'єкта Date надійніше для Sequelize
+      contest.prize = Math.floor(price / contests.length);
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
       return contest;
     });
 
@@ -163,7 +220,11 @@ module.exports.payment = async (req, res, next) => {
     await transaction.commit();
     res.send({ message: 'Payment success', orderId });
   } catch (err) {
+<<<<<<< HEAD
     if (transaction && !transaction.finished) await transaction.rollback();
+=======
+    if (transaction) await transaction.rollback();
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
     next(err);
   }
 };
@@ -173,6 +234,7 @@ module.exports.payment = async (req, res, next) => {
 module.exports.changeMark = async (req, res, next) => {
   let transaction;
   try {
+<<<<<<< HEAD
     if (req.tokenData.role !== CONSTANTS.CUSTOMER) {
       return next(new RightsError('Only customers can rate offers'));
     }
@@ -217,10 +279,24 @@ module.exports.changeMark = async (req, res, next) => {
 
     const ratings = await db.Ratings.findAll({
       include: [{ model: db.Offers, required: true, where: { userId: offer.userId } }],
+=======
+    const { offerId, mark, creatorId, isFirst } = req.body;
+    transaction = await db.sequelize.transaction();
+
+    if (isFirst) {
+      await ratingQueries.createRating({ offerId, mark, userId: req.tokenData.userId }, transaction);
+    } else {
+      await ratingQueries.updateRating({ mark }, { offerId, userId: req.tokenData.userId }, transaction);
+    }
+
+    const ratings = await db.Ratings.findAll({
+      include: [{ model: db.Offers, required: true, where: { userId: creatorId } }],
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
       transaction,
     });
 
     const avg = ratings.reduce((acc, r) => acc + r.mark, 0) / ratings.length;
+<<<<<<< HEAD
     await userQueries.updateUser({ rating: avg }, offer.userId, transaction);
 
     await transaction.commit();
@@ -230,10 +306,20 @@ module.exports.changeMark = async (req, res, next) => {
     res.send({ rating: avg, userId: offer.userId });
   } catch (err) {
     if (transaction && !transaction.finished) await transaction.rollback();
+=======
+    await userQueries.updateUser({ rating: avg }, creatorId, transaction);
+
+    await transaction.commit();
+    controller.getNotificationController().emitChangeMark(creatorId);
+    res.send({ rating: avg });
+  } catch (err) {
+    if (transaction) await transaction.rollback();
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
     next(err);
   }
 };
 
+<<<<<<< HEAD
 module.exports.cashout = async (req, res, next) => {
   let transaction;
   try {
@@ -311,6 +397,14 @@ module.exports.getUserStats = async (req, res, next) => {
   } catch (err) {
     next(err);
   }
+=======
+module.exports.cashout = async (req, res) => {
+  res.send({ message: 'Cashout successful' });
+};
+
+module.exports.getUserStats = async (req, res) => {
+  res.send({ stats: { totalEntries: 0, winningEntries: 0 } });
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
 };
 
 module.exports.updateUser = async (req, res, next) => {
@@ -331,8 +425,12 @@ module.exports.updateUser = async (req, res, next) => {
     await db.Users.update(updateData, { where: { id: userId } });
 
     const updatedUser = await userQueries.findUser({ id: userId });
+<<<<<<< HEAD
     delete updatedUser.password;
     delete updatedUser.accessToken;
+=======
+    updatedUser.password = undefined;
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
     res.send(updatedUser);
   } catch (err) {
     next(err);
@@ -354,7 +452,11 @@ module.exports.getUsersCountByRole = async (req, res, next) => {
 
     const roleCounts = {};
     result.forEach(row => {
+<<<<<<< HEAD
       roleCounts[row.role] = Number.parseInt(row.count, 10);
+=======
+      roleCounts[row.role] = parseInt(row.count, 10);
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
     });
 
     res.send(roleCounts);
@@ -368,6 +470,7 @@ module.exports.getUsersCountByRole = async (req, res, next) => {
 module.exports.applyHolidayCashback = async (req, res, next) => {
   let transaction;
   try {
+<<<<<<< HEAD
     const startDate = '2024-12-25 00:00:00';
     const endDate = '2025-01-15 00:00:00';
     const reference = '2024-12-25:2025-01-14';
@@ -415,12 +518,55 @@ module.exports.applyHolidayCashback = async (req, res, next) => {
         { where: { id: customer.userId }, transaction },
       );
       results.push({ userId: customer.userId, cashback: customer.cashback });
+=======
+    const { startDate = '2024-12-25 00:00:00', endDate = '2025-01-14 23:59:59', percentage = 0.1 } = req.body;
+    transaction = await db.sequelize.transaction();
+
+    const customers = await db.Users.findAll({
+      attributes: ['id', 'email'],
+      where: { role: 'customer' },
+      include: [{
+        model: db.Contests,
+        where: {
+          createdAt: {
+            [db.Sequelize.Op.gte]: startDate,
+            [db.Sequelize.Op.lte]: endDate,
+          },
+        },
+        attributes: ['prize'],
+      }],
+      transaction,
+    });
+
+    const results = [];
+    for (const customer of customers) {
+      const totalSpent = customer.Contests.reduce((sum, contest) => sum + (contest.prize || 0), 0);
+      const cashback = Math.round(totalSpent * percentage * 100) / 100;
+
+      if (cashback > 0) {
+        await db.Users.update(
+          { balance: db.sequelize.literal(`balance + ${cashback}`) },
+          { where: { id: customer.id }, transaction },
+        );
+
+        results.push({
+          userId: customer.id,
+          email: customer.email,
+          totalSpent,
+          cashback,
+        });
+      }
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
     }
 
     await transaction.commit();
     res.send({ message: 'Cashback applied successfully', results });
   } catch (err) {
+<<<<<<< HEAD
     if (transaction && !transaction.finished) await transaction.rollback();
+=======
+    if (transaction) await transaction.rollback();
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
     next(err);
   }
 };
@@ -430,21 +576,30 @@ module.exports.applyHolidayCashback = async (req, res, next) => {
 module.exports.payTopCreatives = async (req, res, next) => {
   let transaction;
   try {
+<<<<<<< HEAD
     const bonusAmount = 10;
     const topCount = 3;
     const reference = 'exam-top-creative-bonus';
+=======
+    const { bonusAmount = 10, topCount = 3 } = req.body;
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
     transaction = await db.sequelize.transaction();
 
     const topCreatives = await db.Users.findAll({
       attributes: ['id', 'firstName', 'lastName', 'displayName', 'email', 'rating', 'balance'],
       where: { role: 'creator' },
+<<<<<<< HEAD
       order: [['rating', 'DESC'], ['id', 'ASC']],
+=======
+      order: [['rating', 'DESC']],
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
       limit: topCount,
       transaction,
     });
 
     const results = [];
     for (const creative of topCreatives) {
+<<<<<<< HEAD
       const [inserted] = await db.sequelize.query(
         `INSERT INTO "UserRewards" ("userId", type, reference, amount, "createdAt")
          VALUES (:userId, 'top_creative_bonus', :reference, :amount, CURRENT_TIMESTAMP)
@@ -463,6 +618,10 @@ module.exports.payTopCreatives = async (req, res, next) => {
 
       await db.Users.update(
         { balance: db.sequelize.literal(`balance + ${bonusAmount.toFixed(2)}`) },
+=======
+      await db.Users.update(
+        { balance: db.sequelize.literal(`balance + ${bonusAmount}`) },
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
         { where: { id: creative.id }, transaction },
       );
 
@@ -472,7 +631,11 @@ module.exports.payTopCreatives = async (req, res, next) => {
         email: creative.email,
         rating: creative.rating,
         previousBalance: creative.balance,
+<<<<<<< HEAD
         newBalance: Number(creative.balance) + bonusAmount,
+=======
+        newBalance: creative.balance + bonusAmount,
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
         bonus: bonusAmount,
       });
     }
@@ -480,7 +643,11 @@ module.exports.payTopCreatives = async (req, res, next) => {
     await transaction.commit();
     res.send({ message: `Top ${topCount} creatives received bonus`, results });
   } catch (err) {
+<<<<<<< HEAD
     if (transaction && !transaction.finished) await transaction.rollback();
+=======
+    if (transaction) await transaction.rollback();
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
     next(err);
   }
 };

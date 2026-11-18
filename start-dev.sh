@@ -6,9 +6,12 @@
 
 set -e
 
+<<<<<<< HEAD
 SCRIPT_DIR="$(cd -- "$(dirname -- "$0")" && pwd)"
 cd "$SCRIPT_DIR"
 
+=======
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
 REQUIRED_DOCKER_VERSION="23.0.1"
 COMPOSE_FILE="docker-compose-dev.yaml"
 SERVER_SERVICE="server-dev"
@@ -47,6 +50,7 @@ started_at=$(date +"%s")
 check_docker_version
 
 echo "-----> Building and starting containers"
+<<<<<<< HEAD
 docker compose --file "$COMPOSE_FILE" up -d --build --renew-anon-volumes
 
 echo "-----> Waiting for API to be ready..."
@@ -82,10 +86,28 @@ for attempt in $(seq 1 30); do
   sleep 2
 done
 
+=======
+docker compose --file "$COMPOSE_FILE" up -d --build
+
+echo "-----> Waiting for server to be ready..."
+sleep 10
+
+echo "-----> Running application migrations"
+docker compose --file "$COMPOSE_FILE" exec -T "$SERVER_SERVICE" npx sequelize-cli db:migrate
+
+echo "-----> Running application seeds"
+docker compose --file "$COMPOSE_FILE" exec -T "$SERVER_SERVICE" npx sequelize-cli db:seed:all
+echo "<----- Seeds created"
+
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
 ended_at=$(date +"%s")
 minutes=$(((ended_at - started_at) / 60))
 seconds=$(((ended_at - started_at) % 60))
 
 echo "-----> Done in ${minutes}m${seconds}s"
+<<<<<<< HEAD
 echo "       Application: frontend http://localhost:3000, API http://localhost:5001"
+=======
+echo "       Application: frontend http://localhost:5000, API http://localhost:3000"
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
 echo "       View logs: docker compose --file $COMPOSE_FILE logs -f"

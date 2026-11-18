@@ -1,6 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import classNames from 'classnames';
+<<<<<<< HEAD
+=======
+import isEqual from 'lodash/isEqual';
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
 import LightBox from 'react-18-image-lightbox';
 import withRouter from '../../hocs/withRouter';
 import { goToExpandedDialog } from '../../store/slices/chatSlice';
@@ -8,7 +12,10 @@ import {
   getContestById,
   setOfferStatus,
   clearSetOfferStatusError,
+<<<<<<< HEAD
   clearChangeMarkError,
+=======
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
   changeEditContest,
   changeContestViewMode,
   changeShowImage,
@@ -23,15 +30,22 @@ import Spinner from '../../components/Spinner/Spinner';
 import TryAgain from '../../components/TryAgain/TryAgain';
 import 'react-18-image-lightbox/style.css';
 import Error from '../../components/Error/Error';
+<<<<<<< HEAD
 import { getUserStats } from '../../api/rest/restController';
+=======
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
 
 class ContestPage extends React.Component {
   state = {
     isConfirmModalOpen: false,
+<<<<<<< HEAD
     pendingAction: null,
     pendingOffersCount: null,
     pendingOffersLoading: true,
     pendingOffersError: false,
+=======
+    pendingAction: null
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
   };
 
   componentWillUnmount() {
@@ -40,6 +54,7 @@ class ContestPage extends React.Component {
 
   componentDidMount() {
     this.getData();
+<<<<<<< HEAD
     if (this.props.userStore.data?.role === CONSTANTS.CREATOR) {
       getUserStats()
         .then(({ data }) => {
@@ -54,6 +69,8 @@ class ContestPage extends React.Component {
           this.setState({ pendingOffersLoading: false, pendingOffersError: true });
         });
     }
+=======
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
   }
 
   getData = () => {
@@ -89,7 +106,11 @@ needButtons = (offerStatus) => {
     const { data } = this.props.userStore;
 
     // Якщо замовник приймає оффер — показуємо модалку підтвердження
+<<<<<<< HEAD
     if (data.role === CONSTANTS.CUSTOMER && command === 'resolve') {
+=======
+    if (data.role === CONSTANTS.CUSTOMER && command === CONSTANTS.OFFER_STATUS_SET_APPROVED) {
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
       this.setState({
         isConfirmModalOpen: true,
         pendingAction: { creatorId, offerId, command }
@@ -161,13 +182,21 @@ needButtons = (offerStatus) => {
               <div style={{ display: 'flex', gap: '10px', justifyContent: 'center' }}>
                 <button 
                   onClick={() => this.executeStatusChange(pendingAction.creatorId, pendingAction.offerId, pendingAction.command)}
+<<<<<<< HEAD
                   style={{ padding: '10px 20px', cursor: 'var(--black-hand-cursor)', backgroundColor: '#8aca6b', color: 'white', border: 'none', borderRadius: '4px' }}
+=======
+                  style={{ padding: '10px 20px', cursor: 'pointer', backgroundColor: '#8aca6b', color: 'white', border: 'none', borderRadius: '4px' }}
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
                 >
                   Yes
                 </button>
                 <button 
                   onClick={() => this.setState({ isConfirmModalOpen: false, pendingAction: null })}
+<<<<<<< HEAD
                   style={{ padding: '10px 20px', cursor: 'var(--black-hand-cursor)', backgroundColor: '#eb5757', color: 'white', border: 'none', borderRadius: '4px' }}
+=======
+                  style={{ padding: '10px 20px', cursor: 'pointer', backgroundColor: '#eb5757', color: 'white', border: 'none', borderRadius: '4px' }}
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
                 >
                   No
                 </button>
@@ -198,6 +227,7 @@ needButtons = (offerStatus) => {
                 <Brief contestData={contestData} role={userData.role} goChat={this.goChat} />
               ) : (
                 <div className={styles.offersContainer}>
+<<<<<<< HEAD
                   {userData.role === CONSTANTS.CREATOR && (
                     <span className={styles.pendingOffers}>
                       {this.state.pendingOffersError
@@ -208,12 +238,15 @@ needButtons = (offerStatus) => {
                       <span className={styles.pendingReviewLabel}> on review</span>
                     </span>
                   )}
+=======
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
                   {userData.role === CONSTANTS.CREATOR && contestData?.status === CONSTANTS.CONTEST_STATUS_ACTIVE && (
                     <div className={styles.formWrapper}>
                       <OfferForm contestType={contestData.contestType} contestId={contestData.id} customerId={contestData.userId} />
                     </div>
                   )}
                   {setOfferStatusError && <Error data={setOfferStatusError.data} status={setOfferStatusError.status} clearError={clearSetOfferStatusError} />}
+<<<<<<< HEAD
                   {contestByIdStore.changeMarkError && (
                     <Error
                       data={contestByIdStore.changeMarkError.data}
@@ -221,6 +254,8 @@ needButtons = (offerStatus) => {
                       clearError={this.props.clearChangeMarkError}
                     />
                   )}
+=======
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
                   <div className={styles.offers}>{this.setOffersList()}</div>
                 </div>
               )}
@@ -243,7 +278,10 @@ const mapDispatchToProps = (dispatch) => ({
   getData: (data) => dispatch(getContestById(data)),
   setOfferStatus: (data) => dispatch(setOfferStatus(data)),
   clearSetOfferStatusError: () => dispatch(clearSetOfferStatusError()),
+<<<<<<< HEAD
   clearChangeMarkError: () => dispatch(clearChangeMarkError()),
+=======
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
   goToExpandedDialog: (data) => dispatch(goToExpandedDialog(data)),
   changeEditContest: (data) => dispatch(changeEditContest(data)),
   changeContestViewMode: (data) => dispatch(changeContestViewMode(data)),

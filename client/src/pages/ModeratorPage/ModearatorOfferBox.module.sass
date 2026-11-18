@@ -1,0 +1,61 @@
+.offerCard
+  display: flex
+  justify-content: space-between
+  align-items: center
+  padding: 20px
+  margin-bottom: 20px
+  background: #f9f9f9
+  border-radius: 8px
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1)
+
+.contestInfo
+  flex: 1
+  border-right: 1px solid #ddd
+  padding-right: 15px
+  
+  .infoTitle
+    text-decoration: underline
+    margin-bottom: 10px
+    color: #4e618d
+
+.offerContent
+  flex: 2
+  display: flex
+  justify-content: center
+  align-items: center
+  padding: 0 20px
+
+  .logoImage
+    max-width: 150px
+    height: auto
+
+  .offerText
+    font-size: 18px
+    color: #4e618d
+
+.buttonsContainer
+  flex: 1
+  display: flex
+  flex-direction: column
+  gap: 10px
+  align-items: center
+
+  button
+    width: 120px
+    padding: 10px
+    border: none
+    border-radius: 5px
+    color: white
+    font-weight: bold
+    cursor: pointer
+    transition: 0.3s
+
+  .approveBtn
+    background-color: #8aca6b
+    &:hover
+      background-color: #76af5a
+
+  .rejectBtn
+    background-color: #eb5757
+    &:hover
+      background-color: #d14a4a

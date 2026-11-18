@@ -1,10 +1,13 @@
 .idea/
 .vscode/
+<<<<<<< HEAD
 .env
 .env.*
 !.env.example
 server/.env
 client/.env
+=======
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
 
 ./client/node_modules/
 ./server/node_modules/

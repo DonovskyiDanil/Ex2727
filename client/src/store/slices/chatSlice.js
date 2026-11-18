@@ -1,5 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
+<<<<<<< HEAD
 import { remove } from 'lodash';
+=======
+import { isEqual, remove } from 'lodash';
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
 import * as restController from '../../api/rest/restController';
 import CONSTANTS from '../../constants';
 import {
@@ -29,6 +33,7 @@ const initialState = {
   catalogCreationMode: CONSTANTS.ADD_CHAT_TO_OLD_CATALOG,
 };
 
+<<<<<<< HEAD
 // Беседа теперь определяется своим id (раньше — массивом participants из Mongo)
 const findPreview = (previews, conversationId) =>
   previews.find(preview => preview.id === conversationId);
@@ -44,6 +49,8 @@ const updatePreviewFlags = (state, payload) => {
   }
 };
 
+=======
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
 //---------- getPreviewChat
 export const getPreviewChat = decorateAsyncThunk({
   key: `${CHAT_SLICE_NAME}/getPreviewChat`,
@@ -79,12 +86,19 @@ const getDialogMessagesExtraReducers = createExtraReducers({
   fulfilledReducer: (state, { payload }) => {
     state.messages = payload.messages;
     state.interlocutor = payload.interlocutor;
+<<<<<<< HEAD
     // null — беседы ещё нет, она создастся при отправке первого сообщения
     state.chatData = payload.conversationData || null;
     state.error = null;
   },
   rejectedReducer: (state, { payload }) => {
     state.messages = [];
+=======
+  },
+  rejectedReducer: (state, { payload }) => {
+    state.messages = [];
+    state.interlocutor = null;
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
     state.error = payload;
   },
 });
@@ -101,6 +115,7 @@ export const sendMessage = decorateAsyncThunk({
 const sendMessageExtraReducers = createExtraReducers({
   thunk: sendMessage,
   fulfilledReducer: (state, { payload }) => {
+<<<<<<< HEAD
     const { message, preview } = payload;
     const existing = findPreview(state.messagesPreview, message.conversationId);
     if (existing) {
@@ -117,6 +132,30 @@ const sendMessageExtraReducers = createExtraReducers({
     };
     state.messages = [...state.messages, message];
     state.error = null;
+=======
+    const { messagesPreview } = state;
+    let isNew = true;
+    messagesPreview.forEach(preview => {
+      if (isEqual(preview.participants, payload.message.participants)) {
+        preview.text = payload.message.body;
+        preview.sender = payload.message.sender;
+        preview.createAt = payload.message.createdAt;
+        isNew = false;
+      }
+    });
+    if (isNew) {
+      messagesPreview.push(payload.preview);
+    }
+    const chatData = {
+      _id: payload.preview.id,
+      participants: payload.preview.participants,
+      favoriteList: payload.preview.favoriteList,
+      blackList: payload.preview.blackList,
+    };
+    state.chatData = { ...state.chatData, ...chatData };
+    state.messagesPreview = messagesPreview;
+    state.messages = [...state.messages, payload.message];
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
   },
   rejectedReducer: (state, { payload }) => {
     state.error = payload;
@@ -135,7 +174,17 @@ export const changeChatFavorite = decorateAsyncThunk({
 const changeChatFavoriteExtraReducers = createExtraReducers({
   thunk: changeChatFavorite,
   fulfilledReducer: (state, { payload }) => {
+<<<<<<< HEAD
     updatePreviewFlags(state, payload);
+=======
+    const { messagesPreview } = state;
+    messagesPreview.forEach(preview => {
+      if (isEqual(preview.participants, payload.participants))
+        preview.favoriteList = payload.favoriteList;
+    });
+    state.chatData = payload;
+    state.messagesPreview = messagesPreview;
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
   },
   rejectedReducer: (state, { payload }) => {
     state.error = payload;
@@ -154,7 +203,17 @@ export const changeChatBlock = decorateAsyncThunk({
 const changeChatBlockExtraReducers = createExtraReducers({
   thunk: changeChatBlock,
   fulfilledReducer: (state, { payload }) => {
+<<<<<<< HEAD
     updatePreviewFlags(state, payload);
+=======
+    const { messagesPreview } = state;
+    messagesPreview.forEach(preview => {
+      if (isEqual(preview.participants, payload.participants))
+        preview.blackList = payload.blackList;
+    });
+    state.chatData = payload;
+    state.messagesPreview = messagesPreview;
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
   },
   rejectedReducer: (state, { payload }) => {
     state.error = payload;
@@ -310,11 +369,22 @@ const changeCatalogNameExtraReducers = createExtraReducers({
 
 const reducers = {
   changeBlockStatusInStore: (state, { payload }) => {
+<<<<<<< HEAD
     updatePreviewFlags(state, payload);
+=======
+    const { messagesPreview } = state;
+    messagesPreview.forEach(preview => {
+      if (isEqual(preview.participants, payload.participants))
+        preview.blackList = payload.blackList;
+    });
+    state.chatData = payload;
+    state.messagesPreview = messagesPreview;
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
   },
 
   addMessage: (state, { payload }) => {
     const { message, preview } = payload;
+<<<<<<< HEAD
     const existing = findPreview(state.messagesPreview, message.conversationId);
     if (existing) {
       existing.text = message.body;
@@ -340,6 +410,23 @@ const reducers = {
         };
       }
     }
+=======
+    const { messagesPreview } = state;
+    let isNew = true;
+    messagesPreview.forEach(preview => {
+      if (isEqual(preview.participants, message.participants)) {
+        preview.text = message.body;
+        preview.sender = message.sender;
+        preview.createAt = message.createdAt;
+        isNew = false;
+      }
+    });
+    if (isNew) {
+      messagesPreview.push(preview);
+    }
+    state.messagesPreview = messagesPreview;
+    state.messages = [...state.messages, payload.message];
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
   },
 
   backToDialogList: state => {
@@ -347,8 +434,13 @@ const reducers = {
   },
 
   goToExpandedDialog: (state, { payload }) => {
+<<<<<<< HEAD
     state.interlocutor = payload.interlocutor;
     state.chatData = payload.conversationData || null;
+=======
+    state.interlocutor = { ...state.interlocutor, ...payload.interlocutor };
+    state.chatData = payload.conversationData;
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
     state.isShow = true;
     state.isExpanded = true;
     state.messages = [];

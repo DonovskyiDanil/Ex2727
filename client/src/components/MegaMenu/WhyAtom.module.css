@@ -12,7 +12,11 @@
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1) !important;
   z-index: 999999 !important;
   overflow: hidden !important;
+<<<<<<< HEAD
   cursor: var(--black-arrow-cursor) !important; 
+=======
+  cursor: default !important; 
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
 }
 
 .leftSide {
@@ -39,7 +43,11 @@
   font-size: 16px !important;
   font-weight: 800 !important;
   margin-bottom: 25px !important;
+<<<<<<< HEAD
   cursor: var(--black-arrow-cursor) !important;
+=======
+  cursor: default !important;
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
   padding-left: 14px !important;
 }
 
@@ -54,7 +62,11 @@
   border-radius: 10px !important;
   transition: all 0.2s ease !important;
   text-decoration: none !important;
+<<<<<<< HEAD
   cursor: var(--black-hand-cursor) !important; 
+=======
+  cursor: pointer !important; 
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
 }
 
 .bigLink:hover {
@@ -67,7 +79,11 @@
   gap: 20px !important; 
   margin-bottom: 15px !important;
   align-items: center !important;
+<<<<<<< HEAD
   cursor: var(--black-arrow-cursor) !important; 
+=======
+  cursor: default !important; 
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
 }
 
 .icon {
@@ -80,7 +96,11 @@
   justify-content: center !important;
   box-shadow: 0 2px 5px rgba(0,0,0,0.05) !important;
   transition: transform 0.3s ease !important;
+<<<<<<< HEAD
   cursor: var(--black-hand-cursor) !important; 
+=======
+  cursor: pointer !important; 
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
 }
 
 .card:hover .icon {
@@ -103,7 +123,11 @@
   color: #222 !important;
   margin: 0 !important;
   width: fit-content !important;
+<<<<<<< HEAD
   cursor: var(--black-hand-cursor) !important;
+=======
+  cursor: pointer !important;
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
 }
 
 .text p {
@@ -111,7 +135,11 @@
   color: #222 !important;
   line-height: 1.4 !important;
   width: fit-content !important;
+<<<<<<< HEAD
   cursor: var(--black-hand-cursor) !important;
+=======
+  cursor: pointer !important;
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
 }
 
 .chevron {
@@ -120,7 +148,11 @@
   font-weight: bold !important;
   margin-left: 8px !important;
   transition: transform 0.2s ease !important;
+<<<<<<< HEAD
   cursor: var(--black-hand-cursor) !important;
+=======
+  cursor: pointer !important;
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
 }
 
 .card:hover .chevron {

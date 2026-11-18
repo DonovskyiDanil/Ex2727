@@ -34,6 +34,13 @@ module.exports = (sequelize, DataTypes) => {
     timestamps: false,
   });
 
+<<<<<<< HEAD
+=======
+  Rating.associate = (models) => {
+    Rating.belongsTo(models.User, { foreignKey: 'userId', targetKey: 'id' });
+    Rating.belongsTo(models.Offer, { foreignKey: 'offerId', targetKey: 'id' });
+  };
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
 
   return Rating;
 };

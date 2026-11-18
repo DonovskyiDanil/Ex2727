@@ -1,4 +1,5 @@
 const {
+<<<<<<< HEAD
   Conversations,
   Messages,
   Catalogs,
@@ -140,14 +141,107 @@ module.exports.addMessage = async (req, res, next) => {
     controller.getChatController().emitNewMessage(interlocutorId, {
       message,
       preview: toPreview(conversation, message, senderUser, recipientParticipant),
+=======
+  Conversation,
+  Message,
+  Catalog,
+  Users,
+  sequelize,
+} = require('../models');
+const controller = require('../socketInit');
+
+module.exports.addMessage = async (req, res, next) => {
+  const t = await sequelize.transaction();
+  try {
+    const {
+      userId,
+      firstName,
+      lastName,
+      displayName,
+      avatar,
+      email,
+    } = req.tokenData;
+    const { interlocutorId, messageBody, interlocutor } = req.body;
+
+    let conversation = await Conversation.findOne({
+      include: [
+        {
+          model: Users,
+          through: { where: { userId } },
+          attributes: ['id'],
+        },
+        {
+          model: Users,
+          through: { where: { userId: interlocutorId } },
+          attributes: ['id'],
+        },
+      ],
+      transaction: t,
+    });
+
+    if (!conversation) {
+      conversation = await Conversation.create({
+        favoriteList: false,
+        blackList: false,
+      }, { transaction: t });
+
+      await conversation.addUser(userId, {
+        through: { conversationId: conversation.id, userId },
+        transaction: t,
+      });
+      await conversation.addUser(interlocutorId, {
+        through: { conversationId: conversation.id, userId: interlocutorId },
+        transaction: t,
+      });
+    }
+
+    const message = await Message.create({
+      sender: userId,
+      body: messageBody,
+      conversationId: conversation.id,
+    }, { transaction: t });
+
+    await t.commit();
+
+    const preview = {
+      id: conversation.id,
+      sender: userId,
+      text: messageBody,
+      createdAt: message.createdAt,
+      blackList: conversation.blackList,
+      favoriteList: conversation.favoriteList,
+    };
+
+    const interlocutorData = {
+      id: userId,
+      firstName,
+      lastName,
+      displayName,
+      avatar,
+      email,
+    };
+
+    controller.getChatController().emitNewMessage(interlocutorId, {
+      message,
+      preview: Object.assign({}, preview, {
+        interlocutor: interlocutorData,
+      }),
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
     });
 
     res.send({
       message,
+<<<<<<< HEAD
       preview: toPreview(conversation, message, interlocutorUser, senderParticipant),
     });
   } catch (err) {
     if (t && !t.finished) await t.rollback();
+=======
+      preview: Object.assign({}, preview, { interlocutor }),
+    });
+  } catch (err) {
+    if (t) await t.rollback();
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
     next(err);
   }
 };
@@ -155,6 +249,7 @@ module.exports.addMessage = async (req, res, next) => {
 module.exports.getChat = async (req, res, next) => {
   try {
     const { userId } = req.tokenData;
+<<<<<<< HEAD
     const interlocutorId = parseInterlocutorId(req);
     if (!interlocutorId) return next(new BadRequestError('Incorrect interlocutor'));
 
@@ -185,6 +280,39 @@ module.exports.getChat = async (req, res, next) => {
         favoriteList: participant?.favoriteList || false,
       },
     });
+=======
+    const { interlocutorId } = req.body;
+
+    const conversation = await Conversation.findOne({
+      include: [
+        {
+          model: Users,
+          through: { where: { userId } },
+          attributes: ['id'],
+        },
+        {
+          model: Users,
+          through: { where: { userId: interlocutorId } },
+          attributes: ['id'],
+        },
+      ],
+    });
+
+    if (!conversation) {
+      return res.send({ messages: [], interlocutor: null });
+    }
+
+    const messages = await Message.findAll({
+      where: { conversationId: conversation.id },
+      order: [['createdAt', 'ASC']],
+    });
+
+    const foundInterlocutor = await Users.findByPk(interlocutorId, {
+      attributes: ['id', 'firstName', 'lastName', 'displayName', 'avatar'],
+    });
+
+    res.send({ messages, interlocutor: foundInterlocutor });
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
   } catch (err) {
     next(err);
   }
@@ -193,6 +321,7 @@ module.exports.getChat = async (req, res, next) => {
 module.exports.getPreview = async (req, res, next) => {
   try {
     const { userId } = req.tokenData;
+<<<<<<< HEAD
 
     const previews = await sequelize.query(
       `SELECT DISTINCT ON (c."id")
@@ -228,11 +357,42 @@ module.exports.getPreview = async (req, res, next) => {
     });
 
     res.send(previews.filter((preview) => preview.interlocutor));
+=======
+    // Убран повторный require моделей, так как они уже есть в верхней части файла
+
+    const conversations = await sequelize.query(
+      `SELECT DISTINCT ON ("Messages"."conversationId") 
+      "Messages"."id", "Messages"."body" as "text", "Messages"."sender", "Messages"."createdAt", 
+      "Conversations"."id" as "conversationId", "Conversations"."blackList", "Conversations"."favoriteList", 
+      "ConversationParticipants"."userId" as "interlocutorId" 
+      FROM "Messages" 
+      JOIN "Conversations" ON "Messages"."conversationId" = "Conversations"."id" 
+      JOIN "ConversationParticipants" ON "ConversationParticipants"."conversationId" = "Conversations"."id" 
+      WHERE "ConversationParticipants"."userId" = :userId 
+      ORDER BY "Messages"."conversationId", "Messages"."createdAt" DESC`,
+      {
+        replacements: { userId },
+        type: sequelize.QueryTypes.SELECT,
+      },
+    );
+
+    for (let i = 0; i < conversations.length; i += 1) {
+      const conv = conversations[i];
+      const sender = await Users.findByPk(conv.interlocutorId, {
+        attributes: ['id', 'firstName', 'lastName', 'displayName', 'avatar'],
+      });
+      conv.interlocutor = sender;
+      conv.id = conv.conversationId;
+    }
+
+    res.send(conversations);
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
   } catch (err) {
     next(err);
   }
 };
 
+<<<<<<< HEAD
 const changeConversationFlag = async (req, res, next, field, value) => {
   try {
     const { userId } = req.tokenData;
@@ -267,11 +427,43 @@ const changeConversationFlag = async (req, res, next, field, value) => {
     }
 
     res.send(payload);
+=======
+module.exports.blackList = async (req, res, next) => {
+  try {
+    const { userId } = req.tokenData;
+    const { interlocutorId, blackListFlag } = req.body;
+
+    const conversation = await Conversation.findOne({
+      include: [
+        {
+          model: Users,
+          through: { where: { userId } },
+          attributes: ['id'],
+        },
+        {
+          model: Users,
+          through: { where: { userId: interlocutorId } },
+          attributes: ['id'],
+        },
+      ],
+    });
+
+    if (!conversation) {
+      return res.status(404).send('Conversation not found');
+    }
+
+    await conversation.update({ blackList: blackListFlag });
+
+    controller.getChatController().emitChangeBlockStatus(interlocutorId, conversation);
+
+    res.send(conversation);
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
   } catch (err) {
     next(err);
   }
 };
 
+<<<<<<< HEAD
 module.exports.blackList = (req, res, next) =>
   changeConversationFlag(req, res, next, 'blackList', req.body.blackListFlag);
 
@@ -294,17 +486,58 @@ const normalizeCatalog = (catalog) => ({
   catalogName: catalog.catalogName,
   chats: (catalog.chats || []).map((chat) => chat.id),
 });
+=======
+module.exports.favoriteChat = async (req, res, next) => {
+  try {
+    const { userId } = req.tokenData;
+    const { interlocutorId, favoriteFlag } = req.body;
+
+    const conversation = await Conversation.findOne({
+      include: [
+        {
+          model: Users,
+          through: { where: { userId } },
+          attributes: ['id'],
+        },
+        {
+          model: Users,
+          through: { where: { userId: interlocutorId } },
+          attributes: ['id'],
+        },
+      ],
+    });
+
+    if (!conversation) {
+      return res.status(404).send('Conversation not found');
+    }
+
+    await conversation.update({ favoriteList: favoriteFlag });
+    res.send(conversation);
+  } catch (err) {
+    next(err);
+  }
+};
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
 
 module.exports.createCatalog = async (req, res, next) => {
   try {
     const { userId } = req.tokenData;
     const { catalogName, chatId } = req.body;
+<<<<<<< HEAD
     if (!catalogName) return next(new BadRequestError('Catalog name is required'));
 
     const catalog = await Catalogs.create({ userId, catalogName });
     if (chatId) await catalog.addChat(chatId);
 
     res.send(normalizeCatalog(await catalogWithChats(catalog.id, userId)));
+=======
+    const catalog = await Catalog.create({
+      userId,
+      catalogName,
+    });
+    await catalog.addChat(chatId);
+    res.send(catalog);
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
   } catch (err) {
     next(err);
   }
@@ -314,11 +547,19 @@ module.exports.updateNameCatalog = async (req, res, next) => {
   try {
     const { userId } = req.tokenData;
     const { catalogId, catalogName } = req.body;
+<<<<<<< HEAD
     const catalog = await Catalogs.findOne({ where: { id: catalogId, userId } });
     if (!catalog) return next(new NotFoundError('Catalog not found'));
 
     await catalog.update({ catalogName });
     res.send(normalizeCatalog(await catalogWithChats(catalogId, userId)));
+=======
+    const catalog = await Catalog.findOne({
+      where: { id: catalogId, userId },
+    });
+    await catalog.update({ catalogName });
+    res.send(catalog);
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
   } catch (err) {
     next(err);
   }
@@ -328,11 +569,19 @@ module.exports.addNewChatToCatalog = async (req, res, next) => {
   try {
     const { userId } = req.tokenData;
     const { catalogId, chatId } = req.body;
+<<<<<<< HEAD
     const catalog = await Catalogs.findOne({ where: { id: catalogId, userId } });
     if (!catalog) return next(new NotFoundError('Catalog not found'));
 
     await catalog.addChat(chatId);
     res.send(normalizeCatalog(await catalogWithChats(catalogId, userId)));
+=======
+    const catalog = await Catalog.findOne({
+      where: { id: catalogId, userId },
+    });
+    await catalog.addChat(chatId);
+    res.send(catalog);
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
   } catch (err) {
     next(err);
   }
@@ -342,11 +591,19 @@ module.exports.removeChatFromCatalog = async (req, res, next) => {
   try {
     const { userId } = req.tokenData;
     const { catalogId, chatId } = req.body;
+<<<<<<< HEAD
     const catalog = await Catalogs.findOne({ where: { id: catalogId, userId } });
     if (!catalog) return next(new NotFoundError('Catalog not found'));
 
     await catalog.removeChat(chatId);
     res.send(normalizeCatalog(await catalogWithChats(catalogId, userId)));
+=======
+    const catalog = await Catalog.findOne({
+      where: { id: catalogId, userId },
+    });
+    await catalog.removeChat(chatId);
+    res.send(catalog);
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
   } catch (err) {
     next(err);
   }
@@ -356,8 +613,15 @@ module.exports.deleteCatalog = async (req, res, next) => {
   try {
     const { userId } = req.tokenData;
     const { catalogId } = req.body;
+<<<<<<< HEAD
     await Catalogs.destroy({ where: { id: catalogId, userId } });
     res.send({ catalogId });
+=======
+    await Catalog.destroy({
+      where: { id: catalogId, userId },
+    });
+    res.end();
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
   } catch (err) {
     next(err);
   }
@@ -366,17 +630,29 @@ module.exports.deleteCatalog = async (req, res, next) => {
 module.exports.getCatalogs = async (req, res, next) => {
   try {
     const { userId } = req.tokenData;
+<<<<<<< HEAD
     const catalogs = await Catalogs.findAll({
       where: { userId },
       attributes: ['id', 'catalogName'],
       include: [{
         model: Conversations,
+=======
+    const catalogs = await Catalog.findAll({
+      where: { userId },
+      attributes: ['id', 'catalogName'],
+      include: [{
+        model: Conversation,
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
         as: 'chats',
         attributes: ['id'],
         through: { attributes: [] },
       }],
     });
+<<<<<<< HEAD
     res.send(catalogs.map(normalizeCatalog));
+=======
+    res.send(catalogs);
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
   } catch (err) {
     next(err);
   }

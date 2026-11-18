@@ -8,7 +8,10 @@ export const updateUser = data => http.post('updateUser', data); // Провер
 
 // --- КОНКУРСЫ ---
 export const updateContest = data => http.post('updateContest', data);
+<<<<<<< HEAD
 export const uploadContestFile = data => http.post('uploadContestFile', data);
+=======
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
 export const dataForContest = data => http.post('dataForContest', data);
 
 // Исправлено: На бэкенде GET, параметры передаем через params
@@ -45,7 +48,10 @@ export const downloadContestFile = data =>
 export const payMent = data => http.post('pay', data);
 export const changeMark = data => http.post('changeMark', data);
 export const cashOut = data => http.post('cashout', data);
+<<<<<<< HEAD
 export const getUserStats = () => http.get('getUserStats');
+=======
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
 
 // --- ЧАТ ---
 export const getPreviewChat = () => http.post('getPreview');

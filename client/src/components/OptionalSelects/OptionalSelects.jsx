@@ -2,6 +2,10 @@ import React from 'react';
 import CONSTANTS from '../../constants';
 import SelectInput from '../SelectInput/SelectInput';
 import FormInput from '../FormInput/FormInput';
+<<<<<<< HEAD
+=======
+import ButtonGroup from '../ButtonGroup/ButtonGroup';
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
 import styles from '../ContestForm/ContestForm.module.sass';
 
 const OptionalSelects = props => {

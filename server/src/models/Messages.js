@@ -30,6 +30,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.DATE,
       defaultValue: DataTypes.NOW,
     },
+<<<<<<< HEAD
     updatedAt: {
       type: DataTypes.DATE,
       defaultValue: DataTypes.NOW,
@@ -39,6 +40,17 @@ module.exports = (sequelize, DataTypes) => {
     timestamps: false,
   });
 
+=======
+  }, {
+    tableName: 'Messages', // Строго как в pgAdmin
+    timestamps: false,     // У нас нет updatedAt в SQL-скрипте
+  });
+
+  Message.associate = (models) => {
+    Message.belongsTo(models.Conversation, { foreignKey: 'conversationId' });
+    Message.belongsTo(models.User, { foreignKey: 'sender' });
+  };
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
 
   return Message;
 };

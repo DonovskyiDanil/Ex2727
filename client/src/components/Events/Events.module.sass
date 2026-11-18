@@ -1,0 +1,83 @@
+.eventsContainer
+  min-height: 100vh
+  background-color: #f8fafc
+  padding: 40px 20px
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif
+
+.mainContent
+  max-width: 900px
+  margin: 0 auto
+
+.headerSection
+  text-align: center
+  margin-bottom: 50px
+
+.pageTitle
+  font-size: 32px
+  font-weight: 700
+  color: #1e293b
+  margin-bottom: 10px
+
+.pageDescription
+  font-size: 16px
+  color: #64748b
+  margin-bottom: 0
+
+.section
+  margin-bottom: 40px
+  background: white
+  padding: 30px
+  border-radius: 12px
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1)
+
+.sectionHeader
+  display: flex
+  justify-content: space-between
+  align-items: center
+  margin-bottom: 20px
+  gap: 15px
+
+.sectionTitle
+  font-size: 20px
+  font-weight: 600
+  color: #1e293b
+  margin: 0
+
+.formWrapper
+  display: block
+
+.expiredBadge
+  display: inline-flex
+  align-items: center
+  background-color: #fee2e2
+  color: #991b1b
+  padding: 6px 14px
+  border-radius: 50px
+  font-size: 12px
+  font-weight: 600
+  white-space: nowrap
+
+@media (max-width: 768px)
+  .eventsContainer
+    padding: 20px 15px
+
+  .pageTitle
+    font-size: 24px
+
+  .pageDescription
+    font-size: 14px
+
+  .section
+    padding: 20px
+    margin-bottom: 30px
+
+  .sectionHeader
+    flex-direction: column
+    align-items: flex-start
+
+  .expiredBadge
+    width: 100%
+    justify-content: center
+
+  .sectionTitle
+    font-size: 18px

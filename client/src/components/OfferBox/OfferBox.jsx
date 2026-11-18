@@ -1,6 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Rating from 'react-rating';
+<<<<<<< HEAD
+=======
+import isEqual from 'lodash/isEqual';
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
 import classNames from 'classnames';
 import withRouter from '../../hocs/withRouter';
 import { goToExpandedDialog } from '../../store/slices/chatSlice';
@@ -9,6 +13,7 @@ import CONSTANTS from '../../constants';
 import styles from './OfferBox.module.sass';
 
 const OfferBox = (props) => {
+<<<<<<< HEAD
   const { data, role, id, contestType, changeShowImage, needButtons, goToExpandedDialog, changeMark, clearError, setOfferStatus } = props;
   const { User: offerUser } = data;
   const User = offerUser || {};
@@ -31,6 +36,20 @@ const OfferBox = (props) => {
         favoriteList: preview.favoriteList,
       }
       : null;
+=======
+  const { data, role, id, contestType, changeShowImage, needButtons, goToExpandedDialog, changeMark, setOfferStatus } = props;
+  const { User } = data;
+
+  const findConversationInfo = () => {
+    const { messagesPreview, id, data } = props;
+    const participants = [id, data.User.id].sort((a, b) => a - b);
+    for (let i = 0; i < messagesPreview.length; i++) {
+      if (isEqual(participants, messagesPreview[i].participants)) {
+        return messagesPreview[i];
+      }
+    }
+    return null;
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
   };
 
   return (
@@ -52,6 +71,7 @@ const OfferBox = (props) => {
         <div className={styles.userInfo}>
           <div className={styles.creativeInfoContainer}>
             <img 
+<<<<<<< HEAD
               src={avatar === 'anon.png' ? CONSTANTS.ANONYM_IMAGE_PATH : `${CONSTANTS.publicURL}${avatar}`} 
               alt="user" 
             />
@@ -85,6 +105,22 @@ const OfferBox = (props) => {
                   creatorId: User.id,
                 });
               }}
+=======
+              src={User.avatar === 'anon.png' ? CONSTANTS.ANONYM_IMAGE_PATH : `${CONSTANTS.publicURL}${User.avatar}`} 
+              alt="user" 
+            />
+            <div className={styles.nameAndEmail}>
+              <span>{`${User.firstName} ${User.lastName}`}</span>
+              <span>{User.email}</span>
+            </div>
+          </div>
+          <div className={styles.creativeRating}>
+            <span className={styles.userScoreLabel}>Creative Rating </span>
+            <Rating
+              initialRating={User.rating}
+              fractions={2}
+              readonly
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
               fullSymbol={<img src={`${CONSTANTS.STATIC_IMAGES_PATH}star.png`} alt="star" />}
               placeholderSymbol={<img src={`${CONSTANTS.STATIC_IMAGES_PATH}star.png`} alt="star" />}
               emptySymbol={<img src={`${CONSTANTS.STATIC_IMAGES_PATH}star-outline.png`} alt="star-outline" />}
@@ -104,6 +140,19 @@ const OfferBox = (props) => {
             <span className={styles.response}>{data.text}</span>
           )}
           
+<<<<<<< HEAD
+=======
+          {User.id !== id && (
+            <Rating
+              fractions={2}
+              onClick={(val) => changeMark({ mark: val, offerId: data.id, isFirst: !data.mark, creatorId: User.id })}
+              placeholderRating={data.mark}
+              fullSymbol={<img src={`${CONSTANTS.STATIC_IMAGES_PATH}star.png`} alt="star" />}
+              placeholderSymbol={<img src={`${CONSTANTS.STATIC_IMAGES_PATH}star.png`} alt="star" />}
+              emptySymbol={<img src={`${CONSTANTS.STATIC_IMAGES_PATH}star-outline.png`} alt="star-outline" />}
+            />
+          )}
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
         </div>
 
         {role !== CONSTANTS.CREATOR && (

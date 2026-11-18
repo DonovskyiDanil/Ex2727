@@ -61,6 +61,22 @@ module.exports = (sequelize, DataTypes) => {
     timestamps: false, // В SQL нет полей createdAt/updatedAt для Users
   });
 
+<<<<<<< HEAD
+=======
+  User.associate = (models) => {
+    User.hasMany(models.Message, { foreignKey: 'sender', as: 'messages' });
+    User.hasMany(models.Order, { foreignKey: 'userId', as: 'orders' });
+    User.hasMany(models.Offer, { foreignKey: 'userId', as: 'offers' });
+    User.hasMany(models.Contest, { foreignKey: 'userId', as: 'contests' });
+    User.hasMany(models.Catalog, { foreignKey: 'userId', as: 'catalogs' });
+    User.belongsToMany(models.Conversation, {
+      through: models.ConversationParticipant,
+      foreignKey: 'userId',
+      otherKey: 'conversationId',
+      as: 'chats',
+    });
+  };
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
 
   return User;
 };

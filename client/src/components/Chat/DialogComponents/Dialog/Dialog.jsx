@@ -19,6 +19,7 @@ class Dialog extends React.Component {
   messagesEnd = React.createRef();
 
   scrollToBottom = () => {
+<<<<<<< HEAD
     if (this.messagesEnd.current) {
       this.messagesEnd.current.scrollIntoView({ behavior: 'smooth' });
     }
@@ -29,12 +30,27 @@ class Dialog extends React.Component {
       this.props.getDialog({ interlocutorId: this.props.interlocutor.id });
     }
     if (this.messagesEnd.current) this.scrollToBottom();
+=======
+    this.messagesEnd.current.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  componentWillReceiveProps(nextProps, nextContext) {
+    if (nextProps.interlocutor.id !== this.props.interlocutor.id)
+      this.props.getDialog({ interlocutorId: nextProps.interlocutor.id });
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
   }
 
   componentWillUnmount() {
     this.props.clearMessageList();
   }
 
+<<<<<<< HEAD
+=======
+  componentDidUpdate() {
+    if (this.messagesEnd.current) this.scrollToBottom();
+  }
+
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
   renderMainDialog = () => {
     const messagesArray = [];
     const { messages, userId } = this.props;
@@ -66,9 +82,24 @@ class Dialog extends React.Component {
     return <div className={styles.messageList}>{messagesArray}</div>;
   };
 
+<<<<<<< HEAD
   blockMessage = () => (
     <span className={styles.messageBlock}>This conversation is blocked</span>
   );
+=======
+  blockMessage = () => {
+    const { userId, chatData } = this.props;
+    const { blackList, participants } = chatData;
+    const userIndex = participants.indexOf(userId);
+    let message;
+    if (chatData && blackList[userIndex]) {
+      message = 'You block him';
+    } else if (chatData && blackList.includes(true)) {
+      message = 'He block you';
+    }
+    return <span className={styles.messageBlock}>{message}</span>;
+  };
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
 
   render() {
     const { chatData, userId } = this.props;
@@ -77,7 +108,11 @@ class Dialog extends React.Component {
         <ChatHeader userId={userId} />
         {this.renderMainDialog()}
         <div ref={this.messagesEnd} />
+<<<<<<< HEAD
         {chatData && chatData.blackList ? (
+=======
+        {chatData && chatData.blackList.includes(true) ? (
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
           this.blockMessage()
         ) : (
           <ChatInput />

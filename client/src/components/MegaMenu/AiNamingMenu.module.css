@@ -11,7 +11,11 @@
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1) !important;
   z-index: 999999 !important;
   overflow: hidden !important;
+<<<<<<< HEAD
   cursor: var(--black-arrow-cursor) !important;
+=======
+  cursor: default !important;
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
 }
 
 .list { 
@@ -25,7 +29,11 @@
   gap: 20px !important; 
   align-items: center !important; 
   padding: 10px !important;
+<<<<<<< HEAD
   cursor: var(--black-hand-cursor) !important; 
+=======
+  cursor: pointer !important; 
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
 }
 
 .iconContainer { 
@@ -39,7 +47,11 @@
   box-shadow: 0 2px 8px rgba(0,0,0,0.06) !important;
   transition: transform 0.3s ease !important;
   flex-shrink: 0 !important;
+<<<<<<< HEAD
   cursor: var(--black-hand-cursor) !important;
+=======
+  cursor: pointer !important;
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
 }
 
 .item:hover .iconContainer {
@@ -64,7 +76,11 @@
   margin: 0 !important; 
   display: flex !important;
   align-items: center !important;
+<<<<<<< HEAD
   cursor: var(--black-hand-cursor) !important;
+=======
+  cursor: pointer !important;
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
 }
 
 .info p { 
@@ -73,7 +89,11 @@
   margin: 4px 0 0 0 !important; 
   line-height: 1.9 !important;
   width: fit-content !important;
+<<<<<<< HEAD
   cursor: var(--black-hand-cursor) !important;
+=======
+  cursor: pointer !important;
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
   font-weight: 500 !important;
 }
 

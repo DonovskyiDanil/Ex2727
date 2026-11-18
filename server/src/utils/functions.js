@@ -32,7 +32,11 @@ module.exports.createWhereForAllContests = (
 };
 
 function getPredicateTypes (index) {
+<<<<<<< HEAD
   return { [ db.Sequelize.Op.in ]: types[ index ].split(',') };
+=======
+  return { [ db.Sequelize.Op.or ]: [types[ index ].split(',')] };
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
 }
 
 const types = [

@@ -12,8 +12,13 @@ import Schems from '../../../../utils/validators/validationSchems';
 
 const CatalogListHeader = (props) => {
   const changeCatalogName = (values) => {
+<<<<<<< HEAD
     const { changeCatalogName, id } = props;
     changeCatalogName({ catalogName: values.catalogName, catalogId: id });
+=======
+    const { changeCatalogName, _id } = props;
+    changeCatalogName({ catalogName: values.catalogName, catalogId: _id });
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
   };
   const {
     catalogName,
@@ -66,9 +71,15 @@ const CatalogListHeader = (props) => {
 
 const mapStateToProps = (state) => {
   const { isRenameCatalog } = state.chatStore;
+<<<<<<< HEAD
   const { catalogName, id } = state.chatStore.currentCatalog;
   return {
     id,
+=======
+  const { catalogName, _id } = state.chatStore.currentCatalog;
+  return {
+    _id,
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
     catalogName,
     isRenameCatalog,
     initialValues: {

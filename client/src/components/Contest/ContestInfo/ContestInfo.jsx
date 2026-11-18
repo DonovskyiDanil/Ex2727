@@ -11,7 +11,10 @@ const ContestInfo = props => {
     typeOfTagline,
     brandStyle,
     typeOfName,
+<<<<<<< HEAD
     domainQuestion,
+=======
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
     styleName,
     contestType,
     title,
@@ -51,7 +54,10 @@ const ContestInfo = props => {
           <NameContestSpecialInfo
             typeOfName={typeOfName}
             styleName={styleName}
+<<<<<<< HEAD
             domainQuestion={domainQuestion}
+=======
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
           />
         ) : contestType === CONSTANTS.TAGLINE_CONTEST ? (
           <TaglineContestSpecialInfo

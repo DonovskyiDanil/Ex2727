@@ -8,6 +8,7 @@ import FormInput from '../../../FormInput/FormInput';
 import Schems from '../../../../utils/validators/validationSchems';
 
 const ChatInput = (props) => {
+<<<<<<< HEAD
   const submitHandler = async (values, { resetForm }) => {
     const result = await props.sendMessage({
       messageBody: values.message,
@@ -16,6 +17,15 @@ const ChatInput = (props) => {
     if (sendMessage.fulfilled.match(result)) {
       resetForm();
     }
+=======
+  const submitHandler = (values, { resetForm }) => {
+    props.sendMessage({
+      messageBody: values.message,
+      recipient: props.interlocutor.id,
+      interlocutor: props.interlocutor,
+    });
+    resetForm();
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
   };
 
   return (

@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Navigate, Outlet } from 'react-router-dom';
+<<<<<<< HEAD
 import CONSTANTS from '../../../constants';
 import Spinner from '../../Spinner/Spinner';
 
@@ -34,6 +35,18 @@ const PrivateRoute = ({ allowedRoles }) => {
   }
 
   return <Outlet />;
+=======
+import Spinner from '../../Spinner/Spinner';
+
+const PrivateRoute = (props) => {
+  const { data, isFetching } = useSelector((state) => state.userStore);
+
+  if (isFetching) {
+    return <Spinner />;
+  }
+
+  return data ? <Outlet /> : <Navigate to="/login" />;
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
 };
 
 export default PrivateRoute;

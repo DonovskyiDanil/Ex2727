@@ -150,6 +150,7 @@ class ContestForm extends React.Component {
                 />
               </div>
 
+<<<<<<< HEAD
               {this.props.contestType !== CONSTANTS.LOGO_CONTEST && (
                 <>
                   <div className={styles.inputContainer}>
@@ -181,6 +182,37 @@ class ContestForm extends React.Component {
                   </div>
                 </>
               )}
+=======
+              {/* ДОДАНО: Новий селект №1 — Type of company / venture */}
+              <div className={styles.inputContainer}>
+                <SelectInput
+                  name="ventureType"
+                  classes={{
+                    inputContainer: styles.selectInputContainer,
+                    inputHeader: styles.selectHeader,
+                    selectInput: styles.select,
+                    warning: styles.warning,
+                  }}
+                  header="Type of company"
+                  optionsArray={['Company', 'Product', 'Project', 'Service']}
+                />
+              </div>
+
+              {/* ДОДАНО: Новий селект №2 — Style name */}
+              <div className={styles.inputContainer}>
+                <SelectInput
+                  name="designStyle"
+                  classes={{
+                    inputContainer: styles.selectInputContainer,
+                    inputHeader: styles.selectHeader,
+                    selectInput: styles.select,
+                    warning: styles.warning,
+                  }}
+                  header="Style name"
+                  optionsArray={['Classic', 'Fun', 'Professional', 'Descriptive', 'Youthful', 'Any']}
+                />
+              </div>
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
 
               <DomainQuestion {...this.props} />
               <OptionalSelects {...this.props} />

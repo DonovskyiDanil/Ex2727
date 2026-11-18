@@ -14,10 +14,13 @@ const PayInput = props => {
         <input
           {...field}
           placeholder={label}
+<<<<<<< HEAD
           autoComplete="off"
           data-1p-ignore="true"
           data-lpignore="true"
           data-bwignore="true"
+=======
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
           className={classNames(classes.input, {
             [classes.notValid]: touched && error,
           })}
@@ -36,10 +39,13 @@ const PayInput = props => {
           maskChar={null}
           {...field}
           placeholder={label}
+<<<<<<< HEAD
           autoComplete="off"
           data-1p-ignore="true"
           data-lpignore="true"
           data-bwignore="true"
+=======
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
           className={classNames(classes.input, {
             [classes.notValid]: touched && error,
           })}
@@ -56,10 +62,13 @@ const PayInput = props => {
       <input
         {...field}
         placeholder={label}
+<<<<<<< HEAD
         autoComplete="off"
         data-1p-ignore="true"
         data-lpignore="true"
         data-bwignore="true"
+=======
+>>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
         className={classNames(classes.input, {
           [classes.notValid]: touched && error,
         })}
