@@ -1,0 +1,367 @@
+.headerWrapper {
+  width: 100%;
+}
+
+.announcementBar {
+  background: #1e293b;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 8px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-align: center;
+  flex-wrap: wrap;
+}
+
+.announcementLink {
+  color: #7fb2ff !important;
+  text-decoration: underline;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.header {
+  background: #ffffff;
+  border-bottom: 1px solid #eef1f4;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 2000;
+}
+
+.container {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  gap: 24px;
+}
+
+.logo {
+  height: 34px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+/* ---------- Навигация (верхнее, не проскроленное состояние) ---------- */
+
+.nav {
+  display: flex;
+  gap: 32px;
+  height: 100%;
+  align-items: center;
+  flex: 1;
+  justify-content: center;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  cursor: var(--black-hand-cursor);
+  position: relative;
+}
+
+.label {
+  font-size: 15px;
+  font-weight: 600;
+  color: #222 !important;
+  transition: color 0.2s;
+  white-space: nowrap;
+}
+
+.navItem:hover .label, .active .label {
+  color: #377dff !important;
+}
+
+.menuDropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 10000;
+  cursor: var(--black-arrow-cursor);
+}
+
+/* ---------- Поисковая строка (состояние после скролла) ---------- */
+
+.searchBar {
+  flex: 1;
+  max-width: 720px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #f5f6f8;
+  border: 1px solid #e2e5ea;
+  border-radius: 999px;
+  padding: 6px 6px 6px 18px;
+}
+
+.searchIcon {
+  color: #9aa2b1;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.searchInput {
+  flex: 1;
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 14px;
+  color: #222;
+}
+
+.searchInput::placeholder {
+  color: #9aa2b1;
+}
+
+.searchButton {
+  background: #377dff;
+  color: #ffffff;
+  border: none;
+  border-radius: 999px;
+  padding: 10px 22px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: var(--black-hand-cursor);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.searchButton:hover {
+  background: #2864d6;
+}
+
+/* ---------- Иконки справа (одинаковые в обоих состояниях) ---------- */
+
+.actions {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.actionWrapper {
+  position: relative;
+  height: 76px;
+  display: flex;
+  align-items: center;
+  cursor: var(--black-hand-cursor);
+  color: #222 !important;
+  text-decoration: none;
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+}
+
+.icon {
+  font-size: 19px;
+  color: #333;
+  transition: color 0.2s;
+}
+
+.actionWrapper:hover .icon {
+  color: #377dff;
+}
+
+.smallDropdown, .hamburgerDropdown {
+  position: absolute !important;
+  top: 100% !important;
+  right: 0 !important;
+  left: auto !important;
+  background: #ffffff !important;
+  min-width: 210px !important;
+  border-radius: 12px !important;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1) !important;
+  border: 1px solid #eef1f4 !important;
+  padding: 10px 0 !important;
+  z-index: 10001 !important;
+  display: flex;
+  flex-direction: column;
+}
+
+.dropItem {
+  padding: 12px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #222 !important;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: all 0.2s ease;
+  cursor: var(--black-hand-cursor);
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.dropItem:hover {
+  background: #f8faff;
+  color: #377dff !important;
+}
+
+/* ---------- Гамбургер (только после скролла) ---------- */
+
+.hamburgerItem {
+  position: relative;
+  padding: 12px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #222;
+  cursor: var(--black-hand-cursor);
+  white-space: nowrap;
+}
+
+.hamburgerItem:hover {
+  background: #f8faff;
+  color: #377dff;
+}
+
+.hamburgerSubmenu {
+  position: absolute;
+  top: 0;
+  right: 100%;
+  cursor: var(--black-arrow-cursor);
+}
+
+@media (max-width: 900px) {
+  .nav { gap: 18px; }
+  .searchBar { max-width: none; }
+}
+
+/* ---------- Боковая панель (гамбургер) ---------- */
+
+.drawerOverlay {
+  position: fixed;
+  top: 76px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(15, 23, 42, 0.45);
+  z-index: 1999;
+}
+
+.drawer {
+  position: fixed;
+  top: 76px;
+  left: 0;
+  bottom: 0;
+  width: 340px;
+  max-width: 85vw;
+  background: #ffffff;
+  z-index: 2001;
+  box-shadow: 12px 0 40px rgba(0,0,0,0.15);
+  overflow-y: auto;
+  padding: 24px 0;
+}
+
+.drawerClose {
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: #222;
+  cursor: var(--black-hand-cursor);
+  padding: 0 24px 20px 24px;
+  display: block;
+}
+
+.drawerClose:hover {
+  color: #377dff;
+}
+
+.headerCloseBtn {
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: #222;
+  cursor: var(--black-hand-cursor);
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+.headerCloseBtn:hover {
+  color: #377dff;
+}
+
+.drawerList {
+  display: flex;
+  flex-direction: column;
+}
+
+.drawerCategory {
+  display: flex;
+  flex-direction: column;
+}
+
+.drawerCategoryHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  font-size: 17px;
+  font-weight: 700;
+  color: #222;
+  cursor: var(--black-hand-cursor);
+}
+
+.drawerCategoryHeader:hover {
+  color: #377dff;
+}
+
+.drawerChevron {
+  font-size: 13px;
+  color: #9aa2b1;
+  transition: transform 0.2s;
+}
+
+.drawerChevronOpen {
+  transform: rotate(180deg);
+}
+
+.drawerSubList {
+  display: flex;
+  flex-direction: column;
+  padding: 0 24px 12px 36px;
+  gap: 10px;
+}
+
+.drawerSubItem {
+  font-size: 14px;
+  color: #555;
+  cursor: var(--black-hand-cursor);
+}
+
+.drawerSubItem:hover {
+  color: #377dff;
+}
+
+.drawerDivider {
+  height: 1px;
+  background: #eef1f4;
+  margin: 12px 24px;
+}
+
+.drawerFlatItem {
+  display: block;
+  padding: 14px 24px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #222 !important;
+  text-decoration: none;
+  cursor: var(--black-hand-cursor);
+}
+
+.drawerFlatItem:hover {
+  color: #377dff !important;
+}

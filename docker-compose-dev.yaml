@@ -1,0 +1,70 @@
+# version: '3'
+services:
+
+  front-react:
+    build:
+      context: ./client
+
+    environment:
+      NODE_ENV: development
+    depends_on:
+      - server-dev
+    volumes:
+      - ./client:/client
+      - /client/node_modules
+    ports:
+      - "3000:3000"
+      
+  server-dev:
+    build:
+      context: ./server
+    environment:
+      NODE_ENV: development
+      JWT_SECRET: ${JWT_SECRET:-local-development-only-secret}
+      SMTP_HOST: ${SMTP_HOST:-}
+      SMTP_PORT: ${SMTP_PORT:-587}
+      SMTP_SECURE: ${SMTP_SECURE:-false}
+      SMTP_USER: ${SMTP_USER:-}
+      SMTP_PASS: ${SMTP_PASS:-}
+      SMTP_FROM: ${SMTP_FROM:-}
+    ports:
+      - "5001:5001"
+    # Ждём, пока Postgres реально начнёт принимать подключения,
+    # а не просто пока его контейнер создан
+    depends_on:
+      db-dev:
+        condition: service_healthy
+      mongo-dev:
+        condition: service_started
+    restart: on-failure
+    volumes:
+      - ./server:/server
+      - /server/node_modules
+
+
+  mongo-dev:
+    image: mongo:7
+    ports:
+      - "12345:27017"
+    volumes:
+      - mongo_data:/data/db
+
+  db-dev:
+    image: postgres:16-alpine
+    environment:
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=todo-dev
+    ports:
+      - "12346:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d todo-dev"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  mongo_data:
+  postgres_data:

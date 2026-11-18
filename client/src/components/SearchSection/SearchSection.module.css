@@ -1,0 +1,88 @@
+.section {
+  padding: 0 24px clamp(76px, 9vw, 112px);
+  background: #fff;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.ctaCard {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(36px, 6vw, 66px);
+  border-radius: 18px;
+  background: #f8f6f2;
+  text-align: center;
+}
+
+.ctaCard::before,
+.ctaCard::after {
+  content: '';
+  position: absolute;
+  width: 190px;
+  height: 190px;
+  border: 1px solid rgba(232, 101, 79, 0.2);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.ctaCard::before {
+  top: -110px;
+  left: -60px;
+}
+
+.ctaCard::after {
+  right: -80px;
+  bottom: -130px;
+  width: 250px;
+  height: 250px;
+}
+
+.eyebrow {
+  color: #aa452f;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+}
+
+.ctaCard h2 {
+  max-width: 620px;
+  margin: 14px auto 12px;
+  color: #17233c;
+  font-size: clamp(30px, 4vw, 44px);
+  line-height: 1.1;
+  letter-spacing: -0.045em;
+}
+
+.ctaCard p {
+  max-width: 500px;
+  margin: 0 auto;
+  color: #667085;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.ctaButton {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 24px;
+  padding: 14px 19px;
+  border-radius: 9px;
+  background: #e8654f;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background-color 160ms ease, transform 160ms ease;
+}
+
+.ctaButton:hover {
+  background: #ce503c;
+  color: #fff;
+  transform: translateY(-2px);
+}

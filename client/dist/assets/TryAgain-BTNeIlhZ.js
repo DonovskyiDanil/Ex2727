@@ -1,0 +1,1 @@
+import{j as n}from"./react-vendor-BrLK-6oS.js";const s="_container_ttyaa_1",t={container:s},o=r=>{const{getData:a}=r;return n.jsxs("div",{className:t.container,children:[n.jsx("span",{onClick:()=>a(),children:"Server Error. Try again"}),n.jsx("i",{className:"fas fa-redo",onClick:()=>a()})]})};export{o as T};

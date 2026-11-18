@@ -1,0 +1,684 @@
+[
+  {
+    "message": "jwt expired",
+    "time": 1775439674767,
+    "code": 401,
+    "stackTrace": "TokenError: jwt expired\n    at module.exports.checkToken (/server/src/middlewares/checkToken.js:57:10)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at next (/server/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/server/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at /server/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/server/node_modules/express/lib/router/index.js:346:12)\n    at next (/server/node_modules/express/lib/router/index.js:280:10)\n    at Function.handle (/server/node_modules/express/lib/router/index.js:175:3)\n    at router (/server/node_modules/express/lib/router/index.js:47:12)"
+  },
+  {
+    "message": "Offer not found",
+    "time": 1775440775350,
+    "code": 500,
+    "stackTrace": "ServerError: Offer not found\n    at module.exports.changeOfferStatus (/server/src/controllers/contestController.js:47:41)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)"
+  },
+  {
+    "message": "Offer not found",
+    "time": 1775441015485,
+    "code": 500,
+    "stackTrace": "ServerError: Offer not found\n    at module.exports.changeOfferStatus (/server/src/controllers/contestController.js:47:41)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)"
+  },
+  {
+    "message": "undefined is not iterable (cannot read property Symbol(Symbol.iterator))",
+    "time": 1775446064063,
+    "code": 500,
+    "stackTrace": "TypeError: undefined is not iterable (cannot read property Symbol(Symbol.iterator))\n    at module.exports.updateContest (/server/src/controllers/queries/contestQueries.js:5:24)\n    at async module.exports.updateContest (/server/src/controllers/contestController.js:146:28)"
+  },
+  {
+    "message": "Cannot read properties of undefined (reading 'findAll')",
+    "time": 1775446073842,
+    "code": 500,
+    "stackTrace": "TypeError: Cannot read properties of undefined (reading 'findAll')\n    at module.exports.getChat (/server/src/controllers/chatController.js:73:36)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at next (/server/node_modules/express/lib/router/route.js:149:13)\n    at module.exports.checkToken (/server/src/middlewares/checkToken.js:50:5)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at next (/server/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/server/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at /server/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/server/node_modules/express/lib/router/index.js:346:12)"
+  },
+  {
+    "message": "Cannot read properties of undefined (reading 'findAll')",
+    "time": 1775446112158,
+    "code": 500,
+    "stackTrace": "TypeError: Cannot read properties of undefined (reading 'findAll')\n    at module.exports.getChat (/server/src/controllers/chatController.js:73:36)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at next (/server/node_modules/express/lib/router/route.js:149:13)\n    at module.exports.checkToken (/server/src/middlewares/checkToken.js:50:5)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at next (/server/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/server/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at /server/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/server/node_modules/express/lib/router/index.js:346:12)"
+  },
+  {
+    "message": "jwt expired",
+    "time": 1775510545081,
+    "code": 401,
+    "stackTrace": "TokenError: jwt expired\n    at module.exports.checkToken (/server/src/middlewares/checkToken.js:57:10)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at next (/server/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/server/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at /server/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/server/node_modules/express/lib/router/index.js:346:12)\n    at next (/server/node_modules/express/lib/router/index.js:280:10)\n    at Function.handle (/server/node_modules/express/lib/router/index.js:175:3)\n    at router (/server/node_modules/express/lib/router/index.js:47:12)"
+  },
+  {
+    "message": "Validation error",
+    "time": 1775511558177,
+    "code": 500,
+    "stackTrace": "Error\n    at Query.run (/server/node_modules/sequelize/lib/dialects/postgres/query.js:50:25)\n    at /server/node_modules/sequelize/lib/sequelize.js:315:28\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async PostgresQueryInterface.bulkInsert (/server/node_modules/sequelize/lib/dialects/abstract/query-interface.js:346:21)\n    at async recursiveBulkCreate (/server/node_modules/sequelize/lib/model.js:1697:25)\n    at async Contests.bulkCreate (/server/node_modules/sequelize/lib/model.js:1786:12)\n    at async module.exports.payment (/server/src/controllers/userController.js:104:5)"
+  },
+  {
+    "message": "Offer not found or already has the same status",
+    "time": 1775515309430,
+    "code": 500,
+    "stackTrace": "ServerError: Offer not found or already has the same status\n    at module.exports.setOfferStatus (/server/src/controllers/contestController.js:148:19)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)"
+  },
+  {
+    "message": "Cannot change offer status from pending to undefined",
+    "time": 1775515650194,
+    "code": 500,
+    "stackTrace": "ServerError: Cannot change offer status from pending to undefined\n    at module.exports.setOfferStatus (/server/src/controllers/contestController.js:158:19)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)"
+  },
+  {
+    "message": "jwt expired",
+    "time": 1777480282847,
+    "code": 401,
+    "stackTrace": "TokenError: jwt expired\n    at module.exports.checkToken (/server/src/middlewares/checkToken.js:57:10)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at next (/server/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/server/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at /server/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/server/node_modules/express/lib/router/index.js:346:12)\n    at next (/server/node_modules/express/lib/router/index.js:280:10)\n    at Function.handle (/server/node_modules/express/lib/router/index.js:175:3)\n    at router (/server/node_modules/express/lib/router/index.js:47:12)"
+  },
+  {
+    "message": "Bank decline transaction",
+    "time": 1777480479510,
+    "code": 403,
+    "stackTrace": "BankDeclineError: Bank decline transaction\n    at module.exports.updateBankBalance (/server/src/controllers/queries/bankQueries.js:21:11)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async module.exports.payment (/server/src/controllers/userController.js:80:5)"
+  },
+  {
+    "message": "Bank decline transaction",
+    "time": 1777480902323,
+    "code": 403,
+    "stackTrace": "BankDeclineError: Bank decline transaction\n    at module.exports.updateBankBalance (/server/src/controllers/queries/bankQueries.js:21:11)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async module.exports.payment (/server/src/controllers/userController.js:82:5)"
+  },
+  {
+    "message": "Недостаточно данных для обновления баланса",
+    "time": 1777481201756,
+    "code": 500,
+    "stackTrace": "Error: Недостаточно данных для обновления баланса\n    at module.exports.updateBankBalance (/server/src/controllers/queries/bankQueries.js:7:11)\n    at module.exports.payment (/server/src/controllers/userController.js:83:23)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)"
+  },
+  {
+    "message": "Bank decline transaction",
+    "time": 1777481358482,
+    "code": 403,
+    "stackTrace": "BankDeclineError: Bank decline transaction\n    at module.exports.updateBankBalance (/server/src/controllers/queries/bankQueries.js:21:11)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async module.exports.payment (/server/src/controllers/userController.js:83:5)"
+  },
+  {
+    "message": "jwt expired",
+    "time": 1777490976402,
+    "code": 401,
+    "stackTrace": "TokenError: jwt expired\n    at module.exports.checkToken (/server/src/middlewares/checkToken.js:57:10)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at next (/server/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/server/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at /server/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/server/node_modules/express/lib/router/index.js:346:12)\n    at next (/server/node_modules/express/lib/router/index.js:280:10)\n    at Function.handle (/server/node_modules/express/lib/router/index.js:175:3)\n    at router (/server/node_modules/express/lib/router/index.js:47:12)"
+  },
+  {
+    "message": "Cannot read properties of undefined (reading 'findOne')",
+    "time": 1777495046373,
+    "code": 500,
+    "stackTrace": "TypeError: Cannot read properties of undefined (reading 'findOne')\n    at module.exports.getChat (/server/src/controllers/chatController.js:103:45)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at next (/server/node_modules/express/lib/router/route.js:149:13)\n    at module.exports.checkToken (/server/src/middlewares/checkToken.js:50:5)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at next (/server/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/server/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at /server/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/server/node_modules/express/lib/router/index.js:346:12)"
+  },
+  {
+    "message": "jwt expired",
+    "time": 1779046089159,
+    "code": 401,
+    "stackTrace": "TokenError: jwt expired\n    at module.exports.checkToken (/server/src/middlewares/checkToken.js:57:10)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at next (/server/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/server/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at /server/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/server/node_modules/express/lib/router/index.js:346:12)\n    at next (/server/node_modules/express/lib/router/index.js:280:10)\n    at Function.handle (/server/node_modules/express/lib/router/index.js:175:3)\n    at router (/server/node_modules/express/lib/router/index.js:47:12)"
+  },
+  {
+    "message": "jwt expired",
+    "time": 1780250236902,
+    "code": 401,
+    "stackTrace": "TokenError: jwt expired\n    at module.exports.checkToken (/server/src/middlewares/checkToken.js:57:10)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at next (/server/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/server/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at /server/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/server/node_modules/express/lib/router/index.js:346:12)\n    at next (/server/node_modules/express/lib/router/index.js:280:10)\n    at Function.handle (/server/node_modules/express/lib/router/index.js:175:3)\n    at router (/server/node_modules/express/lib/router/index.js:47:12)"
+  },
+  {
+    "message": "Validation error",
+    "time": 1781811111745,
+    "code": 500,
+    "stackTrace": "Error\n    at Query.run (/server/node_modules/sequelize/lib/dialects/postgres/query.js:50:25)\n    at /server/node_modules/sequelize/lib/sequelize.js:315:28\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async PostgresQueryInterface.bulkInsert (/server/node_modules/sequelize/lib/dialects/abstract/query-interface.js:346:21)\n    at async recursiveBulkCreate (/server/node_modules/sequelize/lib/model.js:1697:25)\n    at async Contests.bulkCreate (/server/node_modules/sequelize/lib/model.js:1786:12)\n    at async module.exports.payment (/server/src/controllers/userController.js:110:5)"
+  },
+  {
+    "message": "Validation error",
+    "time": 1781811368800,
+    "code": 500,
+    "stackTrace": "Error\n    at Query.run (/server/node_modules/sequelize/lib/dialects/postgres/query.js:50:25)\n    at /server/node_modules/sequelize/lib/sequelize.js:315:28\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async PostgresQueryInterface.bulkInsert (/server/node_modules/sequelize/lib/dialects/abstract/query-interface.js:346:21)\n    at async recursiveBulkCreate (/server/node_modules/sequelize/lib/model.js:1697:25)\n    at async Contests.bulkCreate (/server/node_modules/sequelize/lib/model.js:1786:12)\n    at async module.exports.payment (/server/src/controllers/userController.js:110:5)"
+  },
+  {
+    "message": "jwt expired",
+    "time": 1782073842337,
+    "code": 401,
+    "stackTrace": "TokenError: jwt expired\n    at module.exports.checkToken (/server/src/middlewares/checkToken.js:57:10)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at next (/server/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/server/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at /server/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/server/node_modules/express/lib/router/index.js:346:12)\n    at next (/server/node_modules/express/lib/router/index.js:280:10)\n    at Function.handle (/server/node_modules/express/lib/router/index.js:175:3)\n    at router (/server/node_modules/express/lib/router/index.js:47:12)"
+  },
+  {
+    "message": "Invalid email or password",
+    "time": 1794921702945,
+    "code": 401,
+    "stackTrace": "InvalidCredentialsError: Invalid email or password\n    at module.exports.login (/server/src/controllers/userController.js:21:19)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at next (/server/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/server/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at /server/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/server/node_modules/express/lib/router/index.js:346:12)\n    at next (/server/node_modules/express/lib/router/index.js:280:10)\n    at Function.handle (/server/node_modules/express/lib/router/index.js:175:3)\n    at router (/server/node_modules/express/lib/router/index.js:47:12)"
+  },
+  {
+    "message": "Unable to complete registration. Please review your details and try again.",
+    "time": 1794921853495,
+    "code": 409,
+    "stackTrace": "NotUniqueEmail: Unable to complete registration. Please review your details and try again.\n    at module.exports.registration (/server/src/controllers/userController.js:65:61)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)"
+  },
+  {
+    "message": "Not allowed",
+    "time": 1794922472152,
+    "code": 423,
+    "stackTrace": "RightsError: Not allowed\n    at module.exports.setOfferStatus (/server/src/controllers/contestController.js:270:19)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)"
+  },
+  {
+    "message": "Not allowed",
+    "time": 1794922669565,
+    "code": 423,
+    "stackTrace": "RightsError: Not allowed\n    at module.exports.setOfferStatus (/server/src/controllers/contestController.js:270:19)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)"
+  },
+  {
+    "message": "Offer cannot be changed",
+    "time": 1794922669584,
+    "code": 423,
+    "stackTrace": "RightsError: Offer cannot be changed\n    at module.exports.setOfferStatus (/server/src/controllers/contestController.js:259:21)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)"
+  },
+  {
+    "message": "Ця дія дозволена лише для модераторів!",
+    "time": 1794922669622,
+    "code": 423,
+    "stackTrace": "RightsError: Ця дія дозволена лише для модераторів!\n    at module.exports (/server/src/middlewares/checkModerator.js:8:19)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at next (/server/node_modules/express/lib/router/route.js:149:13)\n    at module.exports.checkToken (/server/src/middlewares/checkToken.js:50:5)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at next (/server/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/server/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at /server/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/server/node_modules/express/lib/router/index.js:346:12)"
+  },
+  {
+    "message": "Invalid registration details",
+    "time": 1794922669628,
+    "code": 400,
+    "stackTrace": "BadRequestError: Invalid registration details\n    at module.exports.registration (/server/src/controllers/userController.js:59:19)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at next (/server/node_modules/express/lib/router/route.js:149:13)\n    at module.exports (/server/src/middlewares/hashPassMiddle.js:8:5)"
+  },
+  {
+    "message": "Invalid email or password",
+    "time": 1794922864671,
+    "code": 401,
+    "stackTrace": "InvalidCredentialsError: Invalid email or password\n    at module.exports.login (/server/src/controllers/userController.js:22:19)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at next (/server/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/server/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at /server/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/server/node_modules/express/lib/router/index.js:346:12)\n    at next (/server/node_modules/express/lib/router/index.js:280:10)\n    at Function.handle (/server/node_modules/express/lib/router/index.js:175:3)\n    at router (/server/node_modules/express/lib/router/index.js:47:12)"
+  },
+  {
+    "message": "jwt expired",
+    "time": 1794925441787,
+    "code": 401,
+    "stackTrace": "TokenError: jwt expired\n    at module.exports.checkToken (/server/src/middlewares/checkToken.js:57:10)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at next (/server/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/server/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at /server/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/server/node_modules/express/lib/router/index.js:346:12)\n    at next (/server/node_modules/express/lib/router/index.js:280:10)\n    at Function.handle (/server/node_modules/express/lib/router/index.js:175:3)\n    at router (/server/node_modules/express/lib/router/index.js:47:12)"
+  },
+  {
+    "message": "jwt expired",
+    "time": 1794927027914,
+    "code": 401,
+    "stackTrace": "TokenError: jwt expired\n    at module.exports.checkToken (/server/src/middlewares/checkToken.js:57:10)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at next (/server/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/server/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at /server/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/server/node_modules/express/lib/router/index.js:346:12)\n    at next (/server/node_modules/express/lib/router/index.js:280:10)\n    at Function.handle (/server/node_modules/express/lib/router/index.js:175:3)\n    at router (/server/node_modules/express/lib/router/index.js:47:12)"
+  },
+  {
+    "message": "jwt expired",
+    "time": 1794927027945,
+    "code": 401,
+    "stackTrace": "TokenError: jwt expired\n    at module.exports.checkToken (/server/src/middlewares/checkToken.js:57:10)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at next (/server/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/server/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at /server/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/server/node_modules/express/lib/router/index.js:346:12)\n    at next (/server/node_modules/express/lib/router/index.js:280:10)\n    at Function.handle (/server/node_modules/express/lib/router/index.js:175:3)\n    at router (/server/node_modules/express/lib/router/index.js:47:12)"
+  },
+  {
+    "message": "need token",
+    "time": 1794929007443,
+    "code": 401,
+    "stackTrace": {
+      "name": "TokenError",
+      "frames": [
+        "at module.exports.checkToken (/server/src/middlewares/checkToken.js:45:17)",
+        "at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)",
+        "at next (/server/node_modules/express/lib/router/route.js:149:13)",
+        "at Route.dispatch (/server/node_modules/express/lib/router/route.js:119:3)",
+        "at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)",
+        "at /server/node_modules/express/lib/router/index.js:284:15",
+        "at Function.process_params (/server/node_modules/express/lib/router/index.js:346:12)",
+        "at next (/server/node_modules/express/lib/router/index.js:280:10)",
+        "at Function.handle (/server/node_modules/express/lib/router/index.js:175:3)",
+        "at router (/server/node_modules/express/lib/router/index.js:47:12)"
+      ]
+    }
+  },
+  {
+    "message": "Error fetching offers",
+    "time": 1794929146633,
+    "code": 500,
+    "stackTrace": {
+      "name": "ServerError",
+      "frames": [
+        "at module.exports.getOffersModeration (/server/src/controllers/contestController.js:47:10)",
+        "at process.processTicksAndRejections (node:internal/process/task_queues:95:5)"
+      ]
+    }
+  },
+  {
+    "message": "Moderators can only access offer moderation",
+    "time": 1794929200993,
+    "code": 423,
+    "stackTrace": {
+      "name": "RightsError",
+      "frames": [
+        "at /server/src/router/index.js:33:17",
+        "at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)",
+        "at trim_prefix (/server/node_modules/express/lib/router/index.js:328:13)",
+        "at /server/node_modules/express/lib/router/index.js:286:9",
+        "at Function.process_params (/server/node_modules/express/lib/router/index.js:346:12)",
+        "at next (/server/node_modules/express/lib/router/index.js:280:10)",
+        "at module.exports.checkToken (/server/src/middlewares/checkToken.js:50:5)",
+        "at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)",
+        "at trim_prefix (/server/node_modules/express/lib/router/index.js:328:13)",
+        "at /server/node_modules/express/lib/router/index.js:286:9"
+      ]
+    }
+  },
+  {
+    "message": "Moderators can only access offer moderation",
+    "time": 1794929272615,
+    "code": 403,
+    "stackTrace": {
+      "name": "RightsError",
+      "frames": [
+        "at /server/src/router/index.js:33:17",
+        "at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)",
+        "at trim_prefix (/server/node_modules/express/lib/router/index.js:328:13)",
+        "at /server/node_modules/express/lib/router/index.js:286:9",
+        "at Function.process_params (/server/node_modules/express/lib/router/index.js:346:12)",
+        "at next (/server/node_modules/express/lib/router/index.js:280:10)",
+        "at module.exports.checkToken (/server/src/middlewares/checkToken.js:50:5)",
+        "at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)",
+        "at trim_prefix (/server/node_modules/express/lib/router/index.js:328:13)",
+        "at /server/node_modules/express/lib/router/index.js:286:9"
+      ]
+    }
+  },
+  {
+    "message": "need token",
+    "time": 1794929272629,
+    "code": 401,
+    "stackTrace": {
+      "name": "TokenError",
+      "frames": [
+        "at module.exports.checkToken (/server/src/middlewares/checkToken.js:45:17)",
+        "at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)",
+        "at next (/server/node_modules/express/lib/router/route.js:149:13)",
+        "at Route.dispatch (/server/node_modules/express/lib/router/route.js:119:3)",
+        "at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)",
+        "at /server/node_modules/express/lib/router/index.js:284:15",
+        "at Function.process_params (/server/node_modules/express/lib/router/index.js:346:12)",
+        "at next (/server/node_modules/express/lib/router/index.js:280:10)",
+        "at Function.handle (/server/node_modules/express/lib/router/index.js:175:3)",
+        "at router (/server/node_modules/express/lib/router/index.js:47:12)"
+      ]
+    }
+  },
+  {
+    "message": "invalid signature",
+    "time": 1794929530353,
+    "code": 401,
+    "stackTrace": {
+      "name": "TokenError",
+      "frames": [
+        "at module.exports.checkToken (/server/src/middlewares/checkToken.js:57:10)",
+        "at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)",
+        "at next (/server/node_modules/express/lib/router/route.js:149:13)",
+        "at Route.dispatch (/server/node_modules/express/lib/router/route.js:119:3)",
+        "at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)",
+        "at /server/node_modules/express/lib/router/index.js:284:15",
+        "at Function.process_params (/server/node_modules/express/lib/router/index.js:346:12)",
+        "at next (/server/node_modules/express/lib/router/index.js:280:10)",
+        "at Function.handle (/server/node_modules/express/lib/router/index.js:175:3)",
+        "at router (/server/node_modules/express/lib/router/index.js:47:12)"
+      ]
+    }
+  },
+  {
+    "message": "Moderators can only access offer moderation",
+    "time": 1794929546782,
+    "code": 403,
+    "stackTrace": {
+      "name": "RightsError",
+      "frames": [
+        "at /server/src/router/index.js:33:17",
+        "at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)",
+        "at trim_prefix (/server/node_modules/express/lib/router/index.js:328:13)",
+        "at /server/node_modules/express/lib/router/index.js:286:9",
+        "at Function.process_params (/server/node_modules/express/lib/router/index.js:346:12)",
+        "at next (/server/node_modules/express/lib/router/index.js:280:10)",
+        "at module.exports.checkToken (/server/src/middlewares/checkToken.js:50:5)",
+        "at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)",
+        "at trim_prefix (/server/node_modules/express/lib/router/index.js:328:13)",
+        "at /server/node_modules/express/lib/router/index.js:286:9"
+      ]
+    }
+  },
+  {
+    "message": "Moderators can only access offer moderation",
+    "time": 1794930191075,
+    "code": 403,
+    "stackTrace": {
+      "name": "RightsError",
+      "frames": [
+        "at /server/src/router/index.js:33:17",
+        "at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)",
+        "at trim_prefix (/server/node_modules/express/lib/router/index.js:328:13)",
+        "at /server/node_modules/express/lib/router/index.js:286:9",
+        "at Function.process_params (/server/node_modules/express/lib/router/index.js:346:12)",
+        "at next (/server/node_modules/express/lib/router/index.js:280:10)",
+        "at module.exports.checkToken (/server/src/middlewares/checkToken.js:50:5)",
+        "at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)",
+        "at trim_prefix (/server/node_modules/express/lib/router/index.js:328:13)",
+        "at /server/node_modules/express/lib/router/index.js:286:9"
+      ]
+    }
+  },
+  {
+    "message": "need token",
+    "time": 1794930191109,
+    "code": 401,
+    "stackTrace": {
+      "name": "TokenError",
+      "frames": [
+        "at module.exports.checkToken (/server/src/middlewares/checkToken.js:45:17)",
+        "at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)",
+        "at next (/server/node_modules/express/lib/router/route.js:149:13)",
+        "at Route.dispatch (/server/node_modules/express/lib/router/route.js:119:3)",
+        "at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)",
+        "at /server/node_modules/express/lib/router/index.js:284:15",
+        "at Function.process_params (/server/node_modules/express/lib/router/index.js:346:12)",
+        "at next (/server/node_modules/express/lib/router/index.js:280:10)",
+        "at Function.handle (/server/node_modules/express/lib/router/index.js:175:3)",
+        "at router (/server/node_modules/express/lib/router/index.js:47:12)"
+      ]
+    }
+  },
+  {
+    "message": "Invalid contest status",
+    "time": 1794930414338,
+    "code": 400,
+    "stackTrace": {
+      "name": "BadRequestError",
+      "frames": [
+        "at module.exports.getCustomersContests (/server/src/controllers/contestController.js:360:19)",
+        "at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)",
+        "at next (/server/node_modules/express/lib/router/route.js:149:13)",
+        "at module.exports.onlyForCustomer (/server/src/middlewares/basicMiddlewares.js:56:3)",
+        "at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)",
+        "at next (/server/node_modules/express/lib/router/route.js:149:13)",
+        "at Route.dispatch (/server/node_modules/express/lib/router/route.js:119:3)",
+        "at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)",
+        "at /server/node_modules/express/lib/router/index.js:284:15",
+        "at Function.process_params (/server/node_modules/express/lib/router/index.js:346:12)"
+      ]
+    }
+  },
+  {
+    "message": "Moderators can only access offer moderation",
+    "time": 1794930414670,
+    "code": 403,
+    "stackTrace": {
+      "name": "RightsError",
+      "frames": [
+        "at /server/src/router/index.js:33:17",
+        "at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)",
+        "at trim_prefix (/server/node_modules/express/lib/router/index.js:328:13)",
+        "at /server/node_modules/express/lib/router/index.js:286:9",
+        "at Function.process_params (/server/node_modules/express/lib/router/index.js:346:12)",
+        "at next (/server/node_modules/express/lib/router/index.js:280:10)",
+        "at module.exports.checkToken (/server/src/middlewares/checkToken.js:50:5)",
+        "at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)",
+        "at trim_prefix (/server/node_modules/express/lib/router/index.js:328:13)",
+        "at /server/node_modules/express/lib/router/index.js:286:9"
+      ]
+    }
+  },
+  {
+    "message": "Moderators can only access offer moderation",
+    "time": 1794930458356,
+    "code": 403,
+    "stackTrace": {
+      "name": "RightsError",
+      "frames": [
+        "at /server/src/router/index.js:33:17",
+        "at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)",
+        "at trim_prefix (/server/node_modules/express/lib/router/index.js:328:13)",
+        "at /server/node_modules/express/lib/router/index.js:286:9",
+        "at Function.process_params (/server/node_modules/express/lib/router/index.js:346:12)",
+        "at next (/server/node_modules/express/lib/router/index.js:280:10)",
+        "at module.exports.checkToken (/server/src/middlewares/checkToken.js:50:5)",
+        "at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)",
+        "at trim_prefix (/server/node_modules/express/lib/router/index.js:328:13)",
+        "at /server/node_modules/express/lib/router/index.js:286:9"
+      ]
+    }
+  },
+  {
+    "message": "jwt expired",
+    "time": 1795003832857,
+    "code": 401,
+    "stackTrace": {
+      "name": "TokenError",
+      "frames": [
+        "at module.exports.checkToken (/server/src/middlewares/checkToken.js:57:10)",
+        "at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)",
+        "at next (/server/node_modules/express/lib/router/route.js:149:13)",
+        "at Route.dispatch (/server/node_modules/express/lib/router/route.js:119:3)",
+        "at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)",
+        "at /server/node_modules/express/lib/router/index.js:284:15",
+        "at Function.process_params (/server/node_modules/express/lib/router/index.js:346:12)",
+        "at next (/server/node_modules/express/lib/router/index.js:280:10)",
+        "at Function.handle (/server/node_modules/express/lib/router/index.js:175:3)",
+        "at router (/server/node_modules/express/lib/router/index.js:47:12)"
+      ]
+    }
+  },
+  {
+    "message": "invalid signature",
+    "time": 1795004967718,
+    "code": 401,
+    "stackTrace": {
+      "name": "TokenError",
+      "frames": [
+        "at module.exports.checkToken (/server/src/middlewares/checkToken.js:57:10)",
+        "at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)",
+        "at next (/server/node_modules/express/lib/router/route.js:149:13)",
+        "at Route.dispatch (/server/node_modules/express/lib/router/route.js:119:3)",
+        "at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)",
+        "at /server/node_modules/express/lib/router/index.js:284:15",
+        "at Function.process_params (/server/node_modules/express/lib/router/index.js:346:12)",
+        "at next (/server/node_modules/express/lib/router/index.js:280:10)",
+        "at Function.handle (/server/node_modules/express/lib/router/index.js:175:3)",
+        "at router (/server/node_modules/express/lib/router/index.js:47:12)"
+      ]
+    }
+  },
+  {
+    "message": "invalid token",
+    "time": 1795005080357,
+    "code": 401,
+    "stackTrace": {
+      "name": "TokenError",
+      "frames": [
+        "at module.exports.checkToken (/server/src/middlewares/checkToken.js:57:10)",
+        "at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)",
+        "at trim_prefix (/server/node_modules/express/lib/router/index.js:328:13)",
+        "at /server/node_modules/express/lib/router/index.js:286:9",
+        "at Function.process_params (/server/node_modules/express/lib/router/index.js:346:12)",
+        "at next (/server/node_modules/express/lib/router/index.js:280:10)",
+        "at Function.handle (/server/node_modules/express/lib/router/index.js:175:3)",
+        "at router (/server/node_modules/express/lib/router/index.js:47:12)",
+        "at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)",
+        "at trim_prefix (/server/node_modules/express/lib/router/index.js:328:13)"
+      ]
+    }
+  },
+  {
+    "message": "invalid token",
+    "time": 1795005080376,
+    "code": 401,
+    "stackTrace": {
+      "name": "TokenError",
+      "frames": [
+        "at module.exports.checkToken (/server/src/middlewares/checkToken.js:57:10)",
+        "at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)",
+        "at trim_prefix (/server/node_modules/express/lib/router/index.js:328:13)",
+        "at /server/node_modules/express/lib/router/index.js:286:9",
+        "at Function.process_params (/server/node_modules/express/lib/router/index.js:346:12)",
+        "at next (/server/node_modules/express/lib/router/index.js:280:10)",
+        "at Function.handle (/server/node_modules/express/lib/router/index.js:175:3)",
+        "at router (/server/node_modules/express/lib/router/index.js:47:12)",
+        "at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)",
+        "at trim_prefix (/server/node_modules/express/lib/router/index.js:328:13)"
+      ]
+    }
+  },
+  {
+    "message": "invalid token",
+    "time": 1795005080392,
+    "code": 401,
+    "stackTrace": {
+      "name": "TokenError",
+      "frames": [
+        "at module.exports.checkToken (/server/src/middlewares/checkToken.js:57:10)",
+        "at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)",
+        "at trim_prefix (/server/node_modules/express/lib/router/index.js:328:13)",
+        "at /server/node_modules/express/lib/router/index.js:286:9",
+        "at Function.process_params (/server/node_modules/express/lib/router/index.js:346:12)",
+        "at next (/server/node_modules/express/lib/router/index.js:280:10)",
+        "at Function.handle (/server/node_modules/express/lib/router/index.js:175:3)",
+        "at router (/server/node_modules/express/lib/router/index.js:47:12)",
+        "at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)",
+        "at trim_prefix (/server/node_modules/express/lib/router/index.js:328:13)"
+      ]
+    }
+  },
+  {
+    "message": "Contest not found or you are not its owner",
+    "time": 1795005580986,
+    "code": 403,
+    "stackTrace": {
+      "name": "RightsError",
+      "frames": [
+        "at module.exports.updateContest (/server/src/controllers/contestController.js:479:19)",
+        "at process.processTicksAndRejections (node:internal/process/task_queues:103:5)"
+      ]
+    }
+  },
+  {
+    "message": "Moderators can only access offer moderation and their own profile",
+    "time": 1795005581130,
+    "code": 403,
+    "stackTrace": {
+      "name": "RightsError",
+      "frames": [
+        "at /server/src/router/index.js:34:17",
+        "at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)",
+        "at trim_prefix (/server/node_modules/express/lib/router/index.js:328:13)",
+        "at /server/node_modules/express/lib/router/index.js:286:9",
+        "at Function.process_params (/server/node_modules/express/lib/router/index.js:346:12)",
+        "at next (/server/node_modules/express/lib/router/index.js:280:10)",
+        "at module.exports.checkToken (/server/src/middlewares/checkToken.js:50:5)",
+        "at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)",
+        "at trim_prefix (/server/node_modules/express/lib/router/index.js:328:13)",
+        "at /server/node_modules/express/lib/router/index.js:286:9"
+      ]
+    }
+  },
+  {
+    "message": "jwt expired",
+    "time": 1795010350813,
+    "code": 401,
+    "stackTrace": {
+      "name": "TokenError",
+      "frames": [
+        "at module.exports.checkToken (/server/src/middlewares/checkToken.js:57:10)",
+        "at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)",
+        "at next (/server/node_modules/express/lib/router/route.js:149:13)",
+        "at Route.dispatch (/server/node_modules/express/lib/router/route.js:119:3)",
+        "at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)",
+        "at /server/node_modules/express/lib/router/index.js:284:15",
+        "at Function.process_params (/server/node_modules/express/lib/router/index.js:346:12)",
+        "at next (/server/node_modules/express/lib/router/index.js:280:10)",
+        "at Function.handle (/server/node_modules/express/lib/router/index.js:175:3)",
+        "at router (/server/node_modules/express/lib/router/index.js:47:12)"
+      ]
+    }
+  },
+  {
+    "message": "jwt expired",
+    "time": 1795010679758,
+    "code": 401,
+    "stackTrace": {
+      "name": "TokenError",
+      "frames": [
+        "at module.exports.checkToken (/server/src/middlewares/checkToken.js:57:10)",
+        "at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)",
+        "at next (/server/node_modules/express/lib/router/route.js:149:13)",
+        "at Route.dispatch (/server/node_modules/express/lib/router/route.js:119:3)",
+        "at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)",
+        "at /server/node_modules/express/lib/router/index.js:284:15",
+        "at Function.process_params (/server/node_modules/express/lib/router/index.js:346:12)",
+        "at next (/server/node_modules/express/lib/router/index.js:280:10)",
+        "at Function.handle (/server/node_modules/express/lib/router/index.js:175:3)",
+        "at router (/server/node_modules/express/lib/router/index.js:47:12)"
+      ]
+    }
+  },
+  {
+    "message": "invalid token",
+    "time": 1795014587088,
+    "code": 401,
+    "stackTrace": {
+      "name": "TokenError",
+      "frames": [
+        "at module.exports.checkToken (/server/src/middlewares/checkToken.js:57:10)",
+        "at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)",
+        "at trim_prefix (/server/node_modules/express/lib/router/index.js:328:13)",
+        "at /server/node_modules/express/lib/router/index.js:286:9",
+        "at Function.process_params (/server/node_modules/express/lib/router/index.js:346:12)",
+        "at next (/server/node_modules/express/lib/router/index.js:280:10)",
+        "at Function.handle (/server/node_modules/express/lib/router/index.js:175:3)",
+        "at router (/server/node_modules/express/lib/router/index.js:47:12)",
+        "at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)",
+        "at trim_prefix (/server/node_modules/express/lib/router/index.js:328:13)"
+      ]
+    }
+  },
+  {
+    "message": "invalid token",
+    "time": 1795014606963,
+    "code": 401,
+    "stackTrace": {
+      "name": "TokenError",
+      "frames": [
+        "at module.exports.checkToken (/server/src/middlewares/checkToken.js:57:10)",
+        "at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)",
+        "at trim_prefix (/server/node_modules/express/lib/router/index.js:328:13)",
+        "at /server/node_modules/express/lib/router/index.js:286:9",
+        "at Function.process_params (/server/node_modules/express/lib/router/index.js:346:12)",
+        "at next (/server/node_modules/express/lib/router/index.js:280:10)",
+        "at Function.handle (/server/node_modules/express/lib/router/index.js:175:3)",
+        "at router (/server/node_modules/express/lib/router/index.js:47:12)",
+        "at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)",
+        "at trim_prefix (/server/node_modules/express/lib/router/index.js:328:13)"
+      ]
+    }
+  },
+  {
+    "message": "jwt expired",
+    "time": 1795016976823,
+    "code": 401,
+    "stackTrace": {
+      "name": "TokenError",
+      "frames": [
+        "at module.exports.checkToken (/server/src/middlewares/checkToken.js:57:10)",
+        "at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)",
+        "at trim_prefix (/server/node_modules/express/lib/router/index.js:328:13)",
+        "at /server/node_modules/express/lib/router/index.js:286:9",
+        "at Function.process_params (/server/node_modules/express/lib/router/index.js:346:12)",
+        "at next (/server/node_modules/express/lib/router/index.js:280:10)",
+        "at Function.handle (/server/node_modules/express/lib/router/index.js:175:3)",
+        "at router (/server/node_modules/express/lib/router/index.js:47:12)",
+        "at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)",
+        "at trim_prefix (/server/node_modules/express/lib/router/index.js:328:13)"
+      ]
+    }
+  },
+  {
+    "message": "jwt expired",
+    "time": 1795019531088,
+    "code": 401,
+    "stackTrace": {
+      "name": "TokenError",
+      "frames": [
+        "at module.exports.checkToken (/server/src/middlewares/checkToken.js:57:10)",
+        "at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)",
+        "at next (/server/node_modules/express/lib/router/route.js:149:13)",
+        "at Route.dispatch (/server/node_modules/express/lib/router/route.js:119:3)",
+        "at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)",
+        "at /server/node_modules/express/lib/router/index.js:284:15",
+        "at Function.process_params (/server/node_modules/express/lib/router/index.js:346:12)",
+        "at next (/server/node_modules/express/lib/router/index.js:280:10)",
+        "at Function.handle (/server/node_modules/express/lib/router/index.js:175:3)",
+        "at router (/server/node_modules/express/lib/router/index.js:47:12)"
+      ]
+    }
+  }
+]

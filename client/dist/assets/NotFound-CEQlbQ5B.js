@@ -1,0 +1,1 @@
+import{j as n}from"./react-vendor-BrLK-6oS.js";const o="_container_1vvhk_1",t={container:o},e=()=>n.jsx("div",{className:t.container,children:n.jsx("span",{children:"Not Found"})});export{e as default};
