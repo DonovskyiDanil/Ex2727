@@ -11,7 +11,6 @@ module.exports = (err) => {
   const errorObj = {
     message: err.message || 'No message',
     time: Date.now(),
-<<<<<<< HEAD
     code: Number.isInteger(err.statusCode)
       ? err.statusCode
       : Number.isInteger(err.code)
@@ -23,10 +22,6 @@ module.exports = (err) => {
         ? err.stack.split('\n').slice(1).map((frame) => frame.trim())
         : [],
     },
-=======
-    code: err.code || 500,
-    stackTrace: err.stack || {},
->>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
   };
 
   let logs = [];
