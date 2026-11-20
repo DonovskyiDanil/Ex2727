@@ -751,5 +751,45 @@
         "at router (/server/node_modules/express/lib/router/index.js:47:12)"
       ]
     }
+  },
+  {
+    "message": "jwt expired",
+    "time": 1795213272142,
+    "code": 401,
+    "stackTrace": {
+      "name": "TokenError",
+      "frames": [
+        "at module.exports.checkToken (/server/src/middlewares/checkToken.js:57:10)",
+        "at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)",
+        "at next (/server/node_modules/express/lib/router/route.js:149:13)",
+        "at Route.dispatch (/server/node_modules/express/lib/router/route.js:119:3)",
+        "at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)",
+        "at /server/node_modules/express/lib/router/index.js:284:15",
+        "at Function.process_params (/server/node_modules/express/lib/router/index.js:346:12)",
+        "at next (/server/node_modules/express/lib/router/index.js:280:10)",
+        "at Function.handle (/server/node_modules/express/lib/router/index.js:175:3)",
+        "at router (/server/node_modules/express/lib/router/index.js:47:12)"
+      ]
+    }
+  },
+  {
+    "message": "jwt expired",
+    "time": 1795216977360,
+    "code": 401,
+    "stackTrace": {
+      "name": "TokenError",
+      "frames": [
+        "at module.exports.checkToken (/server/src/middlewares/checkToken.js:57:10)",
+        "at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)",
+        "at next (/server/node_modules/express/lib/router/route.js:149:13)",
+        "at Route.dispatch (/server/node_modules/express/lib/router/route.js:119:3)",
+        "at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)",
+        "at /server/node_modules/express/lib/router/index.js:284:15",
+        "at Function.process_params (/server/node_modules/express/lib/router/index.js:346:12)",
+        "at next (/server/node_modules/express/lib/router/index.js:280:10)",
+        "at Function.handle (/server/node_modules/express/lib/router/index.js:175:3)",
+        "at router (/server/node_modules/express/lib/router/index.js:47:12)"
+      ]
+    }
   }
 ]

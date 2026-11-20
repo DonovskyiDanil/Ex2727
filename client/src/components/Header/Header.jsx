@@ -1,3 +1,9 @@
+import {
+  EVENTS_STORAGE_KEY,
+  EVENTS_SYNC_EVENT,
+  countExpiredEvents,
+  emitEventsSync,
+} from '../../components/EventsBadge/useExpiredEventsCount';
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -85,17 +91,7 @@ class Header extends React.Component {
               )}
               {isCustomer && (
                 <li>
-                  <Link
-                    to="/events"
-                    style={{
-                      textDecoration: 'none',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'space-between',
-                      gap: '8px',
-                      paddingRight: '8px',
-                    }}
-                  >
+                  <Link to="/events" style={{ textDecoration: 'none' }}>
                     <span>Events</span>
                     <EventsBadge />
                   </Link>
@@ -190,17 +186,8 @@ class Header extends React.Component {
                     <li><Link to="/how-it-works" className={styles.navLink}>HOW IT WORKS</Link></li>
                     {data && data.role === CONSTANTS.CUSTOMER && (
                       <li>
-                        <Link
-                          to="/events"
-                          className={styles.navLink}
-                          style={{
-                            display: 'inline-flex',
-                            alignItems: 'center',
-                            gap: '6px',
-                          }}
-                        >
-                          <span>EVENTS</span>
-                          <EventsBadge />
+                        <Link to="/events" className={styles.navLink}>
+                          EVENTS<EventsBadge />
                         </Link>
                       </li>
                     )}

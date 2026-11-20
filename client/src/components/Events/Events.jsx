@@ -1,6 +1,6 @@
-import React, { useState, useCallback, useMemo, useEffect } from 'react';
+import React, { useState, useCallback, useMemo, useEffect, useRef } from 'react';
 import { useLocalStorage } from '../../hooks/useLocalStorage';
-import EventItem from './EventItem';
+import { emitEventsSync } from '../EventsBadge/useExpiredEventsCount';
 import EventForm from './EventForm';
 import EventList from './EventList';
 import styles from './Events.module.sass';
@@ -8,9 +8,16 @@ import styles from './Events.module.sass';
 const Events = () => {
   const [events, setEvents] = useLocalStorage('events-data', []);
   const [expiredCount, setExpiredCount] = useState(0);
+  const isFirstRender = useRef(true);
 
   const updateExpiredCount = useCallback(() => {
-    const count = events.filter(event => new Date(event.targetDate) <= new Date()).length;
+    const now = Date.now();
+    const count = Array.isArray(events)
+      ? events.filter((event) => {
+          const ts = new Date(event?.targetDate).getTime();
+          return !Number.isNaN(ts) && ts <= now;
+        }).length
+      : 0;
     setExpiredCount(count);
   }, [events]);
 
@@ -20,17 +27,32 @@ const Events = () => {
     return () => clearInterval(interval);
   }, [updateExpiredCount]);
 
+  useEffect(() => {
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      return;
+    }
+    emitEventsSync();
+  }, [events]);
+
   const addEvent = (newEvent) => {
-    setEvents(prev => [...prev, { ...newEvent, id: crypto.randomUUID() }]);
+    setEvents((prev) => [
+      ...(Array.isArray(prev) ? prev : []),
+      { ...newEvent, id: crypto.randomUUID() },
+    ]);
   };
 
   const deleteEvent = (id) => {
-    setEvents(prev => prev.filter(e => e.id !== id));
+    setEvents((prev) =>
+      Array.isArray(prev) ? prev.filter((e) => e.id !== id) : []
+    );
   };
 
   const sortedEvents = useMemo(() => {
-    return [...events].sort((a, b) => 
-      new Date(a.targetDate).getTime() - new Date(b.targetDate).getTime()
+    if (!Array.isArray(events)) return [];
+    return [...events].sort(
+      (a, b) =>
+        new Date(a.targetDate).getTime() - new Date(b.targetDate).getTime()
     );
   }, [events]);
 
@@ -60,8 +82,8 @@ const Events = () => {
               </span>
             )}
           </div>
-          <EventList 
-            events={sortedEvents} 
+          <EventList
+            events={sortedEvents}
             onDelete={deleteEvent}
             onExpire={updateExpiredCount}
           />

@@ -41,7 +41,9 @@ export const emitEventsSync = () => {
 };
 
 export const useExpiredEventsCount = () => {
-  const [count, setCount] = useState(() => countExpiredEvents(readEventsFromStorage()));
+  const [count, setCount] = useState(() =>
+    countExpiredEvents(readEventsFromStorage())
+  );
 
   const updateCount = useCallback(() => {
     setCount(countExpiredEvents(readEventsFromStorage()));
