@@ -59,7 +59,6 @@ class CreatorDashboard extends React.Component {
   renderIndustryType = () => {
     const array = [];
     const { creatorFilter } = this.props;
-<<<<<<< HEAD
     const industry = this.props.dataForContest.data?.industry;
     if (!Array.isArray(industry)) {
       return (
@@ -69,9 +68,6 @@ class CreatorDashboard extends React.Component {
       );
     }
 
-=======
-    const { industry } = this.props.dataForContest.data;
->>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
     array.push(
       <option key={0} value={null}>
         Choose industry
@@ -149,13 +145,8 @@ class CreatorDashboard extends React.Component {
       contestId: obj.contestId ? obj.contestId : '',
       industry: obj.industry ? obj.industry : '',
       awardSort: obj.awardSort || 'asc',
-<<<<<<< HEAD
       ownEntries: obj.ownEntries === 'true',
       onlyActive: obj.onlyActive === 'true',
-=======
-      ownEntries:
-        typeof obj.ownEntries === 'undefined' ? false : obj.ownEntries,
->>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
     };
     if (!isEqual(filter, this.props.creatorFilter)) {
       this.props.newFilter(filter);
@@ -235,7 +226,6 @@ class CreatorDashboard extends React.Component {
             >
               My Entries
             </div>
-<<<<<<< HEAD
             <div
               onClick={() =>
                 this.changePredicate({
@@ -249,8 +239,6 @@ class CreatorDashboard extends React.Component {
             >
               Only Active
             </div>
-=======
->>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
             <div className={styles.inputContainer}>
               <span>By contest type</span>
               {this.renderSelectType()}

@@ -27,17 +27,9 @@ const DialogList = (props) => {
     event.stopPropagation();
   };
 
-<<<<<<< HEAD
   const onlyFavoriteDialogs = (chatPreview) => !!chatPreview.favoriteList;
 
   const onlyBlockDialogs = (chatPreview) => !!chatPreview.blackList;
-=======
-  const onlyFavoriteDialogs = (chatPreview, userId) =>
-    chatPreview.favoriteList[chatPreview.participants.indexOf(userId)];
-
-  const onlyBlockDialogs = (chatPreview, userId) =>
-    chatPreview.blackList[chatPreview.participants.indexOf(userId)];
->>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
 
   const getTimeStr = (time) => {
     const currentTime = moment();
@@ -63,11 +55,7 @@ const DialogList = (props) => {
           interlocutor={chatPreview.interlocutor}
           chatPreview={chatPreview}
           userId={userId}
-<<<<<<< HEAD
           key={chatPreview.id || index}
-=======
-          key={index}
->>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
           getTimeStr={getTimeStr}
           changeFavorite={changeFavorite}
           changeBlackList={changeBlackList}

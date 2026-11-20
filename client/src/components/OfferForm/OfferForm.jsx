@@ -1,9 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-<<<<<<< HEAD
 import { toast } from 'react-toastify';
-=======
->>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
 import { Formik, Form } from 'formik';
 import CONTANTS from '../../constants';
 import {
@@ -47,28 +44,19 @@ const OfferForm = props => {
     );
   };
 
-<<<<<<< HEAD
   const setOffer = async (values, { resetForm }) => {
-=======
-  const setOffer = (values, { resetForm }) => {
->>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
     clearOfferError();
     const data = new FormData();
     data.append('contestId', contestId);
     data.append('contestType', contestType);
     data.append('offerData', values.offerData);
     data.append('customerId', customerId);
-<<<<<<< HEAD
     const result = await setNewOffer(data);
     // Форму очищаем и сообщаем об успехе только если сервер принял оффер
     if (addOffer.fulfilled.match(result)) {
       resetForm();
       toast.success('Your offer was sent and is waiting for moderator approval');
     }
-=======
-    setNewOffer(data);
-    resetForm();
->>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
   };
 
   const validationSchema =
@@ -92,24 +80,12 @@ const OfferForm = props => {
         }}
         validationSchema={validationSchema}
       >
-<<<<<<< HEAD
         {() => (
           <Form className={styles.form}>
             {renderOfferInput()}
             <button type='submit' className={styles.btnOffer}>
               Send Offer
             </button>
-=======
-        {({ isValid, dirty }) => (
-          <Form className={styles.form}>
-            {renderOfferInput()}
-            {/* Кнопка появится, когда форма заполнена корректно */}
-            {isValid && dirty && (
-              <button type='submit' className={styles.btnOffer}>
-                Send Offer
-              </button>
-            )}
->>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
           </Form>
         )}
       </Formik>

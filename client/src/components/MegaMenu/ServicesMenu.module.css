@@ -12,11 +12,7 @@
   z-index: 999999 !important;
   overflow: hidden !important;
   animation: slideDown 0.3s ease-out;
-<<<<<<< HEAD
   cursor: var(--black-arrow-cursor) !important;
-=======
-  cursor: default !important;
->>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
 }
 
 .grid {
@@ -41,11 +37,7 @@
   display: flex !important;
   gap: 20px !important;
   align-items: flex-start !important;
-<<<<<<< HEAD
   cursor: var(--black-hand-cursor) !important; 
-=======
-  cursor: pointer !important; 
->>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
 }
 
 .icon {
@@ -59,11 +51,7 @@
   box-shadow: 0 2px 8px rgba(0,0,0,0.06) !important;
   transition: transform 0.3s ease !important;
   flex-shrink: 0 !important;
-<<<<<<< HEAD
   cursor: var(--black-hand-cursor) !important;
-=======
-  cursor: pointer !important;
->>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
 }
 
 .item:hover .icon {

@@ -14,7 +14,6 @@ import Error from '../Error/Error';
 const Brief = (props) => {
   const setNewContestData = (values) => {
     const data = new FormData();
-<<<<<<< HEAD
     const normalizedValues = { ...values };
     if (normalizedValues.ventureType) {
       normalizedValues.nameVenture = normalizedValues.ventureType;
@@ -28,10 +27,6 @@ const Brief = (props) => {
       if (key !== 'file' && normalizedValues[key]) {
         data.append(key, normalizedValues[key]);
       }
-=======
-    Object.keys(values).forEach((key) => {
-      if (key !== 'file' && values[key]) data.append(key, values[key]);
->>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
     });
     if (values.file instanceof File) {
       data.append('file', values.file);
@@ -51,10 +46,7 @@ const Brief = (props) => {
       brandStyle,
       typeOfName,
       typeOfTagline,
-<<<<<<< HEAD
       domainQuestion,
-=======
->>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
       originalFileName,
       contestType,
     } = props.contestData;
@@ -68,10 +60,7 @@ const Brief = (props) => {
       brandStyle,
       typeOfName,
       typeOfTagline,
-<<<<<<< HEAD
       domainQuestion,
-=======
->>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
       originalFileName,
       contestType,
     };
@@ -80,7 +69,6 @@ const Brief = (props) => {
       if (data[key]) {
         if (key === 'originalFileName') {
           defaultData.file = { name: data[key] };
-<<<<<<< HEAD
         } else if (key === 'nameVenture') {
           if (data.contestType === 'logo') {
             defaultData.nameVenture = data[key];
@@ -89,8 +77,6 @@ const Brief = (props) => {
           }
         } else if (key === 'styleName') {
           defaultData.designStyle = data[key];
-=======
->>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
         } else {
           defaultData[key] = data[key];
         }

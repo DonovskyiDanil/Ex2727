@@ -104,11 +104,7 @@ class Chat extends React.Component {
   };
 
   render() {
-<<<<<<< HEAD
     const { isExpanded, isShow, isShowCatalogCreation, error, interlocutor } =
-=======
-    const { isExpanded, isShow, isShowCatalogCreation, error } =
->>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
       this.props.chatStore;
     const userId = this.props.userStore.data?.id;
     
@@ -126,15 +122,11 @@ class Chat extends React.Component {
       >
         {error && <ChatError getData={getPreviewChat} />}
         {isShowCatalogCreation && <CatalogCreation />}
-<<<<<<< HEAD
         {isExpanded && interlocutor ? (
           <Dialog interlocutor={interlocutor} userId={userId} />
         ) : (
           this.renderDialogList()
         )}
-=======
-        {isExpanded ? <Dialog interlocutor={{ id: userId }} /> : this.renderDialogList()}
->>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
         <div className={styles.toggleChat} onClick={() => changeShow()}>
           {isShow ? 'Hide Chat' : 'Show Chat'}
         </div>

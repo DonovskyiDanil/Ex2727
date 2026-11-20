@@ -43,19 +43,10 @@ module.exports.canGetContest = async (req, res, next) => {
 };
 
 module.exports.onlyForCreative = (req, res, next) => {
-<<<<<<< HEAD
   if (req.tokenData.role !== CONSTANTS.CREATOR) {
     return next(new RightsError('this action is only for creatives'));
   }
   next();
-=======
-  if (req.tokenData.role === CONSTANTS.CUSTOMER) {
-    next(new RightsError());
-  } else {
-    next();
-  }
-
->>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
 };
 
 module.exports.onlyForCustomer = (req, res, next) => {
@@ -65,7 +56,6 @@ module.exports.onlyForCustomer = (req, res, next) => {
   next();
 };
 
-<<<<<<< HEAD
 module.exports.onlyForCustomerOrCreator = (req, res, next) => {
   if (![CONSTANTS.CUSTOMER, CONSTANTS.CREATOR].includes(req.tokenData.role)) {
     return next(new RightsError('this action is only for customers and creatives'));
@@ -73,8 +63,6 @@ module.exports.onlyForCustomerOrCreator = (req, res, next) => {
   next();
 };
 
-=======
->>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
 module.exports.canSendOffer = async (req, res, next) => {
   if (req.tokenData.role === CONSTANTS.CUSTOMER) {
     return next(new RightsError());

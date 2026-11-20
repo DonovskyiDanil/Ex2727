@@ -14,7 +14,6 @@ const PayForm = (props) => {
   };
 
   const pay = (values) => {
-<<<<<<< HEAD
     const cardDetails = {
       number: values.number.replace(/\s/g, ''),
       expiry: values.expiry,
@@ -29,15 +28,6 @@ const PayForm = (props) => {
     } else {
       props.sendRequest({ ...cardDetails, sum: Number(values.sum) });
     }
-=======
-    props.sendRequest({
-      number: values.number.replace(/\s/g, ''), // Удаляем пробелы из номера карты
-      expiry: values.expiry,
-      cvc: values.cvc,
-      price: props.isPayForOrder ? 100 : Number(values.sum),
-      contests: props.contests || [],
-    });
->>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
   };
 
   const { focusOnElement, isPayForOrder } = props;
@@ -55,11 +45,7 @@ const PayForm = (props) => {
           expiry: '',
           sum: '',
         }}
-<<<<<<< HEAD
         validationSchema={isPayForOrder ? Schems.PaymentSchema : Schems.CashoutSchema}
-=======
-        validationSchema={Schems.PaymentSchema}
->>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
         onSubmit={pay}
       >
         {({ values, errors, touched, isValid, dirty }) => {
@@ -77,15 +63,11 @@ const PayForm = (props) => {
                 />
               </div>
 
-<<<<<<< HEAD
               <Form
                 id="myForm"
                 className={styles.formContainer}
                 autoComplete="off"
               >
-=======
-              <Form id="myForm" className={styles.formContainer}>
->>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
                 <div className={styles.bigInput}>
                   <span>Name</span>
                   <PayInput
@@ -113,11 +95,7 @@ const PayForm = (props) => {
                         notValid: styles.notValid,
                         error: styles.error,
                       }}
-<<<<<<< HEAD
                       type="number"
-=======
-                      type="text"
->>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
                       label="sum"
                     />
                   </div>
@@ -185,11 +163,7 @@ const PayForm = (props) => {
                   form="myForm"
                   className={styles.payButton}
                   type="submit"
-<<<<<<< HEAD
                   disabled={!isValid || !dirty}
-=======
-                  disabled={!isValid || !dirty || (!isPayForOrder && !sum)}
->>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
                 >
                   <span>{isPayForOrder ? 'Pay Now' : 'CashOut'}</span>
                 </button>

@@ -3,19 +3,11 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-<<<<<<< HEAD
     "start": "nodemon --ignore \"logs/**\" --ignore \"public/images/**\" --require ./buffer-polyfill.js ./src/index.js",
     "test": "node --test"
   },
   "dependencies": {
     "bcrypt": "^6.0.0",
-=======
-    "start": "nodemon --require ./buffer-polyfill.js ./src/index.js",
-    "test": "jest"
-  },
-  "dependencies": {
-    "bcrypt": "^5.1.1",
->>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
     "cors": "^2.8.6",
     "dotenv": "^16.6.1",
     "express": "^4.22.1",
@@ -26,29 +18,19 @@
     "mongoose": "^8.23.0",
     "multer": "^2.1.1",
     "node-cron": "^3.0.3",
-<<<<<<< HEAD
     "nodemailer": "^10.6.0",
     "nodemon": "^3.1.11",
-=======
-    "nodemailer": "^6.10.1",
-    "nodemon": "^2.0.22",
->>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
     "pg": "^8.20.0",
     "pg-hstore": "^2.3.4",
     "sequelize": "^6.37.8",
     "socket.io": "^4.8.3",
-<<<<<<< HEAD
     "uuid": "^11.1.1",
-=======
-    "uuid": "^9.0.1",
->>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
     "yup": "^1.7.1"
   },
   "devDependencies": {
     "eslint": "^8.57.1",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.32.0",
-<<<<<<< HEAD
     "sequelize-cli": "6.6.2"
   },
   "overrides": {
@@ -61,8 +43,3 @@
     }
   }
 }
-=======
-    "sequelize-cli": "^6.6.5"
-  }
-}
->>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8

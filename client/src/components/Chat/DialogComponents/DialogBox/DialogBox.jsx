@@ -15,22 +15,9 @@ const DialogBox = props => {
     chatMode,
     interlocutor,
   } = props;
-<<<<<<< HEAD
   const { favoriteList, blackList, id, text, createdAt } = chatPreview;
   const isFavorite = !!favoriteList;
   const isBlocked = !!blackList;
-=======
-  const {
-    favoriteList,
-    participants,
-    blackList,
-    _id,
-    text,
-    createAt,
-  } = chatPreview;
-  const isFavorite = favoriteList[participants.indexOf(userId)];
-  const isBlocked = blackList[participants.indexOf(userId)];
->>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
   return (
     <div
       className={styles.previewChatBox}
@@ -38,12 +25,7 @@ const DialogBox = props => {
         goToExpandedDialog({
           interlocutor,
           conversationData: {
-<<<<<<< HEAD
             id,
-=======
-            participants,
-            _id,
->>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
             blackList,
             favoriteList,
           },
@@ -66,20 +48,12 @@ const DialogBox = props => {
           <span className={styles.interlocutorMessage}>{text}</span>
         </div>
         <div className={styles.buttonsContainer}>
-<<<<<<< HEAD
           <span className={styles.time}>{getTimeStr(createdAt)}</span>
-=======
-          <span className={styles.time}>{getTimeStr(createAt)}</span>
->>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
           <i
             onClick={event =>
               changeFavorite(
                 {
-<<<<<<< HEAD
                   interlocutorId: interlocutor.id,
-=======
-                  participants,
->>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
                   favoriteFlag: !isFavorite,
                 },
                 event
@@ -94,11 +68,7 @@ const DialogBox = props => {
             onClick={event =>
               changeBlackList(
                 {
-<<<<<<< HEAD
                   interlocutorId: interlocutor.id,
-=======
-                  participants,
->>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
                   blackListFlag: !isBlocked,
                 },
                 event
@@ -110,11 +80,7 @@ const DialogBox = props => {
             })}
           />
           <i
-<<<<<<< HEAD
             onClick={event => catalogOperation(event, id)}
-=======
-            onClick={event => catalogOperation(event, _id)}
->>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
             className={classNames({
               'far fa-plus-square':
                 chatMode !== CONSTANTS.CATALOG_PREVIEW_CHAT_MODE,

@@ -3,7 +3,6 @@
 @tailwind components;
 @tailwind utilities;
 
-<<<<<<< HEAD
 :root {
   --black-arrow-cursor: url('/staticImages/black-cursor-arrow.svg') 2 2, default;
   --black-hand-cursor: url('/staticImages/black-cursor-hand.svg') 7 2, pointer;
@@ -33,8 +32,6 @@ textarea,
   cursor: var(--black-arrow-cursor);
 }
 
-=======
->>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
 /* http://meyerweb.com/eric/tools/css/reset/
    v2.0-modified | 20110126
    License: none (public domain)
@@ -206,11 +203,6 @@ audio,
 canvas,
 video {
   display: inline-block;
-<<<<<<< HEAD
-=======
-  *display: inline;
-  *zoom: 1;
->>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
   max-width: 100%;
 }
 
@@ -309,10 +301,6 @@ legend {
   border: 0; /* 1 */
   padding: 0;
   white-space: normal; /* 2 */
-<<<<<<< HEAD
-=======
-  *margin-left: -7px; /* 3 */
->>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
 }
 
 /**
@@ -329,10 +317,6 @@ textarea {
   font-size: 100%; /* 1 */
   margin: 0; /* 2 */
   vertical-align: baseline; /* 3 */
-<<<<<<< HEAD
-=======
-  *vertical-align: middle; /* 3 */
->>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
 }
 
 /**
@@ -372,12 +356,7 @@ html input[type="button"], /* 1 */
 input[type="reset"],
 input[type="submit"] {
   -webkit-appearance: button; /* 2 */
-<<<<<<< HEAD
   cursor: var(--black-hand-cursor); /* 3 */
-=======
-  cursor: pointer; /* 3 */
-  *overflow: visible; /* 4 */
->>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
 }
 
 /**
@@ -386,11 +365,7 @@ input[type="submit"] {
 
 button[disabled],
 html input[disabled] {
-<<<<<<< HEAD
   cursor: var(--black-arrow-cursor);
-=======
-  cursor: default;
->>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
 }
 
 /**
@@ -404,11 +379,6 @@ input[type='checkbox'],
 input[type='radio'] {
   box-sizing: border-box; /* 1 */
   padding: 0; /* 2 */
-<<<<<<< HEAD
-=======
-  *height: 13px; /* 3 */
-  *width: 13px; /* 3 */
->>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
 }
 
 /**

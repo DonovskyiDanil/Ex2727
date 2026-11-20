@@ -10,10 +10,7 @@ import contestByIdReducer from './slices/contestByIdSlice';
 import contestUpdationReducer from './slices/contestUpdationSlice';
 import chatReducer from './slices/chatSlice';
 import userProfileReducer from './slices/userProfileSlice';
-<<<<<<< HEAD
 import eventsReducer from './slices/eventsSlice';
-=======
->>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
 
 const rootReducer = combineReducers({
   userStore: userReducer,
@@ -27,10 +24,7 @@ const rootReducer = combineReducers({
   contestUpdationStore: contestUpdationReducer,
   chatStore: chatReducer,
   userProfile: userProfileReducer,
-<<<<<<< HEAD
   eventsStore: eventsReducer,
-=======
->>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
 });
 
 export default rootReducer;

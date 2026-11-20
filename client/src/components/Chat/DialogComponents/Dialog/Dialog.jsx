@@ -12,107 +12,95 @@ import ChatInput from '../../ChatComponents/ChatInut/ChatInput';
 
 class Dialog extends React.Component {
   componentDidMount() {
-    this.props.getDialog({ interlocutorId: this.props.interlocutor.id });
+    const interlocutorId = this.props.interlocutor?.id;
+    if (interlocutorId) {
+      this.props.getDialog({ interlocutorId });
+    }
     this.scrollToBottom();
   }
 
   messagesEnd = React.createRef();
 
   scrollToBottom = () => {
-<<<<<<< HEAD
     if (this.messagesEnd.current) {
       this.messagesEnd.current.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
   componentDidUpdate(prevProps) {
-    if (prevProps.interlocutor.id !== this.props.interlocutor.id) {
-      this.props.getDialog({ interlocutorId: this.props.interlocutor.id });
-    }
-    if (this.messagesEnd.current) this.scrollToBottom();
-=======
-    this.messagesEnd.current.scrollIntoView({ behavior: 'smooth' });
-  };
+    const prevId = prevProps.interlocutor?.id;
+    const currentId = this.props.interlocutor?.id;
 
-  componentWillReceiveProps(nextProps, nextContext) {
-    if (nextProps.interlocutor.id !== this.props.interlocutor.id)
-      this.props.getDialog({ interlocutorId: nextProps.interlocutor.id });
->>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
+    if (currentId && prevId !== currentId) {
+      this.props.getDialog({ interlocutorId: currentId });
+    }
+
+    if (this.messagesEnd.current) {
+      this.scrollToBottom();
+    }
   }
 
   componentWillUnmount() {
     this.props.clearMessageList();
   }
 
-<<<<<<< HEAD
-=======
-  componentDidUpdate() {
-    if (this.messagesEnd.current) this.scrollToBottom();
-  }
-
->>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
   renderMainDialog = () => {
     const messagesArray = [];
-    const { messages, userId } = this.props;
+    const messages = Array.isArray(this.props.messages) ? this.props.messages : [];
+    const { userId } = this.props;
     let currentTime = moment();
+
     messages.forEach((message, i) => {
-      if (!currentTime.isSame(message.createdAt, 'date')) {
+      if (!message) return;
+
+      if (message.createdAt && !currentTime.isSame(message.createdAt, 'date')) {
         messagesArray.push(
-          <div key={message.createdAt} className={styles.date}>
+          <div key={`date-${message.id || message.createdAt}-${i}`} className={styles.date}>
             {moment(message.createdAt).format('MMMM DD, YYYY')}
           </div>
         );
         currentTime = moment(message.createdAt);
       }
+
       messagesArray.push(
         <div
-          key={i}
+          key={message.id || `msg-${i}`}
           className={className(
             userId === message.sender ? styles.ownMessage : styles.message
           )}
         >
           <span>{message.body}</span>
           <span className={styles.messageTime}>
-            {moment(message.createdAt).format('HH:mm')}
+            {message.createdAt ? moment(message.createdAt).format('HH:mm') : ''}
           </span>
-          <div ref={this.messagesEnd} />
         </div>
       );
     });
-    return <div className={styles.messageList}>{messagesArray}</div>;
+
+    return (
+      <div className={styles.messageList}>
+        {messagesArray}
+        <div ref={this.messagesEnd} />
+      </div>
+    );
   };
 
-<<<<<<< HEAD
   blockMessage = () => (
     <span className={styles.messageBlock}>This conversation is blocked</span>
   );
-=======
-  blockMessage = () => {
-    const { userId, chatData } = this.props;
-    const { blackList, participants } = chatData;
-    const userIndex = participants.indexOf(userId);
-    let message;
-    if (chatData && blackList[userIndex]) {
-      message = 'You block him';
-    } else if (chatData && blackList.includes(true)) {
-      message = 'He block you';
-    }
-    return <span className={styles.messageBlock}>{message}</span>;
-  };
->>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
 
   render() {
-    const { chatData, userId } = this.props;
+    const { chatData, userId, interlocutor } = this.props;
+
+    if (!interlocutor || !interlocutor.id) {
+      return null;
+    }
+
     return (
       <>
         <ChatHeader userId={userId} />
         {this.renderMainDialog()}
-        <div ref={this.messagesEnd} />
-<<<<<<< HEAD
         {chatData && chatData.blackList ? (
-=======
-        {chatData && chatData.blackList.includes(true) ? (
->>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
           this.blockMessage()
         ) : (
           <ChatInput />

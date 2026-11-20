@@ -97,15 +97,12 @@ export default {
         value => value && value.trim().length >= 1
       )
       .required('target customers required'),
-<<<<<<< HEAD
     domainQuestion: yup.string().oneOf([
       'yes_variations',
       'yes_exact',
       'no_domain',
       '',
     ]),
-=======
->>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
     styleName: yup.string().min(1),
     typeOfName: yup.string().min(1),
     typeOfTagline: yup.string().min(1),

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 const jwtSecret = process.env.JWT_SECRET || (
   process.env.NODE_ENV === 'production'
     ? ''
@@ -21,18 +20,6 @@ module.exports = {
   CREATOR: 'creator',
   ADMIN: 'admin',
   MODERATOR: 'moderator',
-=======
-module.exports = {
-  JWT_SECRET: 'asdasdasd4as5d4as8d7a8sd4as65d4a8sd7asd4as56d4',
-  ACCESS_TOKEN_TIME: 60 * 60,
-  SALT_ROUNDS: 5,
-  SQUADHELP_BANK_NUMBER: '4564654564564564',
-  SQUADHELP_BANK_NAME: 'SquadHelp',
-  SQUADHELP_BANK_CVC: '453',
-  SQUADHELP_BANK_EXPIRY: '11/26',
-  CUSTOMER: 'customer',
-  CREATOR: 'creator',
->>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
   CREATOR_ENTRIES: 'creator_entries',
   CONTEST_STATUS_ACTIVE: 'active',
   CONTEST_STATUS_FINISHED: 'finished',

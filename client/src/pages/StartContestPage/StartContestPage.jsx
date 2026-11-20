@@ -1,10 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-<<<<<<< HEAD
 import { Navigate, useNavigate } from 'react-router-dom';
-=======
-import { useNavigate } from 'react-router-dom';
->>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
 import { updateBundle } from '../../store/slices/bundleSlice';
 import BundleBox from '../../components/BundleBox/BundleBox';
 import CONSTANTS from '../../constants';
@@ -14,13 +10,8 @@ import ProgressBar from '../../components/ProgressBar/ProgressBar';
 const StartContestPage = props => {
   const navigate = useNavigate();
 
-<<<<<<< HEAD
   if (props.userStore.data?.role !== CONSTANTS.CUSTOMER) {
     return <Navigate to="/" replace />;
-=======
-  if (props.userStore.data.role !== CONSTANTS.CUSTOMER) {
-    navigate('/', { replace: true });
->>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
   }
 
   const setBundle = bundleStr => {

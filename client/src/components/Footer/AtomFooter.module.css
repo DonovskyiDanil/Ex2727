@@ -28,11 +28,7 @@
   align-items: center;
   justify-content: center;
   font-size: 24px;
-<<<<<<< HEAD
   cursor: var(--black-hand-cursor);
-=======
-  cursor: pointer;
->>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
@@ -46,11 +42,7 @@
   align-items: center;
   justify-content: center;
   font-size: 28px;
-<<<<<<< HEAD
   cursor: var(--black-hand-cursor);
-=======
-  cursor: pointer;
->>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
   box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
@@ -68,11 +60,7 @@
 
 .grid {
   display: grid;
-<<<<<<< HEAD
   grid-template-columns: repeat(5, 1fr);
-=======
-  grid-template-columns: repeat(4, 1fr);
->>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
   gap: 30px;
 }
 
@@ -97,11 +85,7 @@
   font-size: 14px;
   color: #4e5d78;
   margin-bottom: 10px;
-<<<<<<< HEAD
   cursor: var(--black-hand-cursor);
-=======
-  cursor: pointer;
->>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
   transition: color 0.2s;
 }
 
@@ -171,11 +155,7 @@
 .socialIcon {
   color: #1e266d;
   font-size: 20px;
-<<<<<<< HEAD
   cursor: var(--black-hand-cursor);
-=======
-  cursor: pointer;
->>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
 }
 
 @media (max-width: 992px) {

@@ -1,16 +1,10 @@
-<<<<<<< HEAD
 import React, { useEffect } from 'react';
 import { Navigate, Outlet, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-=======
-import React from 'react';
-import { Outlet, useLocation } from 'react-router-dom';
->>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import RegistrationFooter from '../../components/Layout/RegistrationFooter';
 import AuthHeader from '../../components/Layout/AuthHeader';
-<<<<<<< HEAD
 import ChatContainer from '../../components/Chat/ChatComponents/ChatContainer/ChatContainer';
 import Spinner from '../../components/Spinner/Spinner';
 import CONSTANTS from '../../constants';
@@ -60,12 +54,6 @@ const Layout = () => {
       </div>
     );
   }
-=======
-import styles from './Layout.module.sass';
-
-const Layout = (props) => {
-  const { pathname } = useLocation();
->>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
 
   const isRegisterPathname = pathname === '/registration';
   const isAuthPathname = pathname === '/login' || isRegisterPathname;
@@ -79,14 +67,7 @@ const Layout = (props) => {
       </div>
       {!isAuthPathname && <Footer />}
       {isRegisterPathname && <RegistrationFooter />}
-<<<<<<< HEAD
-      {/* Чат авторизованного пользователя должен жить только внутри основного
-          приложения (этот Layout), а не на публичных маркетинговых страницах
-          типа /how-it-works или /events — раньше он монтировался глобально
-          в App.js и вылезал везде, где в localStorage был accessToken. */}
       {!isAuthPathname && hasToken && <ChatContainer />}
-=======
->>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
     </div>
   );
 };

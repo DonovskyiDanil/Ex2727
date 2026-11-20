@@ -19,11 +19,7 @@
   },
   "production": {
     "username": "postgres",
-<<<<<<< HEAD
     "password": "",
-=======
-    "password": "admin",
->>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
     "database": "squad-help-prod",
     "host": "localhost",
     "dialect": "postgres",

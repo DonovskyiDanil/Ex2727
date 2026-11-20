@@ -65,11 +65,7 @@ const addOfferExtraReducers = createExtraReducers({
   thunk: addOffer,
   fulfilledReducer: (state, { payload }) => {
     state.offers.unshift(payload);
-<<<<<<< HEAD
     state.addOfferError = null;
-=======
-    state.error = null;
->>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
   },
   rejectedReducer: (state, { payload }) => {
     state.addOfferError = payload;

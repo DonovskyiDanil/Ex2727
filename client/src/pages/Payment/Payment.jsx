@@ -26,32 +26,18 @@ const Payment = (props) => {
 
   // 2. Оптимизируем формирование массива конкурсов (useMemo, чтобы не пересчитывать при каждом рендере)
   const contestArray = useMemo(() => {
-<<<<<<< HEAD
     return Object.values(contests);
   }, [contests]);
 
   const handlePay = (values) => {
     const total = contestArray.length * 100;
-=======
-    return Object.values(contests).map(contest => ({
-      ...contest,
-      haveFile: !!contest.file
-    }));
-  }, [contests]);
-
-  const handlePay = (values) => {
->>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
     executePayment({
       data: {
         number: values.number,
         expiry: values.expiry,
         cvc: values.cvc,
         contests: contestArray,
-<<<<<<< HEAD
         price: total,
-=======
-        price: 100,
->>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
       },
       navigate,
     });
@@ -86,19 +72,11 @@ const Payment = (props) => {
         <span className={styles.orderHeader}>Order Summary</span>
         <div className={styles.packageInfoContainer}>
           <span className={styles.packageName}>Package Name: Standard</span>
-<<<<<<< HEAD
           <span className={styles.packagePrice}>${contestArray.length * 100} USD</span>
         </div>
         <div className={styles.resultPriceContainer}>
           <span>Total:</span>
           <span>${(contestArray.length * 100).toFixed(2)} USD</span>
-=======
-          <span className={styles.packagePrice}>$100 USD</span>
-        </div>
-        <div className={styles.resultPriceContainer}>
-          <span>Total:</span>
-          <span>$100.00 USD</span>
->>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
         </div>
         <a 
           href="https://www.google.com" 

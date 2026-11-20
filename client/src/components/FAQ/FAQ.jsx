@@ -29,10 +29,7 @@ const FAQ = () => {
             <button
               key={category}
               className={`${styles.tabBtn} ${activeTab === category ? styles.activeTabBtn : ''}`}
-<<<<<<< HEAD
               aria-current={activeTab === category ? 'location' : undefined}
-=======
->>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
               onClick={() => scrollToSection(category)}
             >
               {category}
@@ -49,7 +46,6 @@ const FAQ = () => {
             <div className={styles.accordionList}>
               {faqData[category].map((item) => {
                 const isOpen = openId === item.id;
-<<<<<<< HEAD
                 const questionId = `faq-question-${item.id}`;
                 const answerId = `faq-answer-${item.id}`;
                 return (
@@ -69,20 +65,6 @@ const FAQ = () => {
                     </h4>
                     {isOpen && (
                       <div id={answerId} className={styles.answer} role="region" aria-labelledby={questionId}>
-=======
-                return (
-                  <div 
-                    key={item.id} 
-                    className={`${styles.accordionItem} ${isOpen ? styles.activeItem : ''}`}
-                    onClick={() => toggleQuestion(item.id)}
-                  >
-                    <div className={styles.questionRow}>
-                      <span className={styles.questionText}>{item.question}</span>
-                      <span className={styles.icon}>{isOpen ? '✕' : '+'}</span>
-                    </div>
-                    {isOpen && (
-                      <div className={styles.answer}>
->>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
                         <p>{item.answer}</p>
                       </div>
                     )}

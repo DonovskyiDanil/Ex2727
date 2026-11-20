@@ -7,11 +7,8 @@
   flex-direction: column
   justify-content: flex-start
   border-radius: 10px
-<<<<<<< HEAD
   border: 1px solid #f2c94c
   box-sizing: border-box
-=======
->>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
   position: relative
   align-items: flex-start
   @media(max-width: 450px)
@@ -35,7 +32,7 @@
     top: -10px
 
   .btnsContainer
-    margin: 5px 0
+    margin: 10px 0 5px 0
     align-self: stretch
     display: flex
     flex-direction: row
@@ -44,11 +41,7 @@
 
     .resolveBtn
       width: 100px
-<<<<<<< HEAD
       cursor: var(--black-hand-cursor)
-=======
-      cursor: pointer
->>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
       text-align: center
       padding: 10px
       border-radius: 8px
@@ -60,11 +53,7 @@
 
     .rejectBtn
       text-align: center
-<<<<<<< HEAD
       cursor: var(--black-hand-cursor)
-=======
-      cursor: pointer
->>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
       width: 100px
       padding: 10px
       border-radius: 8px
@@ -74,6 +63,54 @@
 
       &:hover
         background-color: rgba(205, 92, 92, 0.7)
+
+  .confirmBackdrop
+    position: fixed
+    inset: 0
+    z-index: 9999
+    display: flex
+    align-items: center
+    justify-content: center
+    background-color: rgba(255, 255, 255, 0.55)
+    backdrop-filter: blur(5px)
+
+    .confirmModal
+      min-width: 240px
+      padding: 20px 28px
+      background-color: #ffffff
+      border-radius: 10px
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.14)
+      display: flex
+      flex-direction: column
+      align-items: flex-start
+      gap: 6px
+
+      .confirmTitle
+        color: #6b7280
+        font-size: 14px
+        font-weight: 500
+
+      .confirmText
+        color: #8c96a5
+        font-size: 13px
+        margin-bottom: 8px
+
+      .confirmBtns
+        display: flex
+        gap: 10px
+
+        .confirmYesBtn,
+        .confirmNoBtn
+          padding: 5px 14px
+          border: none
+          border-radius: 4px
+          color: #ffffff
+          background-color: #4b5563
+          font-size: 13px
+          cursor: var(--black-hand-cursor)
+
+          &:hover
+            background-color: #374151
 
   .mainInfoContainer
     align-self: stretch
@@ -89,11 +126,7 @@
       min-width: 215px
 
     i
-<<<<<<< HEAD
       cursor: var(--black-hand-cursor)
-=======
-      cursor: pointer
->>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
       position: absolute
       align-self: flex-start
       font-size: 26px
@@ -113,10 +146,7 @@
 
     .responseConainer
       width: 70%
-<<<<<<< HEAD
       min-width: 320px
-=======
->>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
       align-self: center
       display: flex
       flex-direction: column
@@ -125,7 +155,6 @@
       @media(max-width: 800px)
         margin-top: 10px
         max-width: 200px
-<<<<<<< HEAD
         min-width: 0
 
       .responseLogo
@@ -137,14 +166,18 @@
         border: 1px solid #e3e3e3
         border-radius: 4px
         background-color: #fff
-        cursor: var(--black-hand-cursor)  // Добавлена рука для логотипа
-=======
+        cursor: var(--black-hand-cursor)
 
-      .responseLogo
-        width: auto
-        height: 100px
-        cursor: pointer  // Добавлена рука для логотипа
->>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
+      .offerRatingContainer
+        margin-top: 8px
+        display: flex
+        align-items: center
+        justify-content: center
+        cursor: var(--black-hand-cursor)
+
+        img
+          width: 20px
+          height: 20px
 
       .response
         text-align: center
@@ -154,15 +187,11 @@
         color: #556da5
         margin-bottom: 10px
         font-size: 18px
-<<<<<<< HEAD
-        cursor: var(--black-hand-cursor) // Добавлена рука для текста
+        cursor: var(--black-hand-cursor)
 
       > img:not(.responseLogo)
         width: 16px
         height: 16px
-=======
-        cursor: pointer // Добавлена рука для текста
->>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
 
     .creativeRating
       display: flex
@@ -174,13 +203,10 @@
         color: #556da5
         font-size: 15px
 
-<<<<<<< HEAD
       img
         width: 20px
         height: 20px
 
-=======
->>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
     .creativeInfoContainer
       display: flex
       flex-direction: row
@@ -202,16 +228,5 @@
       img
         width: 50px
         height: 50px
-<<<<<<< HEAD
         object-fit: cover
         border-radius: 50%
-=======
-        border-radius: 25px
->>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
-
-
-.winner
-  background-color: #8aca6b
-
-.loser
-  background-color: #CD5C5C

@@ -26,15 +26,11 @@ const Home = props => {
     };
   });
 
-<<<<<<< HEAD
   const { isFetching, role } = props;
 
   const dashboardPath = role === CONSTANTS.MODERATOR ? '/offersReview' : '/dashboard';
   const dashboardLabel = role === CONSTANTS.MODERATOR ? 'REVIEW OFFERS' : 'DASHBOARD';
 
-=======
-  const { isFetching } = props;
->>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
   const text =
     CONSTANTS.HEADER_ANIMATION_TEXT[
       index % CONSTANTS.HEADER_ANIMATION_TEXT.length
@@ -58,13 +54,8 @@ const Home = props => {
                 for immediate purchase
               </p>
               <div className={styles.button}>
-<<<<<<< HEAD
                 <Link className={styles.button__link} to={dashboardPath}>
                   {dashboardLabel}
-=======
-                <Link className={styles.button__link} to='/dashboard'>
-                  DASHBOARD
->>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
                 </Link>
               </div>
             </div>
@@ -259,13 +250,8 @@ const Home = props => {
               carouselType={carouselConstants.EXAMPLE_SLIDER}
             />
             <div className={styles.button}>
-<<<<<<< HEAD
               <Link className={styles.button__link} to={dashboardPath}>
                 {dashboardLabel}
-=======
-              <Link className={styles.button__link} to='/dashboard'>
-                DASHBOARD
->>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
               </Link>
             </div>
             <div className={styles.blueContainer}>
@@ -283,13 +269,8 @@ const Home = props => {
 };
 
 const mapStateToProps = state => {
-<<<<<<< HEAD
   const { isFetching, data } = state.userStore;
   return { isFetching, role: data ? data.role : null };
-=======
-  const { isFetching } = state.userStore;
-  return { isFetching };
->>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
 };
 
 export default connect(mapStateToProps, null)(Home);

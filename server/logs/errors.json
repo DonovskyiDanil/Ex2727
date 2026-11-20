@@ -130,7 +130,6 @@
     "time": 1782073842337,
     "code": 401,
     "stackTrace": "TokenError: jwt expired\n    at module.exports.checkToken (/server/src/middlewares/checkToken.js:57:10)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at next (/server/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/server/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at /server/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/server/node_modules/express/lib/router/index.js:346:12)\n    at next (/server/node_modules/express/lib/router/index.js:280:10)\n    at Function.handle (/server/node_modules/express/lib/router/index.js:175:3)\n    at router (/server/node_modules/express/lib/router/index.js:47:12)"
-<<<<<<< HEAD
   },
   {
     "message": "Invalid email or password",
@@ -681,7 +680,76 @@
         "at router (/server/node_modules/express/lib/router/index.js:47:12)"
       ]
     }
-=======
->>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
+  },
+  {
+    "message": "jwt expired",
+    "time": 1795026931958,
+    "code": 401,
+    "stackTrace": {
+      "name": "TokenError",
+      "frames": [
+        "at module.exports.checkToken (/server/src/middlewares/checkToken.js:57:10)",
+        "at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)",
+        "at next (/server/node_modules/express/lib/router/route.js:149:13)",
+        "at Route.dispatch (/server/node_modules/express/lib/router/route.js:119:3)",
+        "at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)",
+        "at /server/node_modules/express/lib/router/index.js:284:15",
+        "at Function.process_params (/server/node_modules/express/lib/router/index.js:346:12)",
+        "at next (/server/node_modules/express/lib/router/index.js:280:10)",
+        "at Function.handle (/server/node_modules/express/lib/router/index.js:175:3)",
+        "at router (/server/node_modules/express/lib/router/index.js:47:12)"
+      ]
+    }
+  },
+  {
+    "message": "jwt expired",
+    "time": 1795198283375,
+    "code": 401,
+    "stackTrace": {
+      "name": "TokenError",
+      "frames": [
+        "at module.exports.checkToken (/server/src/middlewares/checkToken.js:57:10)",
+        "at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)",
+        "at next (/server/node_modules/express/lib/router/route.js:149:13)",
+        "at Route.dispatch (/server/node_modules/express/lib/router/route.js:119:3)",
+        "at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)",
+        "at /server/node_modules/express/lib/router/index.js:284:15",
+        "at Function.process_params (/server/node_modules/express/lib/router/index.js:346:12)",
+        "at next (/server/node_modules/express/lib/router/index.js:280:10)",
+        "at Function.handle (/server/node_modules/express/lib/router/index.js:175:3)",
+        "at router (/server/node_modules/express/lib/router/index.js:47:12)"
+      ]
+    }
+  },
+  {
+    "message": "Invalid email or password",
+    "time": 1795202105725,
+    "code": 401,
+    "stackTrace": {
+      "name": "InvalidCredentialsError",
+      "frames": [
+        "at module.exports.login (/server/src/controllers/userController.js:49:19)"
+      ]
+    }
+  },
+  {
+    "message": "jwt expired",
+    "time": 1795209261455,
+    "code": 401,
+    "stackTrace": {
+      "name": "TokenError",
+      "frames": [
+        "at module.exports.checkToken (/server/src/middlewares/checkToken.js:57:10)",
+        "at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)",
+        "at next (/server/node_modules/express/lib/router/route.js:149:13)",
+        "at Route.dispatch (/server/node_modules/express/lib/router/route.js:119:3)",
+        "at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)",
+        "at /server/node_modules/express/lib/router/index.js:284:15",
+        "at Function.process_params (/server/node_modules/express/lib/router/index.js:346:12)",
+        "at next (/server/node_modules/express/lib/router/index.js:280:10)",
+        "at Function.handle (/server/node_modules/express/lib/router/index.js:175:3)",
+        "at router (/server/node_modules/express/lib/router/index.js:47:12)"
+      ]
+    }
   }
 ]

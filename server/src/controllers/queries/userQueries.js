@@ -15,7 +15,7 @@ module.exports.updateUser = async (data, userId, transaction) => {
 module.exports.findUser = async (predicate, transaction) => {
   const result = await db.Users.findOne({ where: predicate, transaction });
   if (!result) {
-    throw new NotFound('user with this data didn`t exist');
+    throw new NotFound('Invalid email or password');
   } else {
     return result.get({ plain: true });
   }
@@ -33,6 +33,6 @@ module.exports.userCreation = async (data) => {
 module.exports.passwordCompare = async (pass1, pass2) => {
   const passwordCompare = await bcrypt.compare(pass1, pass2);
   if (!passwordCompare) {
-    throw new NotFound('Wrong password');
+    throw new NotFound('Invalid email or password');
   }
 };

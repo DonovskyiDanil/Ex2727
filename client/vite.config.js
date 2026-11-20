@@ -37,7 +37,6 @@ export default defineConfig({
       'not ie <= 11',
       'not op_mini all',
     ]),
-<<<<<<< HEAD
     rollupOptions: {
       output: {
         manualChunks(id) {
@@ -73,8 +72,6 @@ export default defineConfig({
         },
       },
     },
-=======
->>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
   },
   optimizeDeps: {
     force: true,
