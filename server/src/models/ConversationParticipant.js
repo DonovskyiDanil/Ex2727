@@ -20,7 +20,6 @@ module.exports = (sequelize, DataTypes) => {
         key: 'id',
       },
     },
-<<<<<<< HEAD
     favoriteList: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
@@ -32,13 +31,8 @@ module.exports = (sequelize, DataTypes) => {
       defaultValue: false,
     },
   }, {
-    tableName: 'ConversationParticipants', // Как в pgAdmin
+    tableName: 'ConversationParticipants', 
     timestamps: false,
-=======
-  }, {
-    tableName: 'ConversationParticipants', // Как в pgAdmin
-    timestamps: false, // В SQL-скрипте нет полей времени
->>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
   });
 
   return ConversationParticipant;

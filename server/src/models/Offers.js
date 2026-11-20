@@ -50,13 +50,6 @@ module.exports = (sequelize, DataTypes) => {
     timestamps: false,
   });
 
-<<<<<<< HEAD
-=======
-  Offer.associate = function (models) {
-    Offer.belongsTo(models.User, { foreignKey: 'userId', targetKey: 'id' });
-    Offer.belongsTo(models.Contest, { foreignKey: 'contestId', targetKey: 'id' });
-  };
->>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
 
   return Offer;
 };

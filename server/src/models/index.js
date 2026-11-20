@@ -4,7 +4,6 @@ const Sequelize = require('sequelize');
 const basename = path.basename(__filename);
 const env = process.env.NODE_ENV || 'development';
 
-<<<<<<< HEAD
 const configPath = path.join(__dirname, '..', 'config', 'postgresConfig.json');
 
 const config = { ...require(configPath)[env] };
@@ -18,13 +17,6 @@ if (
 ) {
   throw new Error('DB_USER, DB_PASSWORD, DB_NAME and DB_HOST must be set in production');
 }
-=======
-const configPath = env === 'production'
-  ? path.join(__dirname, '..', '..', '..', 'src/server/config/postgresConfig.json')
-  : path.join(__dirname, '..', '/config/postgresConfig.json');
-
-const config = require(configPath)[env];
->>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
 const db = {};
 
 const sequelize = new Sequelize(config.database, config.username, config.password, config);
@@ -54,11 +46,7 @@ db.Offers.hasOne(db.Ratings, { foreignKey: 'offerId', targetKey: 'id' });
 db.Ratings.belongsTo(db.Users, { foreignKey: 'userId', targetKey: 'id' });
 db.Ratings.belongsTo(db.Offers, { foreignKey: 'offerId', targetKey: 'id' });
 
-<<<<<<< HEAD
 // --- Chat associations ---
-// Раньше связи чата объявлялись внутри model.associate(), но associate()
-// никогда не вызывался, из-за чего db.Conversations не знал о Users/Messages
-// и любой запрос чата падал с 500.
 db.Conversations.hasMany(db.Messages, { foreignKey: 'conversationId' });
 db.Messages.belongsTo(db.Conversations, { foreignKey: 'conversationId' });
 
@@ -91,8 +79,6 @@ db.Conversations.belongsToMany(db.Catalogs, {
   otherKey: 'catalogId',
 });
 
-=======
->>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 

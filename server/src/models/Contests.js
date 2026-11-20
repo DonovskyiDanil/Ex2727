@@ -17,10 +17,7 @@ module.exports = (sequelize, DataTypes) => {
     industry: { type: DataTypes.STRING, allowNull: true },
     focusOfWork: { type: DataTypes.TEXT, allowNull: true },
     targetCustomer: { type: DataTypes.TEXT, allowNull: true },
-<<<<<<< HEAD
     domainQuestion: { type: DataTypes.STRING, allowNull: true },
-=======
->>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
     styleName: { type: DataTypes.STRING, allowNull: true },
     nameVenture: { type: DataTypes.STRING, allowNull: true },
     typeOfTagline: { type: DataTypes.STRING, allowNull: true },
