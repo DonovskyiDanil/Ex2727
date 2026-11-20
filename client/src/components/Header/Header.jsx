@@ -3,19 +3,14 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import styles from './Header.module.sass';
 import CONSTANTS from '../../constants';
-import { clearUserStore } from '../../store/slices/userSlice';
-import { getUser } from '../../store/slices/userSlice';
+import { clearUserStore, getUser } from '../../store/slices/userSlice';
 import withRouter from '../../hocs/withRouter';
-<<<<<<< HEAD
 import EventsBadge from '../EventsBadge/EventsBadge';
 import { changeChatShow } from '../../store/slices/chatSlice';
-=======
->>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
 
 class Header extends React.Component {
   componentDidMount() {
     const token = localStorage.getItem('accessToken');
-    // Only call getUser if we have a valid token and don't have user data yet
     if (token && token !== 'null' && token !== 'undefined' && !this.props.data) {
       this.props.getUser();
     }
@@ -31,7 +26,6 @@ class Header extends React.Component {
     this.props.navigate('/startContest');
   };
 
-<<<<<<< HEAD
   openMessages = () => {
     this.props.changeChatShow();
   };
@@ -40,10 +34,6 @@ class Header extends React.Component {
     if (this.props.data) {
       const isModerator = this.props.data.role === CONSTANTS.MODERATOR;
       const isCustomer = this.props.data.role === CONSTANTS.CUSTOMER;
-=======
-  renderLoginButtons = () => {
-    if (this.props.data) {
->>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
       return (
         <>
           <div className={styles.userInfo}>
@@ -56,16 +46,12 @@ class Header extends React.Component {
               alt="user"
             />
             <span>{`Hi, ${this.props.data.displayName}`}</span>
-<<<<<<< HEAD
             {isCustomer && <EventsBadge />}
-=======
->>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
             <img
               src={`${CONSTANTS.STATIC_IMAGES_PATH}menu-down.png`}
               alt="menu"
             />
             <ul>
-<<<<<<< HEAD
               {!isModerator && (
                 <li>
                   <Link to="/dashboard" style={{ textDecoration: 'none' }}>
@@ -80,19 +66,11 @@ class Header extends React.Component {
                   </Link>
                 </li>
               )}
-=======
-              <li>
-                <Link to="/dashboard" style={{ textDecoration: 'none' }}>
-                  <span>View Dashboard</span>
-                </Link>
-              </li>
->>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
               <li>
                 <Link to="/account" style={{ textDecoration: 'none' }}>
                   <span>My Account</span>
                 </Link>
               </li>
-<<<<<<< HEAD
               {!isModerator && (
                 <li>
                   <span onClick={this.openMessages}>Messages</span>
@@ -107,30 +85,22 @@ class Header extends React.Component {
               )}
               {isCustomer && (
                 <li>
-                  <Link to="/events" style={{ textDecoration: 'none' }}>
+                  <Link
+                    to="/events"
+                    style={{
+                      textDecoration: 'none',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'space-between',
+                      gap: '8px',
+                      paddingRight: '8px',
+                    }}
+                  >
                     <span>Events</span>
                     <EventsBadge />
                   </Link>
                 </li>
               )}
-=======
-              <li>
-                <Link
-                  to="http:/www.google.com"
-                  style={{ textDecoration: 'none' }}
-                >
-                  <span>Messages</span>
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="http:/www.google.com"
-                  style={{ textDecoration: 'none' }}
-                >
-                  <span>Affiliate Dashboard</span>
-                </Link>
-              </li>
->>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
               <li>
                 <span onClick={this.logOut}>Logout</span>
               </li>
@@ -175,7 +145,7 @@ class Header extends React.Component {
           <div className={styles.numberContainer}>
             <img src={`${CONSTANTS.STATIC_IMAGES_PATH}phone.png`} alt="phone" />
             <a href="tel:(877)355-3585" className={styles.phoneNumber}>
-            (877)&nbsp;355-3585
+              (877)&nbsp;355-3585
             </a>
           </div>
           <div className={styles.userButtonsContainer}>
@@ -184,11 +154,11 @@ class Header extends React.Component {
         </div>
         <div className={styles.navContainer}>
           <Link to="/">
-          <img
-            src={`${CONSTANTS.STATIC_IMAGES_PATH}blue-logo.png`}
-            className={styles.logo}
-            alt="blue_logo"
-          />
+            <img
+              src={`${CONSTANTS.STATIC_IMAGES_PATH}blue-logo.png`}
+              className={styles.logo}
+              alt="blue_logo"
+            />
           </Link>
           <div className={styles.leftNav}>
             <div className={styles.nav}>
@@ -218,17 +188,22 @@ class Header extends React.Component {
                   />
                   <ul>
                     <li><Link to="/how-it-works" className={styles.navLink}>HOW IT WORKS</Link></li>
-<<<<<<< HEAD
                     {data && data.role === CONSTANTS.CUSTOMER && (
                       <li>
-                        <Link to="/events" className={styles.navLink}>
-                          EVENTS<EventsBadge />
+                        <Link
+                          to="/events"
+                          className={styles.navLink}
+                          style={{
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            gap: '6px',
+                          }}
+                        >
+                          <span>EVENTS</span>
+                          <EventsBadge />
                         </Link>
                       </li>
                     )}
-=======
-                    <li><Link to="/events" className={styles.navLink}>EVENTS</Link></li>
->>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
                     <li><a href="http://www.google.com">PRICING</a></li>
                     <li><a href="http://www.google.com">AGENCY SERVICE</a></li>
                     <li><a href="http://www.google.com">ACTIVE CONTESTS</a></li>
@@ -281,21 +256,14 @@ class Header extends React.Component {
               </ul>
             </div>
 
-            {/* БЛОК КНОПОК ДЕЙСТВИЯ */}
             {data && (
               <>
-                {/* Кнопка для Модератора */}
                 {data.role === CONSTANTS.MODERATOR && (
-<<<<<<< HEAD
                   <Link to="/offersReview" className={styles.startContestBtn} style={{ textDecoration: 'none' }}>
-=======
-                  <Link to="/moderator" className={styles.startContestBtn} style={{ textDecoration: 'none' }}>
->>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
                     REVIEW OFFERS
                   </Link>
                 )}
 
-                {/* Кнопка для Клиента */}
                 {data.role === CONSTANTS.CUSTOMER && (
                   <div className={styles.startContestBtn} onClick={this.startContests}>
                     START CONTEST
@@ -314,10 +282,7 @@ const mapStateToProps = (state) => state.userStore;
 const mapDispatchToProps = (dispatch) => ({
   getUser: () => dispatch(getUser()),
   clearUserStore: () => dispatch(clearUserStore()),
-<<<<<<< HEAD
   changeChatShow: () => dispatch(changeChatShow()),
-=======
->>>>>>> f7c8c07f8e0c3520ffe12f011633a5a3b1b17bf8
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Header));
